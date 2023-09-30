@@ -1,5 +1,3 @@
-**index.html** (HTML):
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
