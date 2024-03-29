@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rojanthapa27's website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
+        body {
+            font-family: 'Shadows Into Light', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        .glitch-letter {
+            font-size: 48px;
+            display: inline-block;
+        }
+        .glitch-effect {
+            animation: glitchEffect 1s infinite alternate-reverse;
+        }
+        @keyframes glitchEffect {
+            0% {
+                transform: translateX(0);
+                color: rgb(255, 0, 0); /* Red */
+            }
+            33% {
+                color: rgb(0, 255, 0); /* Green */
+            }
+            66% {
+                color: rgb(0, 0, 255); /* Blue */
+            }
+            100% {
+                transform: translateX(5px);
+                color: rgb(255, 0, 0); /* Red */
+            }
+        }
+
+        .contact {
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="glitch-text" id="glitch-text">
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">4</span>
+    <span class="glitch-letter">8</span>
+</div>
+
+<div class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:xyrdesktop@gmail.com">xyrdesktop@gmail.com</a></p>
+    <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
+</div>
+
+<div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+<div class="copyright">
+    <p>&copy; rojanthapa</p>
+</div>
+
+<script>
+    const letters = document.querySelectorAll('.glitch-letter');
+
+    letters.forEach(letter => {
+        setInterval(() => {
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            letter.style.color = `rgb(${red}, ${green}, ${blue})`;
+            letter.classList.toggle('glitch-effect');
+        }, Math.random() * 1000); // Randomize the timing for each letter
+    });
+</script>
+
+</body>
+</html>
