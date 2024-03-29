@@ -1,26 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGB Text Effect for Each Letter</title>
+    <title>RGB Text Effect with Original Icons</title>
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-color: #000;
+            color: #fff;
+            text-align: center;
         }
         .rgb-letter {
             font-size: 48px;
             color: transparent;
             text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
             animation: rgbAnimation 5s infinite;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons img {
+            width: 40px; /* Adjust the size as needed */
+            margin: 0 10px; /* Adjust the spacing between icons */
         }
         @keyframes rgbAnimation {
             0% {
@@ -54,6 +58,14 @@
     <span class="rgb-letter">a</span>
 </div>
 
+<div class="social-icons">
+    <a href="#"><img src="reddit.png" alt="Reddit"></a>
+    <a href="#"><img src="twitter.png" alt="Twitter"></a>
+    <a href="#"><img src="instagram.png" alt="Instagram"></a>
+    <a href="#"><img src="github.png" alt="GitHub"></a>
+    <a href="#"><img src="facebook.png" alt="Facebook"></a>
+</div>
+
 <script>
     const letters = document.querySelectorAll('.rgb-letter');
 
@@ -68,4 +80,3 @@
 
 </body>
 </html>
-
