@@ -3,85 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGB Text Effect with Instagram Link</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>RGB Glitch Effect</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Shadows Into Light', cursive;
             margin: 0;
             padding: 0;
             background-color: #000;
             color: #fff;
             text-align: center;
         }
-        .rgb-letter {
+        .glitch-letter {
             font-size: 48px;
-            color: transparent;
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
-            animation: rgbAnimation 5s infinite;
+            display: inline-block;
         }
-        .social-icons {
-            margin-top: 20px;
+        .glitch-effect {
+            animation: glitchEffect 1s infinite alternate-reverse;
         }
-        .social-icons a {
-            color: #fff;
-            font-size: 24px;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        @keyframes rgbAnimation {
+        @keyframes glitchEffect {
             0% {
-                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+                transform: translateX(0);
+                color: rgb(255, 0, 0); /* Red */
             }
             33% {
-                text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+                color: rgb(0, 255, 0); /* Green */
             }
             66% {
-                text-shadow: 0 0 5px rgba(0, 0, 255, 0.7);
+                color: rgb(0, 0, 255); /* Blue */
             }
             100% {
-                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+                transform: translateX(5px);
+                color: rgb(255, 0, 0); /* Red */
             }
         }
     </style>
 </head>
 <body>
 
-<div class="rgb-text">
-    <span class="rgb-letter">R</span>
-    <span class="rgb-letter">o</span>
-    <span class="rgb-letter">j</span>
-    <span class="rgb-letter">a</span>
-    <span class="rgb-letter">n</span>
-    <span class="rgb-letter"> </span>
-    <span class="rgb-letter">T</span>
-    <span class="rgb-letter">h</span>
-    <span class="rgb-letter">a</span>
-    <span class="rgb-letter">p</span>
-    <span class="rgb-letter">a</span>
+<div class="glitch-text" id="glitch-text">
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">4</span>
+    <span class="glitch-letter">8</span>
 </div>
 
-<div class="social-icons">
-    <a href="#" id="reddit"><i class="fab fa-reddit"></i></a>
-    <a href="#" id="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="#" id="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" id="github"><i class="fab fa-github"></i></a>
-    <a href="#" id="facebook"><i class="fab fa-facebook-f"></i></a>
+<div class="copyright">
+    <p>&copy;roznthapa</p>
 </div>
 
 <script>
-    const icons = document.querySelectorAll('.social-icons a');
+    const letters = document.querySelectorAll('.glitch-letter');
 
-    icons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            // Change color when clicked
-            icon.style.color = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
-        });
+    letters.forEach(letter => {
+        setInterval(() => {
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            letter.style.color = `rgb(${red}, ${green}, ${blue})`;
+            letter.classList.toggle('glitch-effect');
+        }, Math.random() * 1000); // Randomize the timing for each letter
     });
-
-    function getRandomColor() {
-        return Math.floor(Math.random() * 256);
-    }
 </script>
 
 </body>
