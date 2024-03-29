@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGB Text Effect with Original Icons</title>
+    <title>RGB Text Effect with Instagram Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
@@ -22,9 +23,11 @@
         .social-icons {
             margin-top: 20px;
         }
-        .social-icons img {
-            width: 40px; /* Adjust the size as needed */
-            margin: 0 10px; /* Adjust the spacing between icons */
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
         }
         @keyframes rgbAnimation {
             0% {
@@ -59,18 +62,21 @@
 </div>
 
 <div class="social-icons">
-    <a href="#"><img src="reddit.png" alt="Reddit"></a>
-    <a href="#"><img src="twitter.png" alt="Twitter"></a>
-    <a href="#"><img src="instagram.png" alt="Instagram"></a>
-    <a href="#"><img src="github.png" alt="GitHub"></a>
-    <a href="#"><img src="facebook.png" alt="Facebook"></a>
+    <a href="#" id="reddit"><i class="fab fa-reddit"></i></a>
+    <a href="#" id="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" id="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="github"><i class="fab fa-github"></i></a>
+    <a href="#" id="facebook"><i class="fab fa-facebook-f"></i></a>
 </div>
 
 <script>
-    const letters = document.querySelectorAll('.rgb-letter');
+    const icons = document.querySelectorAll('.social-icons a');
 
-    letters.forEach(letter => {
-        letter.style.color = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
+    icons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            // Change color when clicked
+            icon.style.color = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
+        });
     });
 
     function getRandomColor() {
