@@ -1,111 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker's Lair: [Your Alias]</title>
-    <!-- Link to Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>RGB Text Effect for Each Letter</title>
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
-            background-color: #000000;
-            color: #00FF00;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
         }
-        header {
-            text-align: center;
+        .rgb-letter {
+            font-size: 48px;
+            color: transparent;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+            animation: rgbAnimation 5s infinite;
         }
-        h1, h2 {
-            color: #00FF00;
-            font-family: 'Arial Black', sans-serif;
-            margin-top: 50px;
-        }
-        h1 {
-            font-size: 36px;
-        }
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        section {
-            padding-left: 20px;
-            text-align: justify;
-        }
-        p {
-            font-size: 14px;
-            line-height: 1.4;
-            margin-bottom: 20px;
-        }
-        .social-icons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .social-icons a {
-            color: #00FF00;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        .social-icons a:hover {
-            color: #FFFFFF;
+        @keyframes rgbAnimation {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+            }
+            33% {
+                text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+            }
+            66% {
+                text-shadow: 0 0 5px rgba(0, 0, 255, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Title -->
-    <header>
-        <h1>Hacker's Lair: [Your Alias]</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#photography">Photography</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="rgb-text">
+    <span class="rgb-letter">R</span>
+    <span class="rgb-letter">o</span>
+    <span class="rgb-letter">j</span>
+    <span class="rgb-letter">a</span>
+    <span class="rgb-letter">n</span>
+    <span class="rgb-letter"> </span>
+    <span class="rgb-letter">T</span>
+    <span class="rgb-letter">h</span>
+    <span class="rgb-letter">a</span>
+    <span class="rgb-letter">p</span>
+    <span class="rgb-letter">a</span>
+</div>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Greetings, fellow hacker! I am [Your Alias], a digital nomad wandering through the binary wilderness. Join me in unraveling the secrets of the digital realm.</p>
-    </section>
+<script>
+    const letters = document.querySelectorAll('.rgb-letter');
 
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Explore the artifacts of my digital expeditions! From code exploits to virtual conquests, my portfolio is a testament to the power of ones and zeros.</p>
-    </section>
+    letters.forEach(letter => {
+        letter.style.color = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
+    });
 
-    <!-- Blog/Updates Section -->
-    <section id="blog">
-        <h2>Blog/Updates</h2>
-        <p>Prepare to be enlightened! Delve into the chronicles of my cybernetic odyssey, where I share insights, discoveries, and the occasional digital mischief.</p>
-    </section>
-
-    <!-- Photography Section -->
-    <section id="photography">
-        <h2>Photography</h2>
-        <p>Witness the beauty of the digital landscape through my cybernetic lens. From glitch art to pixelated panoramas, my photography collection transcends the boundaries of reality.</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Seeking a digital ally or just want to exchange encrypted messages? Connect with me through the channels below and let's hack the planet together.</p>
-        <div class="social-icons">
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <!-- Add more social icons and links as needed -->
-        </div>
-    </section>
+    function getRandomColor() {
+        return Math.floor(Math.random() * 256);
+    }
+</script>
 
 </body>
 </html>
+
