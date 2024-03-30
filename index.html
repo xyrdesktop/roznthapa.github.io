@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rojanthapa27's website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
+        body {
+            font-family: 'Shadows Into Light', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        .glitch-letter {
+            font-size: 48px;
+            display: inline-block;
+        }
+        .glitch-effect {
+            animation: glitchEffect 1s infinite alternate-reverse;
+        }
+        @keyframes glitchEffect {
+            0% {
+                transform: translateX(0);
+                color: rgb(255, 0, 0); /* Red */
+            }
+            33% {
+                color: rgb(0, 255, 0); /* Green */
+            }
+            66% {
+                color: rgb(0, 0, 255); /* Blue */
+            }
+            100% {
+                transform: translateX(5px);
+                color: rgb(255, 0, 0); /* Red */
+            }
+        }
+
+        .contact {
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        /* Clicked effect */
+        .social-icons a.clicked {
+            color: red; /* Change color to red, you can modify it */
+        }
+
+        /* Change color of email and phone links */
+        .contact a {
+            color: purple;
+        }
+
+        /* Change color of email and phone text */
+        .contact p {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="glitch-text" id="glitch-text">
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">4</span>
+    <span class="glitch-letter">8</span>
+</div>
+
+<div class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:xyrdesktop@gmail.com">xyrdesktop@gmail.com</a></p>
+    <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
+</div>
+
+<div class="social-icons">
+    <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Frojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1" id="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+<div class="copyright">
+    <p>&copy; rojanthapa</p>
+    <p>Made with ❤️ in Nepal by Rojan Thapa</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const glitchLetters = document.querySelectorAll('.glitch-letter');
+
+        glitchLetters.forEach(letter => {
+            setInterval(() => {
+                const red = Math.floor(Math.random() * 256);
+                const green = Math.floor(Math.random() * 256);
+                const blue = Math.floor(Math.random() * 256);
+                letter.style.color = `rgb(${red}, ${green}, ${blue})`;
+                letter.classList.toggle('glitch-effect');
+            }, Math.random() * 1000); // Randomize the timing for each letter
+        });
+
+        // Social icons click event listener
+        const socialIcons = document.querySelectorAll('.social-icons a');
+
+        socialIcons.forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                event.preventDefault();
+                icon.classList.add('clicked');
+                window.open(icon.href, '_blank');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
