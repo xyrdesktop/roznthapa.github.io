@@ -138,4 +138,43 @@
 
 <div class="social-icons">
     <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a
+    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Frojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1" id="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/xyrdesktop/roznthapa.github.io/blob/main/index.html" id="github"><i class="fab fa-github"></i></a>
+    <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
+</div>
+
+<div class="copyright">
+    <p>&copy; rojanthapa</p>
+    <p>Made with ❤️ in Nepal by Rojan Thapa</p>
+    <i class="fas fa-paw paw-icon"></i>
+</div>
+
+<script>
+    // Generate binary digits
+    function generateBinaryRain() {
+        const density = 5; // Adjust density as needed
+        const delay = 100; // Delay between each digit creation
+
+        const createBinaryDigit = () => {
+            const binaryDigit = document.createElement('span');
+            binaryDigit.classList.add('binary-digit');
+            binaryDigit.innerText = Math.round(Math.random());
+            binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            binaryDigit.style.top = '-10vh'; // Start from above the viewport
+            document.body.appendChild(binaryDigit);
+            setTimeout(() => {
+                binaryDigit.remove(); // Remove the digit after it falls off the screen
+            }, 5000); // Adjust duration as needed
+        };
+
+        // Generate digits continuously
+        setInterval(createBinaryDigit, delay * density);
+    }
+
+    generateBinaryRain();
+</script>
+
+</body>
+</html>
