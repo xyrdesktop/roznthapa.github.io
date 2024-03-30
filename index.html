@@ -3,186 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rojanthapa27's website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-
-        body {
-            font-family: 'Shadows Into Light', cursive;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            overflow: hidden; /* Hide overflow to prevent scroll bars */
-        }
-
-        .glitch-letter {
-            font-size: 48px;
-            display: inline-block;
-        }
-
-        .glitch-effect {
-            animation: glitchEffect 1s infinite alternate-reverse;
-        }
-
-        @keyframes glitchEffect {
-            0% {
-                transform: translateX(0);
-                color: rgb(255, 0, 0); /* Red */
-            }
-            33% {
-                color: rgb(0, 255, 0); /* Green */
-            }
-            66% {
-                color: rgb(0, 0, 255); /* Blue */
-            }
-            100% {
-                transform: translateX(5px);
-                color: rgb(255, 0, 0); /* Red */
-            }
-        }
-
-        .contact {
-            margin-top: 50px;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 24px;
-        }
-
-        /* Clicked effect */
-        .social-icons a.clicked {
-            color: red; /* Change color to red, you can modify it */
-        }
-
-        /* Change color of email and phone links */
-        .contact a {
-            color: white; /* Change to white */
-            text-decoration: none; /* Remove underline */
-        }
-
-        /* Change color of email and phone text */
-        .contact p {
-            color: gray;
-        }
-
-        /* About Me section styles */
-        .about-me {
-            margin-top: 50px;
-            color: #fff;
-        }
-
-        .about-me h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .about-me p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        /* Paw icon */
-        .paw-icon {
-            margin-top: 10px;
-            font-size: 24px;
-        }
-
-        /* Binary digit styles */
-        .binary-digit {
-            position: absolute;
-            color: lime; /* Change color as needed */
-            font-size: 16px;
-            animation: fall 3s linear infinite; /* Falling animation */
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10vh); /* Start above the viewport */
-            }
-            100% {
-                transform: translateY(110vh); /* End below the viewport */
-            }
-        }
-
-        /* Styling for Rojan Thapa heading */
-        .rojan-thapa-heading {
-            color: #ddd; /* Darker white color */
-        }
-
-        /* Blinking animation for heart emoji */
-        .heart-blink {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
+    <title>Rojan Thapa - Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
-<div class="glitch-text" id="glitch-text">
-    <span class="glitch-letter">8</span>
-    <span class="glitch-letter">8</span>
-    <span class="glitch-letter">4</span>
-    <span class="glitch-letter">8</span>
-</div>
+<header>
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#social">Social</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-<div class="about-me">
-    <h2>About Me</h2>
-    <p>I am passionate about web development and creating beautiful, functional websites.</p>
-    <p>Feel free to contact me for any inquiries or collaborations!</p>
-</div>
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>I'm Rojan Thapa, a passionate web developer dedicated to crafting elegant and functional websites.</p>
+        <p>With years of experience in the field, I specialize in front-end development using modern technologies like HTML, CSS, and JavaScript.</p>
+        <p>Let's work together to bring your ideas to life!</p>
+    </div>
+</section>
 
-<div class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7"><span class="__cf_email__" data-cfemail="324a4b4056574159465d4272555f535b5e1c515d5f">[email&#160;protected]</span></a></p>
-    <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
-</div>
+<section id="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:contact@rojanthapa.com">contact@rojanthapa.com</a></p>
+        <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
+        <!-- Add a contact form here for better user interaction -->
+    </div>
+</section>
 
-<h2>Connect with Me</h2> <!-- Heading for social icons -->
-<div class="social-icons">
-    <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Frojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1" id="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/xyrdesktop/roznthapa.github.io/blob/main/index.html" id="github"><i class="fab fa-github"></i></a>
-    <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
-</div>
+<section id="social">
+    <div class="container">
+        <h2>Connect with Me</h2>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/roznthapa"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/rojanthapa27"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/rojanthapa27"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/rozantha"><i class="fab fa-github"></i></a>
+            <a href="https://www.reddit.com/user/rojanthapa27"><i class="fab fa-reddit"></i></a>
+        </div>
+    </div>
+</section>
 
-<div class="copyright">
-    <p>&copy; rojanthapa All Rights Reserved</p>
-    <p class="rojan-thapa-heading">Made with <span class="heart-blink">❤️</span> in Nepal by Rojan Thapa</p>
-    <i class="fas fa-paw paw-icon"></i>
-</div>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Rojan Thapa. All rights reserved.</p>
+        <p>Made with <i class="fas fa-heart"></i> in Nepal</p>
+    </div>
+</footer>
 
-<script>
-    // Generate binary digits
-    function generateBinaryRain() {
-        const density = 5; // Adjust density as needed
-        const delay = 100; // Delay between each digit creation
-
-        const createBinaryDigit = () => {
-            const binaryDigit = document.createElement('span');
-            binaryDigit.classList.add('binary-digit');
-            binaryDigit.innerText = Math.round(Math.random());
-            binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            binaryDigit.style.top = '-10vh';
+</body>
+</html>
