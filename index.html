@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,12 +169,23 @@
 </div>
 
 <div class="copyright">
-    <p>&copy; rojanthapa. All Rights Reserved.</p>
+    <p>&copy; rojanthapa All Rights Reserved</p>
     <p class="rojan-thapa-heading">Made with <span class="heart-blink">❤️</span> in Nepal by Rojan Thapa</p>
     <i class="fas fa-paw paw-icon"></i>
 </div>
 
 <script>
+    // Blink each letter of "8848" one by one
+    const glitchLetters = document.querySelectorAll('.glitch-letter');
+    let delay = 0;
+
+    glitchLetters.forEach((letter, index) => {
+        setTimeout(() => {
+            letter.classList.add('glitch-effect');
+        }, delay);
+        delay += 500; // Adjust the delay between each letter
+    });
+
     // Generate binary digits
     function generateBinaryRain() {
         const density = 5; // Adjust density as needed
@@ -201,4 +211,3 @@
 
 </body>
 </html>
-
