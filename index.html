@@ -99,6 +99,11 @@
             border-radius: 10px;
         }
 
+        .quote p {
+            font-size: 20px;
+            font-style: italic;
+        }
+
         /* Paw icon */
         .paw-icon {
             margin-top: 10px;
@@ -159,6 +164,12 @@
     <p>I am passionate about web development and creating beautiful, functional websites.</p>
     <p>Feel free to contact me for any inquiries or collaborations!</p>
 </div>
+    
+<div class="quote">
+    <h2>Quote of the Day</h2>
+    <p>"Your limitation—it's only your imagination."</p>
+    <p>- Unknown</p>
+</div>
 
 <div class="contact">
     <h2>Contact Me</h2>
@@ -176,12 +187,6 @@
     <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
 </div>
 
-<div class="quote">
-    <h2>Quote of the Day</h2>
-    <p>"Your limitation—it's only your imagination."</p>
-    <p>- Unknown</p>
-</div>
-
 <div class="copyright">
     <p>&copy; rojanthapa All Rights Reserved</p>
     <p class="rojan-thapa-heading">Made with <span class="heart-blink">❤️</span> in Nepal by Rojan Thapa</p>
@@ -189,6 +194,17 @@
 </div>
 
 <script>
+    // Blink each letter of "8848" one by one
+    const glitchLetters = document.querySelectorAll('.glitch-letter');
+    let delay = 0;
+
+    glitchLetters.forEach((letter, index) => {
+        setTimeout(() => {
+            letter.classList.add('glitch-effect');
+        }, delay);
+        delay += 500; // Adjust the delay between each letter
+    });
+
     // Generate binary digits
     function generateBinaryRain() {
         const density = 5; // Adjust density as needed
