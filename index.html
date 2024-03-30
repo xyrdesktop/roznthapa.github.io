@@ -54,6 +54,11 @@
             margin: 0 10px;
             font-size: 24px;
         }
+
+        /* Add this CSS for clicked effect */
+        .social-icons a.clicked {
+            color: red; /* Change color to red, you can modify it */
+        }
     </style>
 </head>
 <body>
@@ -72,27 +77,31 @@
 </div>
 
 <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" id="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" id="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" id="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
 </div>
 
 <div class="copyright">
     <p>&copy; rojanthapa</p>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const letters = document.querySelectorAll('.glitch-letter');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+    // Get all social icons
+    const socialIcons = document.querySelectorAll('.social-icons a');
 
-    letters.forEach(letter => {
-        setInterval(() => {
-            const red = Math.floor(Math.random() * 256);
-            const green = Math.floor(Math.random() * 256);
-            const blue = Math.floor(Math.random() * 256);
-            letter.style.color = `rgb(${red}, ${green}, ${blue})`;
-            letter.classList.toggle('glitch-effect');
-        }, Math.random() * 1000); // Randomize the timing for each letter
+    // Add click event listener to each social icon
+    socialIcons.forEach(icon => {
+        icon.addEventListener('click', function(event) {
+            // Prevent default link behavior
+            event.preventDefault();
+            // Add clicked class to the clicked icon
+            icon.classList.add('clicked');
+            // Open link in a new tab
+            window.open(icon.href, '_blank');
+        });
     });
 </script>
 
