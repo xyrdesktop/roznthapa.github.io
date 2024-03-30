@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rojanthapa27's website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
+        body {
+            font-family: 'Shadows Into Light', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            overflow: hidden; /* Hide overflow to prevent scroll bars */
+            position: relative; /* Ensure position:relative for absolute positioning */
+        }
+
+        .glitch-letter {
+            font-size: 48px;
+            display: inline-block;
+        }
+
+        .glitch-effect {
+            animation: glitchEffect 1s infinite alternate-reverse;
+        }
+
+        @keyframes glitchEffect {
+            0% {
+                transform: translateX(0);
+                color: rgb(255, 0, 0); /* Red */
+            }
+            33% {
+                color: rgb(0, 255, 0); /* Green */
+            }
+            66% {
+                color: rgb(0, 0, 255); /* Blue */
+            }
+            100% {
+                transform: translateX(5px);
+                color: rgb(255, 0, 0); /* Red */
+            }
+        }
+
+        .contact {
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        /* Clicked effect */
+        .social-icons a.clicked {
+            color: red; /* Change color to red, you can modify it */
+        }
+
+        /* Change color of email and phone links */
+        .contact a {
+            color: white; /* Change to white */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Change color of email and phone text */
+        .contact p {
+            color: gray;
+        }
+
+        /* About Me section styles */
+        .about-me {
+            margin-top: 50px;
+            color: #fff;
+        }
+
+        .about-me h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .about-me p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Paw icon */
+        .paw-icon {
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        /* Binary digit styles */
+        .binary-digit {
+            position: absolute;
+            color: lime; /* Change color as needed */
+            font-size: 16px;
+            animation: fall 3s linear infinite; /* Falling animation */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh); /* Start above the viewport */
+            }
+            100% {
+                transform: translateY(110vh); /* End below the viewport */
+            }
+        }
+
+        /* Cat icon styles */
+        .cat-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff; /* Icon color */
+            font-size: 24px; /* Icon size */
+        }
+
+        /* Dog icon styles */
+        .dog-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff; /* Icon color */
+            font-size: 24px; /* Icon size */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cat icon -->
+<i class="fas fa-cat cat-icon"></i>
+
+<!-- Dog icon -->
+<i class="fas fa-dog dog-icon"></i>
+
+<div class="glitch-text" id="glitch-text">
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">8</span>
+    <span class="glitch-letter">4</span>
+    <span class="glitch-letter">8</span>
+</div>
+
+<div class="about-me">
+    <h2>About Me</h2>
+    <p>I am passionate about web development and creating beautiful, functional websites.</p>
+    <p>Feel free to contact me for any inquiries or collaborations!</p>
+</div>
+
+<div class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="/cdn-cgi/l/email-protection#aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7"><span class="__cf_email__"
