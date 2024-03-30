@@ -55,7 +55,7 @@
             font-size: 24px;
         }
 
-        /* Add this CSS for clicked effect */
+        /* Clicked effect */
         .social-icons a.clicked {
             color: red; /* Change color to red, you can modify it */
         }
@@ -72,14 +72,14 @@
 
 <div class="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#4c34353e28293f2738233c0c2b212d2520622f2321"><span class="__cf_email__" data-cfemail="433b3a3127263028372c3303242e222a2f6d202c2e">[email&#160;protected]</span></a></p>
+    <p>Email: <a href="mailto:rozanthapa@gmail.com">rozanthapa@gmail.com</a></p>
     <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
 </div>
 
 <div class="social-icons">
-    <a href="#" id="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" id="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="#" id="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Frojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1" id="instagram"><i class="fab fa-instagram"></i></a>
     <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
 </div>
 
@@ -87,20 +87,29 @@
     <p>&copy; rojanthapa</p>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
-    // Get all social icons
-    const socialIcons = document.querySelectorAll('.social-icons a');
+    document.addEventListener("DOMContentLoaded", function() {
+        const glitchLetters = document.querySelectorAll('.glitch-letter');
 
-    // Add click event listener to each social icon
-    socialIcons.forEach(icon => {
-        icon.addEventListener('click', function(event) {
-            // Prevent default link behavior
-            event.preventDefault();
-            // Add clicked class to the clicked icon
-            icon.classList.add('clicked');
-            // Open link in a new tab
-            window.open(icon.href, '_blank');
+        glitchLetters.forEach(letter => {
+            setInterval(() => {
+                const red = Math.floor(Math.random() * 256);
+                const green = Math.floor(Math.random() * 256);
+                const blue = Math.floor(Math.random() * 256);
+                letter.style.color = `rgb(${red}, ${green}, ${blue})`;
+                letter.classList.toggle('glitch-effect');
+            }, Math.random() * 1000); // Randomize the timing for each letter
+        });
+
+        // Social icons click event listener
+        const socialIcons = document.querySelectorAll('.social-icons a');
+
+        socialIcons.forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                event.preventDefault();
+                icon.classList.add('clicked');
+                window.open(icon.href, '_blank');
+            });
         });
     });
 </script>
