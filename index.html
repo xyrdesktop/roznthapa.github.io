@@ -145,6 +145,10 @@
     <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
 </div>
 
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.781926706068!2dYOUR_LONGITUDE_HERE!3dYOUR_LATITUDE_HERE!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zYOUR_LATITUDE_HERE!3s0xYOUR_LONGITUDE_HERE!5e0!3m2!1sen!2sus!4v1612380784846!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
 <div class="copyright">
     <p>&copy; rojanthapa</p>
     <p>Made with ❤️ in Nepal by Rojan Thapa</p>
@@ -160,21 +164,4 @@
         const createBinaryDigit = () => {
             const binaryDigit = document.createElement('span');
             binaryDigit.classList.add('binary-digit');
-            binaryDigit.innerText = Math.round(Math.random());
-            binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            binaryDigit.style.top = '-10vh'; // Start from above the viewport
-            document.body.appendChild(binaryDigit);
-            setTimeout(() => {
-                binaryDigit.remove(); // Remove the digit after it falls off the screen
-            }, 5000); // Adjust duration as needed
-        };
-
-        // Generate digits continuously
-        setInterval(createBinaryDigit, delay * density);
-    }
-
-    generateBinaryRain();
-</script>
-
-</body>
-</html>
+            binaryDigit.innerText
