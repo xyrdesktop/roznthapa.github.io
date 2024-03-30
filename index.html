@@ -15,14 +15,18 @@
             background-color: #000;
             color: #fff;
             text-align: center;
+            overflow: hidden; /* Hide overflow to prevent scroll bars */
         }
+
         .glitch-letter {
             font-size: 48px;
             display: inline-block;
         }
+
         .glitch-effect {
             animation: glitchEffect 1s infinite alternate-reverse;
         }
+
         @keyframes glitchEffect {
             0% {
                 transform: translateX(0);
@@ -76,30 +80,38 @@
             margin-top: 50px;
             color: #fff;
         }
+
         .about-me h2 {
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         .about-me p {
             font-size: 16px;
             line-height: 1.5;
         }
 
-        /* Binary rain styles */
-        body {
-            overflow: hidden;
-        }
-
-        .binary-digit {
-            position: absolute;
-            color: lime;
-            font-size: 16px;
-        }
-        
         /* Paw icon */
         .paw-icon {
             margin-top: 10px;
             font-size: 24px;
+        }
+
+        /* Binary digit styles */
+        .binary-digit {
+            position: absolute;
+            color: lime; /* Change color as needed */
+            font-size: 16px;
+            animation: fall 3s linear infinite; /* Falling animation */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh); /* Start above the viewport */
+            }
+            100% {
+                transform: translateY(110vh); /* End below the viewport */
+            }
         }
     </style>
 </head>
@@ -140,32 +152,25 @@
 </div>
 
 <script>
-    // Create binary digits
-    function createBinaryDigit() {
-        const binaryDigit = document.createElement('span');
-        binaryDigit.classList.add('binary-digit');
-        binaryDigit.innerText = Math.round(Math.random());
-        binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-        binaryDigit.style.top = Math.random() * 100 + 'vh'; // Random vertical position
-        document.body.appendChild(binaryDigit);
-
-        // Animate falling
-        const speed = Math.random() * 4 + 1; // Random speed
-        const animation = binaryDigit.animate([
-            { transform: 'translateY(-100vh)' },
-            { transform: 'translateY(100vh)' }
-        ], {
-            duration: speed * 3000, // Adjust the duration based on speed
-            iterations: Infinity
-        });
-
-        // Remove binary digit when it's out of view
-        animation.onfinish = () => binaryDigit.remove();
-    }
-
     // Generate binary digits
     function generateBinaryRain() {
-        setInterval(createBinaryDigit, 100); // Adjust the interval to control density
+        const density = 5; // Adjust density as needed
+        const delay = 100; // Delay between each digit creation
+
+        const createBinaryDigit = () => {
+            const binaryDigit = document.createElement('span');
+            binaryDigit.classList.add('binary-digit');
+            binaryDigit.innerText = Math.round(Math.random());
+            binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            binaryDigit.style.top = '-10vh'; // Start from above the viewport
+            document.body.appendChild(binaryDigit);
+            setTimeout(() => {
+                binaryDigit.remove(); // Remove the digit after it falls off the screen
+            }, 5000); // Adjust duration as needed
+        };
+
+        // Generate digits continuously
+        setInterval(createBinaryDigit, delay * density);
     }
 
     generateBinaryRain();
