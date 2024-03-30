@@ -113,6 +113,28 @@
                 transform: translateY(110vh); /* End below the viewport */
             }
         }
+
+        /* Styling for Rojan Thapa heading */
+        .rojan-thapa-heading {
+            color: #ddd; /* Darker white color */
+        }
+
+        /* Blinking animation for heart emoji */
+        .heart-blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -136,6 +158,7 @@
     <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
 </div>
 
+<h2>Connect with Me</h2> <!-- Heading for social icons -->
 <div class="social-icons">
     <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
     <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Frojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
@@ -146,8 +169,8 @@
 </div>
 
 <div class="copyright">
-    <p>&copy; rojanthapa</p>
-    <p>Made with ❤️ in Nepal by Rojan Thapa</p>
+    <p>&copy; rojanthapa All Rights Reserved</p>
+    <p class="rojan-thapa-heading">Made with <span class="heart-blink">❤️</span> in Nepal by Rojan Thapa</p>
     <i class="fas fa-paw paw-icon"></i>
 </div>
 
@@ -162,19 +185,4 @@
             binaryDigit.classList.add('binary-digit');
             binaryDigit.innerText = Math.round(Math.random());
             binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            binaryDigit.style.top = '-10vh'; // Start from above the viewport
-            document.body.appendChild(binaryDigit);
-            setTimeout(() => {
-                binaryDigit.remove(); // Remove the digit after it falls off the screen
-            }, 5000); // Adjust duration as needed
-        };
-
-        // Generate digits continuously
-        setInterval(createBinaryDigit, delay * density);
-    }
-
-    generateBinaryRain();
-</script>
-
-</body>
-</html>
+            binaryDigit.style.top = '-10vh';
