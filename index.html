@@ -145,6 +145,35 @@
     <span class="glitch-letter">8</span>
 </div>
 
+<title>Nepal Time</title>
+</head>
+<body>
+    <h1>Nepal Time</h1>
+    <div id="time"></div>
+
+    <script>
+        function getCurrentNepalTime() {
+            // Get current time in Nepal timezone
+            const options = {
+                timeZone: 'Asia/Kathmandu',
+                hour12: true,
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            };
+            const nepalTime = new Date().toLocaleString('en-US', options);
+
+            // Update HTML content
+            document.getElementById('time').innerText = nepalTime;
+        }
+
+        // Call the function to update time when the page loads
+        window.onload = getCurrentNepalTime;
+
+        // Update time every second
+        setInterval(getCurrentNepalTime, 1000);
+    </script>
+</body>
 <div class="about-me">
     <h2>About Me</h2>
     <p>I am passionate about web development and creating beautiful, functional websites.</p>
