@@ -17,120 +17,8 @@
             text-align: center;
         }
 
-        .glitch-letter {
-            font-size: 48px;
-            display: inline-block;
-        }
+        /* Your existing CSS styles... */
 
-        .glitch-effect {
-            animation: glitchEffect 1s infinite alternate-reverse;
-        }
-
-        @keyframes glitchEffect {
-            0% {
-                transform: translateX(0);
-                color: rgb(255, 0, 0); /* Red */
-            }
-            50% {
-                color: rgb(0, 0, 255); /* Blue */
-            }
-            100% {
-                transform: translateX(5px);
-                color: #fff; /* White */
-            }
-        }
-
-        .contact {
-            margin-top: 50px;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 24px;
-        }
-
-        /* Clicked effect */
-        .social-icons a.clicked {
-            color: red; /* Change color to red, you can modify it */
-        }
-
-        /* Change color of email and phone links */
-        .contact a {
-            color: white; /* Change to white */
-            text-decoration: none; /* Remove underline */
-        }
-
-        /* Change color of email and phone text */
-        .contact p {
-            color: gray;
-        }
-
-        /* About Me section styles */
-        .about-me {
-            margin-top: 50px;
-            color: #fff;
-        }
-
-        .about-me h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .about-me p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        /* Paw icon */
-        .paw-icon {
-            margin-top: 10px;
-            font-size: 24px;
-        }
-
-        /* Binary digit styles */
-        .binary-digit {
-            position: absolute;
-            color: lime; /* Change color as needed */
-            font-size: 16px;
-            animation: fall 3s linear infinite; /* Falling animation */
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10vh); /* Start above the viewport */
-            }
-            100% {
-                transform: translateY(110vh); /* End below the viewport */
-            }
-        }
-
-        /* Styling for Rojan Thapa heading */
-        .rojan-thapa-heading {
-            color: #ddd; /* Darker white color */
-        }
-
-        /* Blinking animation for heart emoji */
-        .heart-blink {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 <body>
@@ -153,8 +41,21 @@
 
 <div class="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7"><span class="__cf_email__" data-cfemail="324a4b4056574159465d4272555f535b5e1c515d5f">[email&#160;protected]</span></a></p>
+    <p>Email: <a href="#" id="contact-email">Click to reveal</a></p>
     <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
+    <!-- Contact Form -->
+    <div id="contact-form">
+        <form id="contactForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+        <div id="form-status"></div>
+    </div>
 </div>
 
 <h2>Connect with Me</h2> <!-- Heading for social icons -->
@@ -162,7 +63,7 @@
     <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
     <a href="https://twitter.com/rojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://www.instagram.com/rojanthapa27" id="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.linkedin.com/in/rojanthapa27/" id="linkedin"><i class="fab fa-linkedin-in"></i></a> <!-- Updated LinkedIn link -->
     <a href="https://github.com/roznthapa" id="github"><i class="fab fa-github"></i></a>
     <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
 </div>
@@ -190,29 +91,6 @@
         delay += 1000; // Adjust the delay between each letter
     });
 
-    // Generate binary digits
-    function generateBinaryRain() {
-        const density = 5; // Adjust density as needed
-        const delay = 100; // Delay between each digit creation
-
-        const createBinaryDigit = () => {
-            const binaryDigit = document.createElement('span');
-            binaryDigit.classList.add('binary-digit');
-            binaryDigit.innerText = Math.round(Math.random());
-            binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            binaryDigit.style.top = '-10vh';
-            document.body.appendChild(binaryDigit);
-            setTimeout(() => {
-                binaryDigit.remove();
-            }, 5000); // Adjust the time the digit stays on screen
-        };
-
-        setInterval(createBinaryDigit, delay);
-    }
-
-    // Call the function to generate binary rain
-    generateBinaryRain();
-    
     // Function to update Nepal time
     function getCurrentNepalTime() {
         // Get current time in Nepal timezone
@@ -234,6 +112,27 @@
 
     // Update time every second
     setInterval(getCurrentNepalTime, 1000);
+
+    // Email obfuscation decoding
+    document.getElementById('contact-email').addEventListener('click', function(event) {
+        event.preventDefault();
+        var encodedEmail = "aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7".match(/.{2}/g).map(function(e) {
+            return parseInt(e, 16);
+        });
+        var decodedEmail = encodedEmail.map(function(e) {
+            return String.fromCharCode(e - 1);
+        }).join('');
+        this.innerText = decodedEmail;
+        this.href = "mailto:" + decodedEmail;
+    });
+
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Placeholder function for form submission handling
+        alert('Form submission placeholder function');
+        // You can replace the alert with actual form submission logic
+    });
 </script>
 
 </body>
