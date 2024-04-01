@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,29 +205,7 @@
         delay += 1000; // Adjust the delay between each letter
     });
 
-    // Generate binary digits
-    function generateBinaryRain() {
-        const density = 5; // Adjust density as needed
-        const delay = 100; // Delay between each digit creation
-
-        const createBinaryDigit = () => {
-            const binaryDigit = document.createElement('span');
-            binaryDigit.classList.add('binary-digit');
-            binaryDigit.innerText = Math.round(Math.random());
-            binaryDigit.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-            binaryDigit.style.top = '-10vh';
-            document.body.appendChild(binaryDigit);
-            setTimeout(() => {
-                binaryDigit.remove();
-            }, 5000); // Adjust the time the digit stays on screen
-        };
-
-        setInterval(createBinaryDigit, delay);
-    }
-
-    // Call the function to generate binary rain
-    generateBinaryRain();
-    
+   
     // Function to update Nepal time
     function getCurrentNepalTime() {
         // Get current time in Nepal timezone
