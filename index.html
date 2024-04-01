@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>rojanthapa27's website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
     <style>
@@ -56,23 +55,15 @@
             font-size: 24px;
         }
 
-        /* Clicked effect */
-        .social-icons a.clicked {
-            color: red; /* Change color to red, you can modify it */
-        }
-
-        /* Change color of email and phone links */
         .contact a {
-            color: white; /* Change to white */
-            text-decoration: none; /* Remove underline */
+            color: white;
+            text-decoration: none;
         }
 
-        /* Change color of email and phone text */
         .contact p {
             color: gray;
         }
 
-        /* About Me section styles */
         .about-me {
             margin-top: 50px;
             color: #fff;
@@ -88,35 +79,29 @@
             line-height: 1.5;
         }
 
-        /* Paw icon */
         .paw-icon {
             margin-top: 10px;
             font-size: 24px;
         }
 
-        /* Binary digit styles */
-        .binary-digit {
-            position: absolute;
-            color: lime; /* Change color as needed */
-            font-size: 16px;
-            animation: fall 3s linear infinite; /* Falling animation */
+        .quote {
+            margin-top: 20px;
+            color: #fff;
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-10vh); /* Start above the viewport */
-            }
-            100% {
-                transform: translateY(110vh); /* End below the viewport */
-            }
+        .quote p {
+            font-style: italic;
         }
 
-        /* Styling for Rojan Thapa heading */
+        .copyright {
+            margin-top: 20px;
+            color: #fff;
+        }
+
         .rojan-thapa-heading {
             color: #ddd; /* Darker white color */
         }
 
-        /* Blinking animation for heart emoji */
         .heart-blink {
             animation: blink 1s infinite;
         }
@@ -154,10 +139,9 @@
 
 <div class="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7"><span class="__cf_email__" data-cfemail="324a4b4056574159465d4272555f535b5e1c515d5f">[email&#160;protected]</span></a></p>
+    <p>Email: <a href="mailto:rojanthapa@example.com">rojanthapa@example.com</a></p>
     <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
-     <h2>Send a Message</h2>
-    <!-- Contact Form -->
+    <h2>Send a Message</h2>
     <div id="contact-form">
         <form id="contactForm">
             <label for="name">Name:</label><br>
@@ -172,14 +156,14 @@
     </div>
 </div>
 
-<h2>Connect with Me</h2> <!-- Heading for social icons -->
+<h2>Connect with Me</h2>
 <div class="social-icons">
-    <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://twitter.com/rojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/rojanthapa27" id="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/roznthapa" id="github"><i class="fab fa-github"></i></a>
-    <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
+    <a href="https://www.facebook.com/roznthapa"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/rojanthapa27"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/rojanthapa27"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/rojanthapa27"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/roznthapa"><i class="fab fa-github"></i></a>
+    <a href="https://www.reddit.com/user/rojanthapa27"><i class="fab fa-reddit"></i></a>
 </div>
 
 <div class="quote">
@@ -189,15 +173,14 @@
 
 <div class="copyright">
     <p>&copy; 2024 Rojan Thapa. All Rights Reserved.</p>
-    <p class="rojan-thapa-heading">Made with <span class="heart-blink">❤️</span> in &#x1F1F3;&#x1F1F5; by ロジャン・タパ</p>
+    <p class="rojan-thapa-heading">Made with <span class="heart-blink">❤️</span> in 🇳🇵 by ロジャン・タパ</p>
     <i class="fas fa-paw paw-icon"></i>
 </div>
 
 <script>
-    // Blink each letter of "8848" one by one
+    // Glitch animation for "8848" text
     const glitchLetters = document.querySelectorAll('.glitch-letter');
     let delay = 0;
-
     glitchLetters.forEach((letter, index) => {
         setTimeout(() => {
             letter.classList.add('glitch-effect');
@@ -205,10 +188,8 @@
         delay += 1000; // Adjust the delay between each letter
     });
 
-   
     // Function to update Nepal time
     function getCurrentNepalTime() {
-        // Get current time in Nepal timezone
         const options = {
             timeZone: 'Asia/Kathmandu',
             hour12: true,
@@ -217,18 +198,31 @@
             second: 'numeric'
         };
         const nepalTime = new Date().toLocaleString('en-US', options);
-
-        // Update HTML content
         document.getElementById('time').innerText = nepalTime;
     }
-
-    // Call the function to update time when the page loads
     window.onload = getCurrentNepalTime;
+    setInterval(getCurrentNepalTime, 1000); // Update time every second
 
-    // Update time every second
-    setInterval(getCurrentNepalTime, 1000);
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        // Dummy console log to show form data
+        console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+        // Clear form fields
+        contactForm.reset();
+        // Display submission status
+        const formStatus = document.getElementById('form-status');
+        formStatus.textContent = 'Message sent!';
+        setTimeout(() => {
+            formStatus.textContent = '';
+        }, 3000); // Clear status message after 3 seconds
+    });
 </script>
 
 </body>
 </html>
-
