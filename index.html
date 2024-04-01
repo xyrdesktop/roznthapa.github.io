@@ -53,6 +53,24 @@
             text-decoration: none;
             margin: 0 10px;
             font-size: 24px;
+            position: relative;
+        }
+
+        .social-icons a span {
+            display: none;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .social-icons a:hover span {
+            display: block;
         }
 
         /* Clicked effect */
@@ -157,16 +175,16 @@
     <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
 </div>
 
-<h2>Connect with Me</h2>  <p>I’m not that active on social media. But feel free to connect with me on any of the online services below if that’s your thing:</p>
-    <!-- Heading for social icons -->  
-    div class="social-icons">
-   
-    <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://twitter.com/rojanthapa27" id="twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.instagram.com/rojanthapa27" id="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/roznthapa" id="github"><i class="fab fa-github"></i></a>
-    <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i></a>
+<h2>Connect with Me</h2>
+<p>I’m not that active on social media. But feel free to connect with me on any of the online services below if that’s your thing:</p>
+
+<div class="social-icons">
+    <a href="https://www.facebook.com/roznthapa" id="facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+    <a href="https://twitter.com/rojanthapa27" id="twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+    <a href="https://www.instagram.com/rojanthapa27" id="instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+    <a href="#" id="linkedin"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+    <a href="https://github.com/roznthapa" id="github"><i class="fab fa-github"></i><span>GitHub</span></a>
+    <a href="https://www.reddit.com/user/rojanthapa27" id="reddit"><i class="fab fa-reddit"></i><span>Reddit</span></a>
 </div>
 
 <div class="quote">
@@ -240,4 +258,3 @@
 
 </body>
 </html>
-
