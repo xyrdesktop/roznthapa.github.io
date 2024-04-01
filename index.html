@@ -17,6 +17,43 @@
             text-align: center;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            position: relative;
+            display: inline-block;
+            overflow: hidden; /* Hide overflowing gradient */
+            color: #fff; /* Default text color */
+        }
+
+        h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+            content: "";
+            position: absolute;
+            top: 50%; /* Position at middle of text */
+            left: 0;
+            width: 0; /* Initial width */
+            height: 2px;
+            background-color: black;
+            transition: width 1s ease; /* Slow transition */
+        }
+
+        h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+            content: attr(data-text); /* Use data-text attribute as content */
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden; /* Hide overflowing text */
+            white-space: nowrap; /* Prevent text wrapping */
+            color: transparent; /* Transparent text */
+            transition: color 1s ease; /* Slow transition for color change */
+        }
+
+        h1:hover::before, h2:hover::before, h3:hover::before, h4:hover::before, h5:hover::before, h6:hover::before {
+            width: 100%; /* Fully cover text when hovered */
+        }
+
+        h1:hover::after, h2:hover::after, h3:hover::after, h4:hover::after, h5:hover::after, h6:hover::after {
+            color: black; /* Reveal text color on hover */
+        }
+
         .glitch-letter {
             font-size: 48px;
             display: inline-block;
@@ -153,29 +190,24 @@
 </head>
 <body>
 
-<div class="glitch-letter" id="glitch-text">
-    <span class="glitch-letter">8</span>
-    <span class="glitch-letter">8</span>
-    <span class="glitch-letter">4</span>
-    <span class="glitch-letter">8</span>
-</div>
 
-<h1>Nepal Time</h1>
+
+
 <div id="time"></div>
 
 <div class="about-me">
-    <h2>About Me</h2>
+    <h2 data-text="About Me">About Me</h2>
     <p>Hello World!, I'm Rojan Thapa, a web and app developer fueled by open source.</p>
     <p>Feel free to contact me for any inquiries or collaborations!</p>
 </div>
 
 <div class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7"><span class="__cf_email__" data-cfemail="324a4b4056574159465d4272555f535b5e1c515d5f">[email&#160;protected]</span></a></p>
+    <h2 data-text="Contact Me">Contact Me</h2>
+    <p>Email: <a href="/cdn-ci/l/email-protection#aad2d3d8cecfd9c1dec5daeacdc7cbc3c684c9c5c7"><span class="__cf_email__" data-cfemail="324a4b4056574159465d4272555f535b5e1c515d5f">[email&#160;protected]</span></a></p>
     <p>Phone: <a href="tel:+9779819457234">+977 9819457234</a></p>
 </div>
 
-<h2>Connect with Me</h2>
+<h2 data-text="Connect with Me" >Connect with Me</h2>
 <p>I’m not that active on social media. But feel free to connect with me on any of the online services below if that’s your thing:</p>
 
 <div class="social-icons">
