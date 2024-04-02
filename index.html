@@ -85,6 +85,8 @@
         .social-icons {
             margin-top: 20px;
             margin-bottom: 20px; /* Equal bottom margin */
+            display: flex; /* Added */
+            justify-content: center; /* Added */
         }
 
         .social-icons a {
@@ -93,6 +95,13 @@
             margin: 0 10px;
             font-size: 24px;
             position: relative;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out; /* Added transition */
+        }
+
+        .social-icons a:hover,
+        .social-icons a:focus { /* Added focus state */
+            transform: rotate(5deg); /* Tilt effect */
         }
 
         .social-icons a span {
@@ -108,7 +117,8 @@
             white-space: nowrap;
         }
 
-        .social-icons a:hover span {
+        .social-icons a:hover span,
+        .social-icons a:focus span { /* Added focus state */
             display: block;
         }
 
