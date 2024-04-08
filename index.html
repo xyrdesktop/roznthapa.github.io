@@ -1,58 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
-    <!-- Font Awesome CDN link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #0F0;
-            text-align: center;
-            padding-top: 100px;
-        }
-        h1 {
-            font-size: 36px;
-            animation: blink 1s infinite; /* Add animation */
-        }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        p {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-        .social-icons {
-            margin-top: 20px;
-        }
-        .social-icons a {
-            color: #0F0;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .social-icons a:hover {
-            color: #fff;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal Clock</title>
+<!-- Add Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    color: #00FF00;
+    font-family: "Courier New", Courier, monospace;
+    position: relative; /* Ensure proper positioning */
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+  }
+
+  .clock {
+    position: absolute;
+    top: 20px; /* Adjust this value to position the clock vertically */
+    left: 50%; /* Center the clock horizontally */
+    transform: translateX(-50%); /* Center the clock horizontally */
+    font-size: 24px;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .binary-digit {
+    position: absolute;
+    font-size: 20px;
+    animation: fall 2s linear infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+  
+  .social-icons {
+    position: absolute;
+    bottom: 50px; /* Adjust this value to position the social icons vertically */
+    left: 50%; /* Center the social icons horizontally */
+    transform: translateX(-50%); /* Center the social icons horizontally */
+    font-size: 24px;
+  }
+  
+  .social-icons a {
+    color: #00FF00;
+    margin: 0 10px; /* Adjust this value to control the spacing between icons */
+    text-decoration: none;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 10px; /* Adjust this value to position the copyright notice vertically */
+    left: 50%; /* Center the text horizontally */
+    transform: translateX(-50%); /* Center the text horizontally */
+    font-size: 12px;
+  }
+</style>
 </head>
 <body>
-    <h1>This page is under construction</h1>
-    <p>Sorry for the inconvenience. We're working hard to bring you an awesome website. Stay tuned!</p>
-    <h2>Follow us on social media:</h2> <!-- Add the heading -->
-    <div class="social-icons">
-       
-        <!-- Font Awesome Twitter icon and link -->
-        <a href="https://twitter.com/rojanthapa27" target="_blank"><i class="fab fa-twitter"></i></a>
+<div class="clock" id="nepal-clock"></div>
+<div class="social-icons">
+  <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+  <a href="https://www.threads.app/@rojanthapa27"><i class="fab fa-thread"></i></a>
+</div>
+<div class="copyright">© 2024 Rojan Thapa. All rights reserved.</div>
+<script>
+  // Function to update the clock with the accurate time for Nepal
+  function updateClock() {
+    const now = new Date();
+    const utcOffset = 5.75; // Nepal's time zone offset from UTC (in hours)
+    const utcTime = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
+    const nepalTime = new Date(utcTime + utcOffset * 60 * 60 * 1000);
+    let hours = nepalTime.getHours();
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert hours to 12-hour format
+    const minutes = nepalTime.getMinutes().toString().padStart(2, '0');
+    const seconds = nepalTime.getSeconds().toString().padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds} ${amPm}`;
+    document.getElementById('nepal-clock').innerText = timeString;
+  }
+  
+  // Initial call to display the clock with the accurate time
+  updateClock();
+  
+  // Update the clock every second
+  setInterval(updateClock, 1000);
+</script>
+<script>
+  // Function to generate a random binary digit (0 or 1)
+  function generateBinaryDigit() {
+    return Math.round(Math.random());
+  }
+  
+  // Function to create binary rain
+  function createBinaryRain() {
+    const binaryDigit = generateBinaryDigit();
+    const digitElement = document.createElement('span');
+    digitElement.classList.add('binary-digit');
+    digitElement.innerText = binaryDigit;
     
-        <!-- Instagram icon and link -->
-        <a href="https://www.instagram.com/rojanthapa27/" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-    <p>For assistance, contact: +9779819457234</p> <!-- Add the phone number -->
+    const positionX = Math.random() * window.innerWidth;
+    const positionY = -50;
+    digitElement.style.left = positionX + 'px';
+    digitElement.style.top = positionY + 'px';
+    
+    document.body.appendChild(digitElement);
+    
+    setTimeout(() => {
+      digitElement.remove();
+    }, 2000); // Adjust this value to control the duration of raindrop visibility
+  }
+  
+  // Create multiple binary rain drops continuously
+  setInterval(createBinaryRain, 100); // Adjust this value to control the speed of raindrops
+</script>
+</body>
+    </html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal Clock</title>
+<!-- Add Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    color: #00FF00;
+    font-family: "Courier New", Courier, monospace;
+    position: relative; /* Ensure proper positioning */
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+  }
+
+  .clock {
+    position: absolute;
+    top: 20px; /* Adjust this value to position the clock vertically */
+    left: 50%; /* Center the clock horizontally */
+    transform: translateX(-50%); /* Center the clock horizontally */
+    font-size: 24px;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .binary-digit {
+    position: absolute;
+    font-size: 20px;
+    animation: fall 2s linear infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+  
+  .social-icons {
+    position: absolute;
+    bottom: 50px; /* Adjust this value to position the social icons vertically */
+    left: 50%; /* Center the social icons horizontally */
+    transform: translateX(-50%); /* Center the social icons horizontally */
+    font-size: 24px;
+  }
+  
+  .social-icons a {
+    color: #00FF00;
+    margin: 0 10px; /* Adjust this value to control the spacing between icons */
+    text-decoration: none;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 10px; /* Adjust this value to position the copyright notice vertically */
+    left: 50%; /* Center the text horizontally */
+    transform: translateX(-50%); /* Center the text horizontally */
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="clock" id="nepal-clock"></div>
+<div class="social-icons">
+  <a href="https://www.instagram.com/rojanthapa27?igsh=cDIwcG91NzUyaTc1"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+  <a href="https://www.threads.app/@rojanthapa27"><i class="fab fa-thread"></i></a>
+</div>
+<div class="copyright">© 2024 Rojan Thapa. All rights reserved.</div>
+<script>
+  // Function to update the clock with the accurate time for Nepal
+  function updateClock() {
+    const now = new Date();
+    const utcOffset = 5.75; // Nepal's time zone offset from UTC (in hours)
+    const utcTime = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
+    const nepalTime = new Date(utcTime + utcOffset * 60 * 60 * 1000);
+    let hours = nepalTime.getHours();
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert hours to 12-hour format
+    const minutes = nepalTime.getMinutes().toString().padStart(2, '0');
+    const seconds = nepalTime.getSeconds().toString().padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds} ${amPm}`;
+    document.getElementById('nepal-clock').innerText = timeString;
+  }
+  
+  // Initial call to display the clock with the accurate time
+  updateClock();
+  
+  // Update the clock every second
+  setInterval(updateClock, 1000);
+</script>
+<script>
+  // Function to generate a random binary digit (0 or 1)
+  function generateBinaryDigit() {
+    return Math.round(Math.random());
+  }
+  
+  // Function to create binary rain
+  function createBinaryRain() {
+    const binaryDigit = generateBinaryDigit();
+    const digitElement = document.createElement('span');
+    digitElement.classList.add('binary-digit');
+    digitElement.innerText = binaryDigit;
+    
+    const positionX = Math.random() * window.innerWidth;
+    const positionY = -50;
+    digitElement.style.left = positionX + 'px';
+    digitElement.style.top = positionY + 'px';
+    
+    document.body.appendChild(digitElement);
+    
+    setTimeout(() => {
+      digitElement.remove();
+    }, 2000); // Adjust this value to control the duration of raindrop visibility
+  }
+  
+  // Create multiple binary rain drops continuously
+  setInterval(createBinaryRain, 100); // Adjust this value to control the speed of raindrops
+</script>
 </body>
 </html>
-
