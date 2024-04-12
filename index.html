@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Background Example</title>
+<style>
+  body {
+    background-color: black;
+    color: red ; /* Text color */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    overflow: hidden; /* Prevent overflow of raindrops */
+    height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes falling {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  .falling-letter {
+    font-size: 2em;
+    animation: falling 5s linear infinite; /* Adjust speed and duration as needed */
+  }
+</style>
+</head>
+<body>
+
+<div>
+  <span class="falling-letter">W</span>
+  <span class="falling-letter">h</span>
+  <span class="falling-letter">y</span>
+  <span> </span> <!-- Add a space for spacing -->
+  <span>s</span>
+  <span>o</span>
+  <span> </span> <!-- Add a space for spacing -->
+  <span>s</span>
+  <span>e</span>
+  <span>r</span>
+  <span>i</span>
+  <span>o</span>
+  <span>u</span>
+  <span>s</span>
+  <span>?</span>
+</div>
+
+</body>
+</html>
 
