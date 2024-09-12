@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FixItNepal offers fast and reliable tech repair services for laptops, desktops, mobiles, iPads, and tablets. Quality service you can count on.">
     <title>FixItNepal | Professional Tech Repair Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -11,11 +12,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #ffffff; /* White background */
-            color: #000000; /* Black text color */
+            background-color: #ffffff;
+            color: #000000;
         }
         header {
-            background-color: #007bff; /* Blue header */
+            background-color: #007bff;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -23,7 +24,7 @@
         .hero {
             text-align: center;
             padding: 40px;
-            background-color: #f8f9fa; /* Light gray background */
+            background-color: #f8f9fa;
         }
         .hero h2 {
             margin: 0;
@@ -48,7 +49,7 @@
         .cta:active {
             background-color: #004494;
             border-color: #004494;
-            transform: scale(0.98); /* Slightly shrink on touch */
+            transform: scale(0.98);
         }
         .section {
             display: none;
@@ -58,13 +59,13 @@
         .visible {
             display: block;
         }
-        .repair-options, .brand-options, .model-options, .payment-options {
+        .repair-options, .brand-options, .model-options {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .repair-option, .brand-option, .model-option, .payment-option {
+        .repair-option, .brand-option, .model-option {
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -72,16 +73,16 @@
             width: 200px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
-            color: #000000; /* Black text color */
+            color: #000000;
             transition: background-color 0.3s, transform 0.3s;
-            touch-action: manipulation; /* Improve touch interaction */
+            touch-action: manipulation;
         }
-        .repair-option:hover, .brand-option:hover, .model-option:hover, .payment-option:hover,
-        .repair-option:focus, .brand-option:focus, .model-option:focus, .payment-option:focus {
+        .repair-option:hover, .brand-option:hover, .model-option:hover,
+        .repair-option:focus, .brand-option:focus, .model-option:focus {
             background-color: #f1f1f1;
             transform: translateY(-5px);
         }
-        .repair-option:active, .brand-option:active, .model-option:active, .payment-option:active {
+        .repair-option:active, .brand-option:active, .model-option:active {
             background-color: #e1e1e1;
             transform: translateY(-2px);
         }
@@ -94,27 +95,27 @@
         .social-icons a {
             font-size: 24px;
             text-decoration: none;
-            color: #000000; /* Black color */
+            color: #000000;
             transition: opacity 0.3s, transform 0.3s;
         }
         .social-icons a:hover, .social-icons a:focus {
             opacity: 0.8;
         }
         .social-icons .fa-facebook {
-            color: #1877f2; /* Facebook color */
+            color: #1877f2;
         }
         .social-icons .fa-instagram {
-            color: #e4405f; /* Instagram color */
+            color: #e4405f;
         }
         .social-icons .fa-tiktok {
-            color: #000000; /* TikTok color */
+            color: #000000;
         }
         .social-icons .fa-whatsapp {
-            color: #25d366; /* WhatsApp color */
+            color: #25d366;
         }
         footer {
             background-color: #f8f9fa;
-            color: #000000; /* Black text color */
+            color: #000000;
             text-align: center;
             padding: 20px 0;
         }
@@ -129,21 +130,21 @@
             cursor: pointer;
             font-size: 1em;
             transition: background-color 0.3s, transform 0.3s;
-            touch-action: manipulation; /* Improve touch interaction */
+            touch-action: manipulation;
         }
         .back-button:hover, .back-button:focus {
             background-color: #0056b3;
         }
         .back-button:active {
             background-color: #004494;
-            transform: scale(0.98); /* Slightly shrink on touch */
+            transform: scale(0.98);
         }
-        .brand-option i, .repair-option i, .model-option i, .payment-option i {
+        .brand-option i, .repair-option i, .model-option i {
             font-size: 2em;
             margin-bottom: 10px;
         }
         .model-options .model-option {
-            width: 100%; /* Full width for model options */
+            width: 100%;
         }
     </style>
 </head>
@@ -161,19 +162,19 @@
     <div id="repair-selection" class="repair-selection section">
         <h2>Select a Repair Type</h2>
         <div class="repair-options">
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'mobile')">
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'mobile')" aria-label="Mobile Repair">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Mobile Repair</h3>
             </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'laptop')">
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'laptop')" aria-label="Laptop Repair">
                 <i class="fas fa-laptop"></i>
                 <h3>Laptop Repair</h3>
             </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'desktop')">
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'desktop')" aria-label="Desktop Repair">
                 <i class="fas fa-desktop"></i>
                 <h3>Desktop Repair</h3>
             </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'tablet')">
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'tablet')" aria-label="iPad & Tablet Repair">
                 <i class="fas fa-tablet-alt"></i>
                 <h3>iPad & Tablet Repair</h3>
             </a>
@@ -183,27 +184,27 @@
     <div id="brand-selection" class="brand-selection section">
         <h2>Select Your Brand</h2>
         <div class="brand-options">
-            <a href="#" class="brand-option" onclick="showSection('model-selection', 'apple')">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'apple')" aria-label="Apple">
                 <i class="fab fa-apple"></i>
                 <h3>Apple</h3>
             </a>
-            <a href="#" class="brand-option" onclick="showSection('model-selection', 'samsung')">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'samsung')" aria-label="Samsung">
                 <i class="fab fa-samsung"></i>
                 <h3>Samsung</h3>
             </a>
-            <a href="#" class="brand-option" onclick="showSection('model-selection', 'redmi')">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'redmi')" aria-label="Redmi">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Redmi</h3>
             </a>
-            <a href="#" class="brand-option" onclick="showSection('model-selection', 'realme')">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'realme')" aria-label="Realme">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Realme</h3>
             </a>
-            <a href="#" class="brand-option" onclick="showSection('model-selection', 'vivo')">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'vivo')" aria-label="Vivo">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Vivo</h3>
             </a>
-            <a href="#" class="brand-option" onclick="showSection('model-selection', 'oppo')">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'oppo')" aria-label="Oppo">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Oppo</h3>
             </a>
@@ -215,37 +216,15 @@
         <div class="model-options" id="modelOptions">
             <!-- Models will be dynamically loaded here -->
         </div>
-        <button class="back-button" onclick="showSection('repair-selection')">Back</button>
-    </div>
-
-    <div id="payment-selection" class="payment-selection section">
-        <h2>Select Payment Method</h2>
-        <div class="payment-options">
-            <a href="#" class="payment-option">
-                <i class="fab fa-esewa"></i>
-                <h3>eSewa</h3>
-            </a>
-            <a href="#" class="payment-option">
-                <i class="fab fa-khalti"></i>
-                <h3>Khalti</h3>
-            </a>
-            <a href="#" class="payment-option">
-                <i class="fab fa-imepay"></i>
-                <h3>IME Pay</h3>
-            </a>
-            <a href="#" class="payment-option">
-                <i class="fas fa-credit-card"></i>
-                <h3>Connect IPS</h3>
-            </a>
-        </div>
+        <button class="back-button" onclick="showSection('brand-selection')">Back</button>
     </div>
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/your-whatsapp-number" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/your-whatsapp-number" target="_blank" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
 
@@ -260,55 +239,39 @@
 
         function loadModels(brand) {
             const modelOptions = document.getElementById('modelOptions');
-            let models = [];
+            const modelData = {
+                apple: [
+                    'iPhone 15 Pro Max', 'iPhone 15', 'iPhone 14 Pro Max', 'iPhone 14 Pro',
+                    'iPhone 13 Pro Max', 'iPhone 13', 'iPhone 12 Pro Max', 'iPhone 12',
+                    'iPhone 11 Pro Max', 'iPhone 11', 'iPhone SE (2022)', 'iPhone X'
+                ],
+                samsung: [
+                    'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23', 'Galaxy Note 20 Ultra',
+                    'Galaxy Note 10', 'Galaxy A54', 'Galaxy A34', 'Galaxy Z Fold 4', 'Galaxy Z Flip 4'
+                ],
+                redmi: [
+                    'Redmi Note 12 Pro', 'Redmi Note 11', 'Redmi Note 10', 'Redmi K50',
+                    'Redmi K40', 'Redmi 10', 'Redmi 11', 'Redmi 9'
+                ],
+                realme: [
+                    'Realme GT 2 Pro', 'Realme 11 Pro', 'Realme 10 Pro', 'Realme X7',
+                    'Realme C21', 'Realme 9 Pro', 'Realme 8 Pro', 'Realme Narzo 50'
+                ],
+                vivo: [
+                    'Vivo X80 Pro', 'Vivo Y76', 'Vivo V21', 'Vivo V23',
+                    'Vivo X70 Pro', 'Vivo X60', 'Vivo Y33s', 'Vivo V20'
+                ],
+                oppo: [
+                    'Oppo Find X5 Pro', 'Oppo Reno 8 Pro', 'Oppo Reno 8', 'Oppo A54',
+                    'Oppo F19 Pro', 'Oppo Reno 7', 'Oppo A74', 'Oppo A72'
+                ]
+            };
 
-            switch (brand) {
-                case 'apple':
-                    models = [
-                        'iPhone 15 Pro Max', 'iPhone 15', 'iPhone 14 Pro Max', 'iPhone 14 Pro',
-                        'iPhone 13 Pro Max', 'iPhone 13', 'iPhone 12 Pro Max', 'iPhone 12',
-                        'iPhone 11 Pro Max', 'iPhone 11', 'iPhone SE (2022)', 'iPhone X'
-                    ];
-                    break;
-                case 'samsung':
-                    models = [
-                        'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23', 'Galaxy Note 20 Ultra',
-                        'Galaxy Note 10', 'Galaxy A54', 'Galaxy A34', 'Galaxy Z Fold 4', 'Galaxy Z Flip 4'
-                    ];
-                    break;
-                case 'redmi':
-                    models = [
-                        'Redmi Note 12 Pro', 'Redmi Note 11', 'Redmi Note 10', 'Redmi K50',
-                        'Redmi K40', 'Redmi 10', 'Redmi 11', 'Redmi 9'
-                    ];
-                    break;
-                case 'realme':
-                    models = [
-                        'Realme GT 2 Pro', 'Realme 11 Pro', 'Realme 10 Pro', 'Realme X7',
-                        'Realme C21', 'Realme 9 Pro', 'Realme 8 Pro', 'Realme Narzo 50'
-                    ];
-                    break;
-                case 'vivo':
-                    models = [
-                        'Vivo X80 Pro', 'Vivo Y76', 'Vivo V21', 'Vivo V23',
-                        'Vivo X70 Pro', 'Vivo X60', 'Vivo Y33s', 'Vivo V20'
-                    ];
-                    break;
-                case 'oppo':
-                    models = [
-                        'Oppo Find X5 Pro', 'Oppo Reno 8 Pro', 'Oppo Reno 8', 'Oppo A54',
-                        'Oppo F19 Pro', 'Oppo Reno 7', 'Oppo A74', 'Oppo A72'
-                    ];
-                    break;
-                default:
-                    models = [];
-            }
-
-            modelOptions.innerHTML = models.map(model => 
+            modelOptions.innerHTML = modelData[brand] ? modelData[brand].map(model => 
                 `<div class="model-option">
                     <h3>${model}</h3>
                 </div>`
-            ).join('');
+            ).join('') : '';
         }
 
         window.onload = () => showSection('hero');
