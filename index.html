@@ -1,22 +1,317 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rojan thapa website's</title>
+    <title>FixItNepal | Professional Tech Repair Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text color */
         }
-        h1 {
-            color: #333;
+        header {
+            background-color: #007bff; /* Blue header */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .hero {
+            text-align: center;
+            padding: 40px;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .hero h2 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            border: 2px solid #007bff;
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+        }
+        .cta:hover, .cta:focus {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .cta:active {
+            background-color: #004494;
+            border-color: #004494;
+            transform: scale(0.98); /* Slightly shrink on touch */
+        }
+        .section {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+        .visible {
+            display: block;
+        }
+        .repair-options, .brand-options, .model-options, .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .repair-option, .brand-option, .model-option, .payment-option {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            color: #000000; /* Black text color */
+            transition: background-color 0.3s, transform 0.3s;
+            touch-action: manipulation; /* Improve touch interaction */
+        }
+        .repair-option:hover, .brand-option:hover, .model-option:hover, .payment-option:hover,
+        .repair-option:focus, .brand-option:focus, .model-option:focus, .payment-option:focus {
+            background-color: #f1f1f1;
+            transform: translateY(-5px);
+        }
+        .repair-option:active, .brand-option:active, .model-option:active, .payment-option:active {
+            background-color: #e1e1e1;
+            transform: translateY(-2px);
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            font-size: 24px;
+            text-decoration: none;
+            color: #000000; /* Black color */
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .social-icons a:hover, .social-icons a:focus {
+            opacity: 0.8;
+        }
+        .social-icons .fa-facebook {
+            color: #1877f2; /* Facebook color */
+        }
+        .social-icons .fa-instagram {
+            color: #e4405f; /* Instagram color */
+        }
+        .social-icons .fa-tiktok {
+            color: #000000; /* TikTok color */
+        }
+        .social-icons .fa-whatsapp {
+            color: #25d366; /* WhatsApp color */
+        }
+        footer {
+            background-color: #f8f9fa;
+            color: #000000; /* Black text color */
+            text-align: center;
+            padding: 20px 0;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+            touch-action: manipulation; /* Improve touch interaction */
+        }
+        .back-button:hover, .back-button:focus {
+            background-color: #0056b3;
+        }
+        .back-button:active {
+            background-color: #004494;
+            transform: scale(0.98); /* Slightly shrink on touch */
+        }
+        .brand-option i, .repair-option i, .model-option i, .payment-option i {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .model-options .model-option {
+            width: 100%; /* Full width for model options */
         }
     </style>
 </head>
 <body>
-    <h1>低いカーストの彼女</h1>
-    <p>プレムとマヤは異なるカーストの出身で、カララトリ祭りの間に恋に落ちました。彼らは平和な村に住み、娘のサルガムをもうけました。残念ながら、彼らは自宅で亡くなって発見され、犯人は見つかりませんでした。</p>
+    <header>
+        <h1>FixItNepal</h1>
+    </header>
+
+    <div id="hero" class="hero section visible">
+        <h2>Your Trusted Tech Repair Experts</h2>
+        <p>Fast, reliable repairs for laptops, desktops, mobiles, iPads, and tablets. Quality service you can count on.</p>
+        <a href="#" class="cta" onclick="showSection('repair-selection')">Book a Repair</a>
+    </div>
+
+    <div id="repair-selection" class="repair-selection section">
+        <h2>Select a Repair Type</h2>
+        <div class="repair-options">
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'mobile')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Repair</h3>
+            </a>
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'laptop')">
+                <i class="fas fa-laptop"></i>
+                <h3>Laptop Repair</h3>
+            </a>
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'desktop')">
+                <i class="fas fa-desktop"></i>
+                <h3>Desktop Repair</h3>
+            </a>
+            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'tablet')">
+                <i class="fas fa-tablet-alt"></i>
+                <h3>iPad & Tablet Repair</h3>
+            </a>
+        </div>
+    </div>
+
+    <div id="brand-selection" class="brand-selection section">
+        <h2>Select Your Brand</h2>
+        <div class="brand-options">
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'apple')">
+                <i class="fab fa-apple"></i>
+                <h3>Apple</h3>
+            </a>
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'samsung')">
+                <i class="fab fa-samsung"></i>
+                <h3>Samsung</h3>
+            </a>
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'redmi')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Redmi</h3>
+            </a>
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'realme')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Realme</h3>
+            </a>
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'vivo')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Vivo</h3>
+            </a>
+            <a href="#" class="brand-option" onclick="showSection('model-selection', 'oppo')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Oppo</h3>
+            </a>
+        </div>
+    </div>
+
+    <div id="model-selection" class="model-selection section">
+        <h2>Select Your Model</h2>
+        <div class="model-options" id="modelOptions">
+            <!-- Models will be dynamically loaded here -->
+        </div>
+        <button class="back-button" onclick="showSection('repair-selection')">Back</button>
+    </div>
+
+    <div id="payment-selection" class="payment-selection section">
+        <h2>Select Payment Method</h2>
+        <div class="payment-options">
+            <a href="#" class="payment-option">
+                <i class="fab fa-esewa"></i>
+                <h3>eSewa</h3>
+            </a>
+            <a href="#" class="payment-option">
+                <i class="fab fa-khalti"></i>
+                <h3>Khalti</h3>
+            </a>
+            <a href="#" class="payment-option">
+                <i class="fab fa-imepay"></i>
+                <h3>IME Pay</h3>
+            </a>
+            <a href="#" class="payment-option">
+                <i class="fas fa-credit-card"></i>
+                <h3>Connect IPS</h3>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/your-whatsapp-number" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId, type) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('visible'));
+            document.getElementById(sectionId).classList.add('visible');
+            if (sectionId === 'model-selection' && type) {
+                loadModels(type);
+            }
+        }
+
+        function loadModels(brand) {
+            const modelOptions = document.getElementById('modelOptions');
+            let models = [];
+
+            switch (brand) {
+                case 'apple':
+                    models = [
+                        'iPhone 15 Pro Max', 'iPhone 15', 'iPhone 14 Pro Max', 'iPhone 14 Pro',
+                        'iPhone 13 Pro Max', 'iPhone 13', 'iPhone 12 Pro Max', 'iPhone 12',
+                        'iPhone 11 Pro Max', 'iPhone 11', 'iPhone SE (2022)', 'iPhone X'
+                    ];
+                    break;
+                case 'samsung':
+                    models = [
+                        'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23', 'Galaxy Note 20 Ultra',
+                        'Galaxy Note 10', 'Galaxy A54', 'Galaxy A34', 'Galaxy Z Fold 4', 'Galaxy Z Flip 4'
+                    ];
+                    break;
+                case 'redmi':
+                    models = [
+                        'Redmi Note 12 Pro', 'Redmi Note 11', 'Redmi Note 10', 'Redmi K50',
+                        'Redmi K40', 'Redmi 10', 'Redmi 11', 'Redmi 9'
+                    ];
+                    break;
+                case 'realme':
+                    models = [
+                        'Realme GT 2 Pro', 'Realme 11 Pro', 'Realme 10 Pro', 'Realme X7',
+                        'Realme C21', 'Realme 9 Pro', 'Realme 8 Pro', 'Realme Narzo 50'
+                    ];
+                    break;
+                case 'vivo':
+                    models = [
+                        'Vivo X80 Pro', 'Vivo Y76', 'Vivo V21', 'Vivo V23',
+                        'Vivo X70 Pro', 'Vivo X60', 'Vivo Y33s', 'Vivo V20'
+                    ];
+                    break;
+                case 'oppo':
+                    models = [
+                        'Oppo Find X5 Pro', 'Oppo Reno 8 Pro', 'Oppo Reno 8', 'Oppo A54',
+                        'Oppo F19 Pro', 'Oppo Reno 7', 'Oppo A74', 'Oppo A72'
+                    ];
+                    break;
+                default:
+                    models = [];
+            }
+
+            modelOptions.innerHTML = models.map(model => 
+                `<div class="model-option">
+                    <h3>${model}</h3>
+                </div>`
+            ).join('');
+        }
+
+        window.onload = () => showSection('hero');
+    </script>
 </body>
 </html>
