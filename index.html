@@ -20,25 +20,6 @@
             color: white;
             text-align: center;
             padding: 20px 0;
-            position: relative;
-        }
-        header .header-icons {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            gap: 15px;
-        }
-        header .header-icons a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5em;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-        header .header-icons a:hover, 
-        header .header-icons a:focus {
-            opacity: 0.8;
         }
         .hero {
             text-align: center;
@@ -170,11 +151,6 @@
 <body>
     <header>
         <h1>FixItNepal</h1>
-        <div class="header-icons">
-            <a href="#" aria-label="Search"><i class="fas fa-search"></i></a>
-            <a href="#" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a>
-            <a href="#" aria-label="User"><i class="fas fa-user"></i></a>
-        </div>
     </header>
 
     <div id="hero" class="hero section visible">
@@ -227,68 +203,158 @@
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p>&copy; 2024 FixItNepal. All rights reserved.</p>
     </footer>
 
     <script>
+        const brandData = {
+            mobile: [
+                { name: 'Apple', icon: 'fab fa-apple' },
+                { name: 'Samsung', icon: 'fab fa-samsung' },
+                { name: 'Redmi', icon: 'fas fa-mobile-alt' },
+                { name: 'Realme', icon: 'fas fa-mobile-alt' },
+                { name: 'Vivo', icon: 'fas fa-mobile-alt' },
+                { name: 'Oppo', icon: 'fas fa-mobile-alt' }
+            ],
+            laptop: [
+                { name: 'Apple', icon: 'fab fa-apple' },
+                { name: 'Samsung', icon: 'fab fa-samsung' },
+                { name: 'ASUS', icon: 'fab fa-asus' },
+                { name: 'Acer', icon: 'fab fa-acern' },
+                { name: 'Dell', icon: 'fab fa-dell' },
+                { name: 'Lenovo', icon: 'fab fa-lenovo' },
+                { name: 'HP', icon: 'fab fa-hp' },
+                { name: 'MSI', icon: 'fab fa-msi' },
+                { name: 'Razer', icon: 'fab fa-razer' },
+                { name: 'Microsoft Surface', icon: 'fab fa-microsoft' },
+                { name: 'Chromebook', icon: 'fab fa-chromebook' }
+            ],
+            desktop: [
+                { name: 'Custom Build', icon: 'fas fa-desktop' },
+                { name: 'HP', icon: 'fab fa-hp' },
+                { name: 'Dell', icon: 'fab fa-dell' },
+                { name: 'Lenovo', icon: 'fab fa-lenovo' }
+            ],
+            tablet: [
+                { name: 'Apple', icon: 'fab fa-apple' },
+                { name: 'Samsung', icon: 'fab fa-samsung' },
+                { name: 'Lenovo', icon: 'fab fa-lenovo' }
+            ]
+        };
+
+        const modelData = {
+            apple: [
+                'iPhone 15 Pro Max', 'iPhone 15', 'iPhone 14 Pro Max', 'iPhone 14 Pro',
+                'iPhone 13 Pro Max', 'iPhone 13', 'iPhone 12 Pro Max', 'iPhone 12',
+                'iPhone 11 Pro Max', 'iPhone 11', 'iPhone SE (2022)', 'iPhone X'
+            ],
+            samsung: [
+                'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23', 'Galaxy Note 20 Ultra',
+                'Galaxy Note 10', 'Galaxy A54', 'Galaxy A34', 'Galaxy Z Fold 4', 'Galaxy Z Flip 4'
+            ],
+            redmi: [
+                'Redmi Note 12 Pro', 'Redmi Note 11', 'Redmi Note 10', 'Redmi K50',
+                'Redmi K40', 'Redmi 10', 'Redmi 11', 'Redmi 9'
+            ],
+            realme: [
+                'Realme GT 2 Pro', 'Realme 11 Pro', 'Realme 10 Pro', 'Realme X7',
+                'Realme C21', 'Realme 9 Pro', 'Realme 8 Pro', 'Realme Narzo 50'
+            ],
+            vivo: [
+                'Vivo X80 Pro', 'Vivo Y76', 'Vivo V21', 'Vivo V23',
+                'Vivo X70 Pro', 'Vivo X60', 'Vivo Y33s', 'Vivo V20'
+            ],
+            oppo: [
+                'Oppo Find X5 Pro', 'Oppo Reno 8 Pro', 'Oppo Reno 8', 'Oppo A54',
+                'Oppo F19 Pro', 'Oppo Reno 7', 'Oppo A74', 'Oppo A72'
+            ],
+            apple_laptop: [
+                'MacBook Air M2', 'MacBook Pro M2', 'MacBook Pro 16"',
+                'iMac 24"', 'iMac 27"', 'Mac Mini', 'Mac Studio'
+            ],
+            samsung_laptop: [
+                'Galaxy Book3 Pro', 'Galaxy Book3', 'Galaxy Book2 Pro', 'Galaxy Book2',
+                'Galaxy Chromebook', 'Galaxy Book S'
+            ],
+            asus_laptop: [
+                'ZenBook 14', 'ZenBook Flip 14', 'ROG Strix Scar 15', 'ROG Zephyrus G14',
+                'VivoBook 15', 'TUF Gaming A15', 'ROG Flow Z13'
+            ],
+            acer_laptop: [
+                'Predator Helios 300', 'Predator Triton 500', 'Nitro 5', 'Aspire 7',
+                'Swift X', 'Spin 5', 'ConceptD 7'
+            ],
+            dell_laptop: [
+                'XPS 13', 'XPS 15', 'Inspiron 15', 'Latitude 7420', 'Precision 5560',
+                'Alienware x17', 'G15 Gaming'
+            ],
+            lenovo_laptop: [
+                'ThinkPad X1 Carbon', 'ThinkPad T14', 'Yoga 9i', 'Legion 5 Pro',
+                'IdeaPad 5', 'Flex 5', 'ThinkBook 14'
+            ],
+            hp_laptop: [
+                'Spectre x360', 'Envy 14', 'Pavilion 15', 'Omen 16', 'Victus 16',
+                'Elite Dragonfly', 'ProBook 450'
+            ],
+            msi_laptop: [
+                'GE76 Raider', 'GS66 Stealth', 'GF63 Thin', 'Creator 15', 'Summit E16',
+                'Alpha 15', 'Crosshair 15'
+            ],
+            razer_laptop: [
+                'Blade 15', 'Blade 17', 'Blade Stealth 13', 'Blade 14', 'Razer Book 13'
+            ],
+            microsoft_surface_laptop: [
+                'Surface Laptop 4', 'Surface Laptop Studio', 'Surface Pro 9', 'Surface Book 3',
+                'Surface Go 3', 'Surface Laptop 3'
+            ],
+            chromebook_laptop: [
+                'Chromebook Spin 713', 'Chromebook 14', 'Chromebook Flex 5', 'Chromebook Flip C436',
+                'Chromebook Duet', 'Chromebook R11'
+            ]
+        };
+
         function showSection(sectionId, type) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('visible');
-            });
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('visible'));
             document.getElementById(sectionId).classList.add('visible');
 
-            if (sectionId === 'brand-selection') {
+            if (sectionId === 'brand-selection' && type) {
                 loadBrands(type);
-            } else if (sectionId === 'model-selection') {
+            } else if (sectionId === 'model-selection' && type) {
                 loadModels(type);
             }
         }
 
         function loadBrands(type) {
-            // Example of loading brand options
-            const brands = {
-                mobile: ['Samsung', 'Apple', 'OnePlus'],
-                laptop: ['HP', 'Dell', 'Lenovo'],
-                desktop: ['Acer', 'Asus', 'MSI'],
-                tablet: ['Apple', 'Samsung', 'Huawei']
-            };
-
             const brandOptions = document.getElementById('brand-options');
-            brandOptions.innerHTML = brands[type].map(brand => `
-                <a href="#" class="brand-option" onclick="showSection('model-selection', '${type}-${brand.toLowerCase()}')" aria-label="${brand} Repair">
-                    <i class="fas fa-tag"></i>
-                    <h3>${brand}</h3>
-                </a>
-            `).join('');
+            if (!brandData[type]) {
+                brandOptions.innerHTML = '<p>No brands available for this repair type.</p>';
+                return;
+            }
+
+            brandOptions.innerHTML = brandData[type].map(brand =>
+                `<a href="#" class="brand-option" onclick="showSection('model-selection', '${brand.name.toLowerCase()}_${type}')" aria-label="${brand.name}">
+                    <i class="${brand.icon}"></i>
+                    <h3>${brand.name}</h3>
+                </a>`
+            ).join('');
         }
 
-        function loadModels(type) {
-            // Example of loading model options
-            const models = {
-                'mobile-samsung': ['Galaxy S21', 'Galaxy Note 20', 'Galaxy A52'],
-                'mobile-apple': ['iPhone 13', 'iPhone 12', 'iPhone SE'],
-                'mobile-oneplus': ['OnePlus 9', 'OnePlus 8T', 'OnePlus Nord'],
-                'laptop-hp': ['Pavilion', 'Envy', 'Spectre'],
-                'laptop-dell': ['Inspiron', 'XPS', 'Alienware'],
-                'laptop-lenovo': ['ThinkPad', 'IdeaPad', 'Legion'],
-                'desktop-acer': ['Aspire', 'Predator', 'Nitro'],
-                'desktop-asus': ['ROG', 'TUF', 'VivoPC'],
-                'desktop-msi': ['Infinite', 'Trident', 'Aegis'],
-                'tablet-apple': ['iPad Air', 'iPad Pro', 'iPad Mini'],
-                'tablet-samsung': ['Galaxy Tab S7', 'Galaxy Tab A7', 'Galaxy Tab Active'],
-                'tablet-huawei': ['MatePad Pro', 'MediaPad T5', 'MatePad']
-            };
-
+        function loadModels(brandType) {
             const modelOptions = document.getElementById('modelOptions');
-            modelOptions.innerHTML = models[type].map(model => `
-                <a href="#" class="model-option" aria-label="${model} Repair">
-                    <i class="fas fa-laptop"></i>
-                    <h3>${model}</h3>
-                </a>
-            `).join('');
+            const models = modelData[brandType];
+
+            if (!models) {
+                modelOptions.innerHTML = '<p>No models available for this brand.</p>';
+                return;
+            }
+
+            modelOptions.innerHTML = models.map(model =>
+                `<div class="model-option"><h3>${model}</h3></div>`
+            ).join('');
         }
+
+        window.onload = () => showSection('hero');
     </script>
 </body>
-</html>
+    </html>
