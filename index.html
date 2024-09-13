@@ -195,7 +195,7 @@
                 <h3>iPad & Tablet Repair</h3>
             </a>
         </div>
-        <button class="back-button" onclick="showSection('hero')">Back</button>
+        <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <div id="brand-selection" class="brand-selection section">
@@ -203,7 +203,7 @@
         <div id="brand-options" class="brand-options">
             <!-- Brands will be dynamically loaded here -->
         </div>
-        <button class="back-button" onclick="showSection('repair-selection')">Back</button>
+        <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <div id="model-selection" class="model-selection section">
@@ -211,7 +211,7 @@
         <div class="model-options" id="modelOptions">
             <!-- Models will be dynamically loaded here -->
         </div>
-        <button class="back-button" onclick="showSection('brand-selection')">Back</button>
+        <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <div id="service-selection" class="service-selection section">
@@ -234,28 +234,38 @@
                 <h3>Other Issues</h3>
             </a>
         </div>
-        <button class="back-button" onclick="showSection('model-selection')">Back</button>
+        <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <footer>
+        <p>© 2024 FixItNepal. All rights reserved.</p>
         <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://whatsapp.com" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p>&copy; 2024 FixItNepal. All rights reserved.</p>
     </footer>
 
     <script>
+        let historyStack = ['hero']; // Start with the initial section
+
         function showSection(sectionId, repairType) {
             document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
             document.getElementById(sectionId).classList.add('visible');
-            
-            if (sectionId === 'brand-selection' && repairType) {
+
+            if (repairType) {
                 loadBrands(repairType);
-            } else if (sectionId === 'model-selection') {
-                // Reset service selection or other actions
+            }
+        }
+
+        function goBack() {
+            if (historyStack.length > 1) {
+                historyStack.pop(); // Remove the current section from the history stack
+                const previousSection = historyStack[historyStack.length - 1];
+                showSection(previousSection);
+            } else {
+                console.log('No previous section to go back to.');
             }
         }
 
@@ -284,6 +294,9 @@
                 div.onclick = () => loadModels(brand);
                 brandContainer.appendChild(div);
             });
+
+            historyStack.push('brand-selection');
+            showSection('brand-selection');
         }
 
         function loadModels(brand) {
@@ -314,6 +327,7 @@
                 modelOptions.appendChild(div);
             });
 
+            historyStack.push('model-selection');
             showSection('model-selection');
         }
 
@@ -321,6 +335,11 @@
             // You can handle service selection logic here
             alert(`Selected service: ${serviceType}`);
         }
+
+        // Event listener for the back button
+        document.querySelectorAll('.back-button').forEach(button => {
+            button.addEventListener('click', goBack);
+        });
     </script>
 </body>
 </html>
