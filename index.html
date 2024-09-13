@@ -59,13 +59,13 @@
         .visible {
             display: block;
         }
-        .repair-options, .brand-options, .model-options {
+        .repair-options, .brand-options, .model-options, .service-options {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .repair-option, .brand-option, .model-option {
+        .repair-option, .brand-option, .model-option, .service-option {
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -77,12 +77,12 @@
             transition: background-color 0.3s, transform 0.3s;
             touch-action: manipulation;
         }
-        .repair-option:hover, .brand-option:hover, .model-option:hover,
-        .repair-option:focus, .brand-option:focus, .model-option:focus {
+        .repair-option:hover, .brand-option:hover, .model-option:hover, .service-option:hover,
+        .repair-option:focus, .brand-option:focus, .model-option:focus, .service-option:focus {
             background-color: #f1f1f1;
             transform: translateY(-5px);
         }
-        .repair-option:active, .brand-option:active, .model-option:active {
+        .repair-option:active, .brand-option:active, .model-option:active, .service-option:active {
             background-color: #e1e1e1;
             transform: translateY(-2px);
         }
@@ -139,12 +139,28 @@
             background-color: #004494;
             transform: scale(0.98);
         }
-        .brand-option i, .repair-option i, .model-option i {
+        .repair-option i, .brand-option i, .model-option i, .service-option i {
             font-size: 2em;
             margin-bottom: 10px;
         }
-        .model-options .model-option {
-            width: 100%;
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8em;
+            }
+            .cta {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .repair-option, .brand-option, .model-option, .service-option {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 15px;
+            }
+            .social-icons a {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -198,163 +214,113 @@
         <button class="back-button" onclick="showSection('brand-selection')">Back</button>
     </div>
 
+    <div id="service-selection" class="service-selection section">
+        <h2>Select the Service You Need</h2>
+        <div class="service-options">
+            <a href="#" class="service-option" onclick="selectService('battery-replacement')">
+                <i class="fas fa-battery-half"></i>
+                <h3>Battery Replacement</h3>
+            </a>
+            <a href="#" class="service-option" onclick="selectService('screen-replacement')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Screen Replacement</h3>
+            </a>
+            <a href="#" class="service-option" onclick="selectService('motherboard-replacement')">
+                <i class="fas fa-motherboard"></i>
+                <h3>Motherboard Replacement</h3>
+            </a>
+            <a href="#" class="service-option" onclick="selectService('other-issues')">
+                <i class="fas fa-tools"></i>
+                <h3>Other Issues</h3>
+            </a>
+        </div>
+        <button class="back-button" onclick="showSection('model-selection')">Back</button>
+    </div>
+
     <footer>
         <div class="social-icons">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
+        <p>&copy; 2024 FixItNepal. All rights reserved.</p>
     </footer>
 
     <script>
-        const brandData = {
-            mobile: [
-                { name: 'Apple', icon: 'fab fa-apple' },
-                { name: 'Samsung', icon: 'fab fa-samsung' },
-                { name: 'Redmi', icon: 'fas fa-mobile-alt' },
-                { name: 'Realme', icon: 'fas fa-mobile-alt' },
-                { name: 'Vivo', icon: 'fas fa-mobile-alt' },
-                { name: 'Oppo', icon: 'fas fa-mobile-alt' }
-            ],
-            laptop: [
-                { name: 'Apple', icon: 'fab fa-apple' },
-                { name: 'Samsung', icon: 'fab fa-samsung' },
-                { name: 'ASUS', icon: 'fab fa-asus' },
-                { name: 'Acer', icon: 'fab fa-acern' },
-                { name: 'Dell', icon: 'fab fa-dell' },
-                { name: 'Lenovo', icon: 'fab fa-lenovo' },
-                { name: 'HP', icon: 'fab fa-hp' },
-                { name: 'MSI', icon: 'fab fa-msi' },
-                { name: 'Razer', icon: 'fab fa-razer' },
-                { name: 'Microsoft Surface', icon: 'fab fa-microsoft' },
-                { name: 'Chromebook', icon: 'fab fa-chromebook' }
-            ],
-            desktop: [
-                { name: 'Custom Build', icon: 'fas fa-desktop' },
-                { name: 'HP', icon: 'fab fa-hp' },
-                { name: 'Dell', icon: 'fab fa-dell' },
-                { name: 'Lenovo', icon: 'fab fa-lenovo' }
-            ],
-            tablet: [
-                { name: 'Apple', icon: 'fab fa-apple' },
-                { name: 'Samsung', icon: 'fab fa-samsung' },
-                { name: 'Lenovo', icon: 'fab fa-lenovo' }
-            ]
-        };
-
-        const modelData = {
-            apple: [
-                'iPhone 15 Pro Max', 'iPhone 15', 'iPhone 14 Pro Max', 'iPhone 14 Pro',
-                'iPhone 13 Pro Max', 'iPhone 13', 'iPhone 12 Pro Max', 'iPhone 12',
-                'iPhone 11 Pro Max', 'iPhone 11', 'iPhone SE (2022)', 'iPhone X'
-            ],
-            samsung: [
-                'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23', 'Galaxy Note 20 Ultra',
-                'Galaxy Note 10', 'Galaxy A54', 'Galaxy A34', 'Galaxy Z Fold 4', 'Galaxy Z Flip 4'
-            ],
-            redmi: [
-                'Redmi Note 12 Pro', 'Redmi Note 11', 'Redmi Note 10', 'Redmi K50',
-                'Redmi K40', 'Redmi 10', 'Redmi 11', 'Redmi 9'
-            ],
-            realme: [
-                'Realme GT 2 Pro', 'Realme 11 Pro', 'Realme 10 Pro', 'Realme X7',
-                'Realme C21', 'Realme 9 Pro', 'Realme 8 Pro', 'Realme Narzo 50'
-            ],
-            vivo: [
-                'Vivo X80 Pro', 'Vivo Y76', 'Vivo V21', 'Vivo V23',
-                'Vivo X70 Pro', 'Vivo X60', 'Vivo Y33s', 'Vivo V20'
-            ],
-            oppo: [
-                'Oppo Find X5 Pro', 'Oppo Reno 8 Pro', 'Oppo Reno 8', 'Oppo A54',
-                'Oppo F19 Pro', 'Oppo Reno 7', 'Oppo A74', 'Oppo A72'
-            ],
-            apple_laptop: [
-                'MacBook Air M2', 'MacBook Pro M2', 'MacBook Pro 16"',
-                'iMac 24"', 'iMac 27"', 'Mac Mini', 'Mac Studio'
-            ],
-            samsung_laptop: [
-                'Galaxy Book3 Pro', 'Galaxy Book3', 'Galaxy Book2 Pro', 'Galaxy Book2',
-                'Galaxy Chromebook', 'Galaxy Book S'
-            ],
-            asus_laptop: [
-                'ZenBook 14', 'ZenBook Flip 14', 'ROG Strix Scar 15', 'ROG Zephyrus G14',
-                'VivoBook 15', 'TUF Gaming A15', 'ROG Flow Z13'
-            ],
-            acer_laptop: [
-                'Predator Helios 300', 'Predator Triton 500', 'Nitro 5', 'Aspire 7',
-                'Swift X', 'Spin 5', 'ConceptD 7'
-            ],
-            dell_laptop: [
-                'XPS 13', 'XPS 15', 'Inspiron 15', 'Latitude 7420', 'Precision 5560',
-                'Alienware x17', 'G15 Gaming'
-            ],
-            lenovo_laptop: [
-                'ThinkPad X1 Carbon', 'ThinkPad T14', 'Yoga 9i', 'Legion 5 Pro',
-                'IdeaPad 5', 'Flex 5', 'ThinkBook 14'
-            ],
-            hp_laptop: [
-                'Spectre x360', 'Envy 14', 'Pavilion 15', 'Omen 16', 'Victus 16',
-                'Elite Dragonfly', 'ProBook 450'
-            ],
-            msi_laptop: [
-                'GE76 Raider', 'GS66 Stealth', 'GF63 Thin', 'Creator 15', 'Summit E16',
-                'Alpha 15', 'Crosshair 15'
-            ],
-            razer_laptop: [
-                'Blade 15', 'Blade 17', 'Blade Stealth 13', 'Blade 14', 'Razer Book 13'
-            ],
-            microsoft_surface_laptop: [
-                'Surface Laptop 4', 'Surface Laptop Studio', 'Surface Pro 9', 'Surface Book 3',
-                'Surface Go 3', 'Surface Laptop 3'
-            ],
-            chromebook_laptop: [
-                'Chromebook Spin 713', 'Chromebook 14', 'Chromebook Flex 5', 'Chromebook Flip C436',
-                'Chromebook Duet', 'Chromebook R11'
-            ]
-        };
-
-        function showSection(sectionId, type) {
-            document.querySelectorAll('.section').forEach(section => section.classList.remove('visible'));
+        function showSection(sectionId, repairType) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
             document.getElementById(sectionId).classList.add('visible');
-
-            if (sectionId === 'brand-selection' && type) {
-                loadBrands(type);
-            } else if (sectionId === 'model-selection' && type) {
-                loadModels(type);
+            
+            if (sectionId === 'brand-selection' && repairType) {
+                loadBrands(repairType);
+            } else if (sectionId === 'model-selection') {
+                // Reset service selection or other actions
             }
         }
 
-        function loadBrands(type) {
-            const brandOptions = document.getElementById('brand-options');
-            if (!brandData[type]) {
-                brandOptions.innerHTML = '<p>No brands available for this repair type.</p>';
-                return;
-            }
+        function loadBrands(repairType) {
+            const brandOptions = {
+                mobile: ['Apple', 'Samsung', 'OnePlus', 'Xiaomi'],
+                laptop: ['Apple', 'Samsung', 'ASUS', 'Acer', 'Dell', 'Lenovo', 'HP', 'MSI', 'Razer', 'Microsoft Surface', 'Chromebook'],
+                desktop: ['ASUS', 'Acer', 'Dell', 'Lenovo', 'HP', 'MSI', 'Razer', 'Microsoft Surface', 'Chromebook'],
+                tablet: ['Apple', 'Samsung', 'Microsoft Surface']
+            };
 
-            brandOptions.innerHTML = brandData[type].map(brand =>
-                `<a href="#" class="brand-option" onclick="showSection('model-selection', '${brand.name.toLowerCase()}_${type}')" aria-label="${brand.name}">
-                    <i class="${brand.icon}"></i>
-                    <h3>${brand.name}</h3>
-                </a>`
-            ).join('');
+            const icons = {
+                mobile: 'fas fa-mobile-alt',
+                laptop: 'fas fa-laptop',
+                desktop: 'fas fa-desktop',
+                tablet: 'fas fa-tablet-alt'
+            };
+
+            const brandContainer = document.getElementById('brand-options');
+            brandContainer.innerHTML = '';
+
+            (brandOptions[repairType] || []).forEach(brand => {
+                const div = document.createElement('div');
+                div.className = 'brand-option';
+                div.innerHTML = `<i class="${icons[repairType]}"></i><h3>${brand}</h3>`;
+                div.onclick = () => loadModels(brand);
+                brandContainer.appendChild(div);
+            });
         }
 
-        function loadModels(brandType) {
+        function loadModels(brand) {
+            const models = {
+                'Apple': ['iPhone 12', 'iPhone 13', 'MacBook Air'],
+                'Samsung': ['Galaxy S21', 'Galaxy Tab'],
+                'OnePlus': ['OnePlus 8', 'OnePlus 9'],
+                'Xiaomi': ['Mi 11', 'Redmi Note 10'],
+                'ASUS': ['ROG Zephyrus', 'VivoBook'],
+                'Acer': ['Predator Helios', 'Aspire 5'],
+                'Dell': ['XPS 13', 'Inspiron 15'],
+                'Lenovo': ['ThinkPad X1', 'IdeaPad 3'],
+                'HP': ['Spectre x360', 'Envy 13'],
+                'MSI': ['GS66 Stealth', 'Creator 15'],
+                'Razer': ['Blade 15', 'Blade Stealth'],
+                'Microsoft Surface': ['Surface Pro 7', 'Surface Laptop 4'],
+                'Chromebook': ['Chromebook Spin 713', 'Chromebook Flip']
+            };
+
             const modelOptions = document.getElementById('modelOptions');
-            const models = modelData[brandType];
+            modelOptions.innerHTML = '';
 
-            if (!models) {
-                modelOptions.innerHTML = '<p>No models available for this brand.</p>';
-                return;
-            }
+            (models[brand] || []).forEach(model => {
+                const div = document.createElement('div');
+                div.className = 'model-option';
+                div.innerHTML = `<h3>${model}</h3>`;
+                div.onclick = () => showSection('service-selection');
+                modelOptions.appendChild(div);
+            });
 
-            modelOptions.innerHTML = models.map(model =>
-                `<div class="model-option"><h3>${model}</h3></div>`
-            ).join('');
+            showSection('model-selection');
         }
 
-        window.onload = () => showSection('hero');
+        function selectService(serviceType) {
+            // You can handle service selection logic here
+            alert(`Selected service: ${serviceType}`);
+        }
     </script>
 </body>
-    </html>
+</html>
