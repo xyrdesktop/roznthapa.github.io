@@ -20,6 +20,15 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            position: relative;
+        }
+        .user-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
         }
         .hero {
             text-align: center;
@@ -158,6 +167,41 @@
             height: 100%;
             border: none;
         }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .hero h2 {
@@ -181,6 +225,7 @@
 <body>
     <header>
         <h1>FixItNepal</h1>
+        <a href="#" class="user-icon" aria-label="User Login" onclick="openLoginModal()"><i class="fas fa-user"></i></a>
     </header>
 
     <div id="hero" class="hero section visible">
@@ -189,32 +234,63 @@
         <a href="#" class="cta" onclick="showSection('repair-selection')">Book a Repair</a>
     </div>
 
-    <div id="repair-selection" class="repair-selection section">
-        <h2>Select a Repair Type</h2>
-        <div class="repair-options">
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'mobile')" aria-label="Mobile Repair">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Mobile Repair</h3>
-            </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'laptop')" aria-label="Laptop Repair">
-                <i class="fas fa-laptop"></i>
-                <h3>Laptop Repair</h3>
-            </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'desktop')" aria-label="Desktop Repair">
-                <i class="fas fa-desktop"></i>
-                <h3>Desktop Repair</h3>
-            </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'tablet')" aria-label="iPad & Tablet Repair">
-                <i class="fas fa-tablet-alt"></i>
-                <h3>iPad & Tablet Repair</h3>
-            </a>
+    <!-- Modal for Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <button type="submit" class="cta">Login</button>
+                <p><a href="#" onclick="showRegister()">Register</a></p>
+            </form>
         </div>
-        <button class="back-button" onclick="showSection('hero')">Back</button>
+    </div>
+
+    <!-- Modal for Registration (if needed) -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegisterModal()">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="new-username">Username:</label>
+                <input type="text" id="new-username" name="new-username" required><br>
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" name="new-password" required><br>
+                <button type="submit" class="cta">Register</button>
+                <p><a href="#" onclick="showLogin()">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="repair-selection" class="repair-selection section">
+        <h2>Select Repair Type</h2>
+        <div class="repair-options">
+            <div class="repair-option" onclick="showSection('brand-selection', 'mobile')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile</h3>
+            </div>
+            <div class="repair-option" onclick="showSection('brand-selection', 'laptop')">
+                <i class="fas fa-laptop"></i>
+                <h3>Laptop</h3>
+            </div>
+            <div class="repair-option" onclick="showSection('brand-selection', 'desktop')">
+                <i class="fas fa-desktop"></i>
+                <h3>Desktop</h3>
+            </div>
+            <div class="repair-option" onclick="showSection('brand-selection', 'tablet')">
+                <i class="fas fa-tablet-alt"></i>
+                <h3>Tablet</h3>
+            </div>
+        </div>
     </div>
 
     <div id="brand-selection" class="brand-selection section">
         <h2>Select Your Brand</h2>
-        <div id="brand-options" class="brand-options">
+        <div class="brand-options" id="brand-options">
             <!-- Brands will be dynamically loaded here -->
         </div>
         <button class="back-button" onclick="showSection('repair-selection')">Back</button>
@@ -351,6 +427,29 @@
         function selectService(serviceType) {
             // Show customer details section after selecting a service
             showSection('customer-details');
+        }
+
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function showRegister() {
+            closeLoginModal();
+            document.getElementById('registerModal').style.display = 'flex';
+        }
+
+        function closeRegisterModal() {
+            document.getElementById('registerModal').style.display = 'none';
+            openLoginModal();
+        }
+
+        function showLogin() {
+            closeRegisterModal();
+            openLoginModal();
         }
     </script>
 </body>
