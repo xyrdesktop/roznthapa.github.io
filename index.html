@@ -7,161 +7,7 @@
     <title>FixItNepal | Professional Tech Repair Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #ffffff;
-            color: #000000;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: #f8f9fa;
-        }
-        .hero h2 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .cta {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            border: 2px solid #007bff;
-            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-        }
-        .cta:hover, .cta:focus {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-        .cta:active {
-            background-color: #004494;
-            border-color: #004494;
-            transform: scale(0.98);
-        }
-        .section {
-            display: none;
-            padding: 20px;
-            text-align: center;
-        }
-        .visible {
-            display: block;
-        }
-        .repair-options, .brand-options, .model-options, .service-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .repair-option, .brand-option, .model-option, .service-option {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            color: #000000;
-            transition: background-color 0.3s, transform 0.3s;
-            touch-action: manipulation;
-        }
-        .repair-option:hover, .brand-option:hover, .model-option:hover, .service-option:hover,
-        .repair-option:focus, .brand-option:focus, .model-option:focus, .service-option:focus {
-            background-color: #f1f1f1;
-            transform: translateY(-5px);
-        }
-        .repair-option:active, .brand-option:active, .model-option:active, .service-option:active {
-            background-color: #e1e1e1;
-            transform: translateY(-2px);
-        }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .social-icons a {
-            font-size: 24px;
-            text-decoration: none;
-            color: #000000;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-        .social-icons a:hover, .social-icons a:focus {
-            opacity: 0.8;
-        }
-        .social-icons .fa-facebook {
-            color: #1877f2;
-        }
-        .social-icons .fa-instagram {
-            color: #e4405f;
-        }
-        .social-icons .fa-tiktok {
-            color: #000000;
-        }
-        .social-icons .fa-whatsapp {
-            color: #25d366;
-        }
-        footer {
-            background-color: #f8f9fa;
-            color: #000000;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s, transform 0.3s;
-            touch-action: manipulation;
-        }
-        .back-button:hover, .back-button:focus {
-            background-color: #0056b3;
-        }
-        .back-button:active {
-            background-color: #004494;
-            transform: scale(0.98);
-        }
-        .repair-option i, .brand-option i, .model-option i, .service-option i {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 1.8em;
-            }
-            .cta {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-            .repair-option, .brand-option, .model-option, .service-option {
-                width: 100%;
-                box-sizing: border-box;
-                padding: 15px;
-            }
-            .social-icons a {
-                font-size: 20px;
-            }
-        }
+        /* Your existing CSS */
     </style>
 </head>
 <body>
@@ -172,30 +18,30 @@
     <div id="hero" class="hero section visible">
         <h2>Your Trusted Tech Repair Experts</h2>
         <p>Fast, reliable repairs for laptops, desktops, mobiles, iPads, and tablets. Quality service you can count on.</p>
-        <a href="#" class="cta" onclick="showSection('repair-selection')">Book a Repair</a>
+        <a href="#" class="cta" onclick="navigateTo('repair-selection')">Book a Repair</a>
     </div>
 
     <div id="repair-selection" class="repair-selection section">
         <h2>Select a Repair Type</h2>
         <div class="repair-options">
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'mobile')" aria-label="Mobile Repair">
+            <a href="#" class="repair-option" onclick="navigateTo('brand-selection', 'mobile')" aria-label="Mobile Repair">
                 <i class="fas fa-mobile-alt"></i>
                 <h3>Mobile Repair</h3>
             </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'laptop')" aria-label="Laptop Repair">
+            <a href="#" class="repair-option" onclick="navigateTo('brand-selection', 'laptop')" aria-label="Laptop Repair">
                 <i class="fas fa-laptop"></i>
                 <h3>Laptop Repair</h3>
             </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'desktop')" aria-label="Desktop Repair">
+            <a href="#" class="repair-option" onclick="navigateTo('brand-selection', 'desktop')" aria-label="Desktop Repair">
                 <i class="fas fa-desktop"></i>
                 <h3>Desktop Repair</h3>
             </a>
-            <a href="#" class="repair-option" onclick="showSection('brand-selection', 'tablet')" aria-label="iPad & Tablet Repair">
+            <a href="#" class="repair-option" onclick="navigateTo('brand-selection', 'tablet')" aria-label="iPad & Tablet Repair">
                 <i class="fas fa-tablet-alt"></i>
                 <h3>iPad & Tablet Repair</h3>
             </a>
         </div>
-        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="back-button" onclick="navigateTo('hero')">Back</button>
     </div>
 
     <div id="brand-selection" class="brand-selection section">
@@ -203,7 +49,7 @@
         <div id="brand-options" class="brand-options">
             <!-- Brands will be dynamically loaded here -->
         </div>
-        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="back-button" onclick="navigateTo('repair-selection')">Back</button>
     </div>
 
     <div id="model-selection" class="model-selection section">
@@ -211,7 +57,7 @@
         <div class="model-options" id="modelOptions">
             <!-- Models will be dynamically loaded here -->
         </div>
-        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="back-button" onclick="navigateTo('brand-selection')">Back</button>
     </div>
 
     <div id="service-selection" class="service-selection section">
@@ -234,38 +80,52 @@
                 <h3>Other Issues</h3>
             </a>
         </div>
-        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="back-button" onclick="navigateTo('model-selection')">Back</button>
     </div>
 
     <footer>
-        <p>© 2024 FixItNepal. All rights reserved.</p>
         <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://whatsapp.com" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
+        <p>&copy; 2024 FixItNepal. All rights reserved.</p>
     </footer>
 
     <script>
-        let historyStack = ['hero']; // Start with the initial section
+        // Stack to manage navigation history
+        let historyStack = [];
 
-        function showSection(sectionId, repairType) {
+        function navigateTo(sectionId, repairType) {
+            // Add the current section to history stack before navigating
+            const currentSection = document.querySelector('.section.visible');
+            if (currentSection) {
+                historyStack.push(currentSection.id);
+            }
+
+            // Update section visibility
             document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
             document.getElementById(sectionId).classList.add('visible');
 
-            if (repairType) {
+            // Handle dynamic content loading
+            if (sectionId === 'brand-selection' && repairType) {
                 loadBrands(repairType);
+            } else if (sectionId === 'model-selection') {
+                // Reset or initialize content if needed
             }
+
+            // Update browser history
+            history.pushState({ sectionId, repairType }, '', `#${sectionId}`);
         }
 
         function goBack() {
-            if (historyStack.length > 1) {
-                historyStack.pop(); // Remove the current section from the history stack
-                const previousSection = historyStack[historyStack.length - 1];
-                showSection(previousSection);
+            if (historyStack.length > 0) {
+                const prevSectionId = historyStack.pop();
+                navigateTo(prevSectionId);
             } else {
-                console.log('No previous section to go back to.');
+                // Optionally handle case when there's no history
+                navigateTo('hero'); // Default fallback
             }
         }
 
@@ -294,9 +154,6 @@
                 div.onclick = () => loadModels(brand);
                 brandContainer.appendChild(div);
             });
-
-            historyStack.push('brand-selection');
-            showSection('brand-selection');
         }
 
         function loadModels(brand) {
@@ -323,22 +180,23 @@
                 const div = document.createElement('div');
                 div.className = 'model-option';
                 div.innerHTML = `<h3>${model}</h3>`;
-                div.onclick = () => showSection('service-selection');
+                div.onclick = () => navigateTo('service-selection');
                 modelOptions.appendChild(div);
             });
 
-            historyStack.push('model-selection');
-            showSection('model-selection');
+            navigateTo('model-selection');
         }
 
         function selectService(serviceType) {
-            // You can handle service selection logic here
             alert(`Selected service: ${serviceType}`);
         }
 
-        // Event listener for the back button
-        document.querySelectorAll('.back-button').forEach(button => {
-            button.addEventListener('click', goBack);
+        window.addEventListener('popstate', (event) => {
+            if (event.state) {
+                navigateTo(event.state.sectionId, event.state.repairType);
+            } else {
+                navigateTo('hero');
+            }
         });
     </script>
 </body>
