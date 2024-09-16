@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>XYR</title>
   <meta name="description" content="Your personal hacker-style portfolio.">
-  
+
   <!-- Google Fonts for a monospace, terminal-like feel -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
 
@@ -24,9 +24,9 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Source Code Pro', monospace; /* Hacker/Terminal style font */
-      background-color: #0A0A0A; /* Deep black background */
-      color: #00FF00; /* Classic green text for a hacker theme */
+      font-family: 'Source Code Pro', monospace;
+      background-color: #0A0A0A;
+      color: #00FF00;
       line-height: 1.6;
     }
     a {
@@ -39,7 +39,10 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #1C1C1C;
-      background-color: #111; /* Darker black for header */
+      background-color: #111;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
     }
     nav a {
       margin-left: 20px;
@@ -47,7 +50,7 @@
       transition: color 0.3s;
     }
     nav a:hover {
-      color: #02D663; /* Bright green accent on hover */
+      color: #02D663;
     }
     .hero {
       display: flex;
@@ -56,17 +59,15 @@
       align-items: center;
       height: 90vh;
       text-align: center;
-      background-color: #121212; /* Slightly lighter black for contrast */
+      background-color: #121212;
     }
     .hero h1 {
       font-size: 3.5rem;
       margin-bottom: 10px;
       color: #00FF00;
-      text-shadow: 0 0 10px #00FF00; /* Glowing effect for hacker look */
-      /* Add blinking effect */
+      text-shadow: 0 0 10px #00FF00;
       animation: blinkTextCursor 1s infinite;
     }
-    /* Blinking Animation */
     @keyframes blinkTextCursor {
       0% { opacity: 1; }
       50% { opacity: 0; }
@@ -112,6 +113,7 @@
       justify-content: center;
       gap: 40px;
       margin-top: 40px;
+      flex-wrap: wrap;
     }
     .projects .project-item {
       flex-basis: 300px;
@@ -144,7 +146,7 @@
     }
     .social-media .social-icon:hover {
       color: #02D663;
-      transform: rotate(-10deg); /* Tilt effect on hover */
+      transform: rotate(-10deg);
     }
     footer {
       padding: 20px;
@@ -164,6 +166,65 @@
     footer a:hover {
       color: #02D663;
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .hero a {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+      }
+      .about h2, .projects h2, .social-media h2 {
+        font-size: 1.8rem;
+      }
+      .projects .project-item {
+        flex-basis: 100%;
+      }
+      .social-media .social-icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        margin-left: 10px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
+      .hero a {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+      }
+      .about h2, .projects h2, .social-media h2 {
+        font-size: 1.5rem;
+      }
+      .projects .project-item {
+        flex-basis: 100%;
+        padding: 15px;
+      }
+      .social-media .social-icon {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -182,17 +243,15 @@
 
 <!-- Hero Section -->
 <section class="hero">
-  <h1>Welcome to the Terminal</h1> <!-- Blinking text effect -->
-  <p>I'm katx, a xyr. No clever tagline needed. </p>
+  <h1>Welcome to the Terminal</h1>
+  <p>I'm katx, a xyr. No clever tagline needed.</p>
   <a href="#projects">Check My Ducks</a>
 </section>
 
 <!-- About Section -->
 <section class="about" id="about">
   <h2>Who Am I?</h2>
-  <p>
-   Yup. Get it? XYR. It's a bad pun.
-  </p>
+  <p>Yup. Get it? XYR. It's a bad pun.</p>
 </section>
 
 <!-- Projects Section -->
@@ -218,7 +277,6 @@
 <!-- Social Media Section -->
 <section class="social-media">
   <h2>Duck With Me</h2>
-
   <div class="social-links">
     <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
     <a href="https://discord.com/users/your-id" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
@@ -230,8 +288,6 @@
 <footer>
   <p>&copy; 2081 Rojan Thapa. Some rights reserved. | <a href="mailto:katxmandu@duck.com">katxmandu@duck.com</a></p>
 </footer>
-
-
 
 </body>
 </html>
