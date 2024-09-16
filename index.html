@@ -1,476 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FixItNepal offers fast and reliable tech repair services for laptops, desktops, mobiles, iPads, and tablets. Quality service you can count on.">
-    <title>KATX</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #ffffff;
-            color: #000000;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-        }
-        .user-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: #f8f9fa;
-        }
-        .hero h2 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .cta {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            border: 2px solid #007bff;
-            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-        }
-        .cta:hover, .cta:focus {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-        .cta:active {
-            background-color: #004494;
-            border-color: #004494;
-            transform: scale(0.98);
-        }
-        .section {
-            display: none;
-            padding: 20px;
-            text-align: center;
-        }
-        .visible {
-            display: block;
-        }
-        .repair-options, .brand-options, .model-options, .service-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .repair-option, .brand-option, .model-option, .service-option {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            color: #000000;
-            transition: background-color 0.3s, transform 0.3s;
-            touch-action: manipulation;
-        }
-        .repair-option:hover, .brand-option:hover, .model-option:hover, .service-option:hover,
-        .repair-option:focus, .brand-option:focus, .model-option:focus, .service-option:focus {
-            background-color: #f1f1f1;
-            transform: translateY(-5px);
-        }
-        .repair-option:active, .brand-option:active, .model-option:active, .service-option:active {
-            background-color: #e1e1e1;
-            transform: translateY(-2px);
-        }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .social-icons a {
-            font-size: 24px;
-            text-decoration: none;
-            color: #000000;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-        .social-icons a:hover, .social-icons a:focus {
-            opacity: 0.8;
-        }
-        .social-icons .fa-facebook {
-            color: #1877f2;
-        }
-        .social-icons .fa-instagram {
-            color: #e4405f;
-        }
-        .social-icons .fa-tiktok {
-            color: #000000;
-        }
-        .social-icons .fa-whatsapp {
-            color: #25d366;
-        }
-        footer {
-            background-color: #f8f9fa;
-            color: #000000;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s, transform 0.3s;
-            touch-action: manipulation;
-        }
-        .back-button:hover, .back-button:focus {
-            background-color: #0056b3;
-        }
-        .back-button:active {
-            background-color: #004494;
-            transform: scale(0.98);
-        }
-        .repair-option i, .brand-option i, .model-option i, .service-option i {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        /* Map and customer details section */
-        .map-container {
-            height: 300px;
-            width: 100%;
-            background-color: #e9ecef;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
-            position: relative;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 1.8em;
-            }
-            .cta {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-            .repair-option, .brand-option, .model-option, .service-option {
-                width: 100%;
-                box-sizing: border-box;
-                padding: 15px;
-            }
-            .social-icons a {
-                font-size: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>XYR</title>
+  <meta name="description" content="Your personal hacker-style portfolio.">
+  
+  <!-- Google Fonts for a monospace, terminal-like feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Font Awesome for social media icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Source Code Pro', monospace; /* Hacker/Terminal style font */
+      background-color: #0A0A0A; /* Deep black background */
+      color: #00FF00; /* Classic green text for a hacker theme */
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: #00FF00;
+    }
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1C1C1C;
+      background-color: #111; /* Darker black for header */
+    }
+    nav a {
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #02D663; /* Bright green accent on hover */
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      text-align: center;
+      background-color: #121212; /* Slightly lighter black for contrast */
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      color: #00FF00;
+      text-shadow: 0 0 10px #00FF00; /* Glowing effect for hacker look */
+      /* Add blinking effect */
+      animation: blinkTextCursor 1s infinite;
+    }
+    /* Blinking Animation */
+    @keyframes blinkTextCursor {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    .hero a {
+      font-weight: 600;
+      border: 2px solid #00FF00;
+      padding: 10px 25px;
+      color: #00FF00;
+      transition: background 0.3s, color 0.3s;
+    }
+    .hero a:hover {
+      background-color: #02D663;
+      border-color: #02D663;
+      color: #0A0A0A;
+    }
+    .about, .projects, .social-media {
+      padding: 80px 20px;
+      text-align: center;
+      background-color: #0A0A0A;
+    }
+    .about h2, .projects h2, .social-media h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #00FF00;
+      text-shadow: 0 0 5px #00FF00;
+    }
+    .about p, .projects p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #00FF00;
+    }
+    .projects .project-list {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .projects .project-item {
+      flex-basis: 300px;
+      text-align: left;
+      padding: 20px;
+      border: 1px solid #1C1C1C;
+      transition: transform 0.3s, border-color 0.3s;
+      background-color: #111;
+    }
+    .projects .project-item:hover {
+      transform: translateY(-5px);
+      border-color: #02D663;
+    }
+    .projects .project-item h3 {
+      color: #00FF00;
+    }
+    .projects .project-item p {
+      color: #00FF00;
+    }
+    .social-media .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .social-media .social-icon {
+      font-size: 2rem;
+      color: #00FF00;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-media .social-icon:hover {
+      color: #02D663;
+      transform: rotate(-10deg); /* Tilt effect on hover */
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #1C1C1C;
+      background-color: #111;
+      color: #888;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #00FF00;
+    }
+    footer a {
+      color: #00FF00;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #02D663;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>KATX</h1>
-        <a href="#" class="user-icon" aria-label="User Login" onclick="openLoginModal()"><i class="fas fa-user"></i></a>
-    </header>
 
-    <div id="hero" class="hero section visible">
-        <h2>No Clever Tagline Needed. </h2>
-       
-        <a href="#" class="cta" onclick="showSection('repair-selection')">Book a Repair</a>
+<!-- Header with Navigation -->
+<header>
+  <div class="logo">
+    <h1>XYR</h1>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Welcome to the Terminal</h1> <!-- Blinking text effect -->
+  <p>I'm katx, a xyr. No clever tagline needed. </p>
+  <a href="#projects">Check My Ducks</a>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <h2>Who Am I?</h2>
+  <p>
+   Yup. Get it? XYR. It's a bad pun.
+  </p>
+</section>
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+  <h2>Some Ducks</h2>
+  <p>Here are a few ducks I've been working on. Explore my ducks below.</p>
+  <div class="project-list">
+    <div class="project-item">
+      <h3>Project Alpha</h3>
+      <p>Building a secure ducks for legal purposes (maybe).</p>
     </div>
-
-    <!-- Modal for Login -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
-                <button type="submit" class="cta">Login</button>
-                <p><a href="#" onclick="showRegister()">Register</a></p>
-            </form>
-        </div>
+    <div class="project-item">
+      <h3>Project Beta</h3>
+      <p>Unleashing the true potential of open-source frameworks with ducks.</p>
     </div>
-
-    <!-- Modal for Registration (if needed) -->
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRegisterModal()">&times;</span>
-            <h2>Register</h2>
-            <form id="registerForm">
-                <label for="new-username">Username:</label>
-                <input type="text" id="new-username" name="new-username" required><br>
-                <label for="new-password">Password:</label>
-                <input type="password" id="new-password" name="new-password" required><br>
-                <button type="submit" class="cta">Register</button>
-                <p><a href="#" onclick="showLogin()">Login</a></p>
-            </form>
-        </div>
+    <div class="project-item">
+      <h3>Project Gamma</h3>
+      <p>Automation tool to save countless ducks. Because who has duck for repetition?</p>
     </div>
+  </div>
+</section>
 
-    <div id="repair-selection" class="repair-selection section">
-        <h2>Select Repair Type</h2>
-        <div class="repair-options">
-            <div class="repair-option" onclick="showSection('brand-selection', 'mobile')">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Mobile</h3>
-            </div>
-            <div class="repair-option" onclick="showSection('brand-selection', 'laptop')">
-                <i class="fas fa-laptop"></i>
-                <h3>Laptop</h3>
-            </div>
-            <div class="repair-option" onclick="showSection('brand-selection', 'desktop')">
-                <i class="fas fa-desktop"></i>
-                <h3>Desktop</h3>
-            </div>
-            <div class="repair-option" onclick="showSection('brand-selection', 'tablet')">
-                <i class="fas fa-tablet-alt"></i>
-                <h3>iPad&Tablet</h3>
-            </div>
-        </div>
-    </div>
+<!-- Social Media Section -->
+<section class="social-media">
+  <h2>Duck With Me</h2>
 
-    <div id="brand-selection" class="brand-selection section">
-        <h2>Select Your Brand</h2>
-        <div class="brand-options" id="brand-options">
-            <!-- Brands will be dynamically loaded here -->
-        </div>
-        <button class="back-button" onclick="showSection('repair-selection')">Back</button>
-    </div>
+  <div class="social-links">
+    <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+    <a href="https://discord.com/users/your-id" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+    <a href="https://reddit.com/user/your-username" target="_blank" class="social-icon"><i class="fab fa-reddit"></i></a>
+  </div>
+</section>
 
-    <div id="model-selection" class="model-selection section">
-        <h2>Select Your Model</h2>
-        <div class="model-options" id="modelOptions">
-            <!-- Models will be dynamically loaded here -->
-        </div>
-        <button class="back-button" onclick="showSection('brand-selection')">Back</button>
-    </div>
+<!-- Footer Section -->
+<footer>
+  <p>&copy; 2081 Rojan Thapa. Some rights reserved. | <a href="mailto:katxmandu@duck.com">katxmandu@duck.com</a></p>
+</footer>
 
-    <div id="service-selection" class="service-selection section">
-        <h2>Select the Service You Need</h2>
-        <div class="service-options">
-            <a href="#" class="service-option" onclick="selectService('battery-replacement')">
-                <i class="fas fa-battery-half"></i>
-                <h3>Battery Replacement</h3>
-            </a>
-            <a href="#" class="service-option" onclick="selectService('screen-replacement')">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Screen Replacement</h3>
-            </a>
-            <a href="#" class="service-option" onclick="selectService('motherboard-replacement')">
-                <i class="fas fa-motherboard"></i>
-                <h3>Motherboard Replacement</h3>
-            </a> <a href="#" class="service-option" onclick="selectService('camera-replacement')">
-            <i class="fas fa-camera"></i>
-            <h3>Camera Replacement</h3>
-        </a>
-        <a href="#" class="service-option" onclick="selectService('back-panel-replacement')">
-            <i class="fas fa-box"></i>
-            <h3>Back Panel Replacement</h3>
-        </a>
-        <a href="#" class="service-option" onclick="selectService('software-update')">
-            <i class="fas fa-cogs"></i>
-            <h3>Software Update</h3>
-        </a>
-        <a href="#" class="service-option" onclick="selectService('software-installation')">
-            <i class="fas fa-download"></i>
-            <h3>Software Installation</h3>
-        </a>
-        <a href="#" class="service-option" onclick="selectService('water-damage-repair')">
-            <i class="fas fa-tint"></i>
-            <h3>Liquid Damage Repair</h3>
-        </a>
 
-            <a href="#" class="service-option" onclick="selectService('other-issues')">
-                <i class="fas fa-tools"></i>
-                <h3>Other Issues</h3>
-            </a>
-        </div>
-        <button class="back-button" onclick="showSection('model-selection')">Back</button>
-    </div>
 
-    <div id="customer-details" class="customer-details section">
-        <h2>Customer Details</h2>
-        <form id="customer-form">
-            <label for="full-name">Full Name:</label>
-            <input type="text" id="full-name" name="full-name" required><br>
-            <label for="phone-number">Phone Number:</label>
-            <input type="tel" id="phone-number" name="phone-number" required><br>
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required><br>
-            <button type="submit" class="cta">Submit</button>
-        </form>
-        <div class="map-container">
-            <iframe src="https://maps.google.com/maps?q=your+location&output=embed" allowfullscreen></iframe>
-        </div>
-        <button class="back-button" onclick="showSection('service-selection')">Back</button>
-    </div>
-
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p>&copy; 2024 KATX. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function showSection(sectionId, repairType) {
-            document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
-            document.getElementById(sectionId).classList.add('visible');
-            
-            if (sectionId === 'brand-selection' && repairType) {
-                loadBrands(repairType);
-            } else if (sectionId === 'model-selection') {
-                // Reset service selection or other actions
-            }
-        }
-
-        function loadBrands(repairType) {
-            const brandOptions = {
-                mobile: ['Apple', 'Samsung', 'OnePlus', 'Xiaomi'],
-                laptop: ['Apple', 'Samsung', 'ASUS', 'Acer', 'Dell', 'Lenovo', 'HP', 'MSI', 'Razer', 'Microsoft Surface', 'Chromebook'],
-                desktop: [],
-                tablet: ['Apple', 'Samsung', 'Microsoft Surface']
-            };
-
-            const icons = {
-                mobile: 'fas fa-mobile-alt',
-                laptop: 'fas fa-laptop',
-                desktop: 'fas fa-desktop',
-                tablet: 'fas fa-tablet-alt'
-            };
-
-            const brandContainer = document.getElementById('brand-options');
-            brandContainer.innerHTML = '';
-
-            (brandOptions[repairType] || []).forEach(brand => {
-                const div = document.createElement('div');
-                div.className = 'brand-option';
-                div.innerHTML = `<i class="${icons[repairType]}"></i><h3>${brand}</h3>`;
-                div.onclick = () => loadModels(brand);
-                brandContainer.appendChild(div);
-            });
-        }
-
-        function loadModels(brand) {
-            const models = {
-                'Apple': ['iPhone 12', 'iPhone 13'],
-                'Samsung': ['Galaxy S21', 'Galaxy Tab'],
-                'OnePlus': ['OnePlus 8', 'OnePlus 9'],
-                'Xiaomi': ['Mi 11', 'Redmi Note 10'],
-                'ASUS': ['ROG Zephyrus', 'VivoBook'],
-                'Acer': ['Predator Helios', 'Aspire 5'],
-                'Dell': ['XPS 13', 'Inspiron 15'],
-                'Lenovo': ['ThinkPad X1', 'IdeaPad 3'],
-                'HP': ['Spectre x360', 'Envy 13'],
-                'MSI': ['GS66 Stealth', 'Creator 15'],
-                'Razer': ['Blade 15', 'Blade Stealth'],
-                'Microsoft Surface': ['Surface Pro 7', 'Surface Laptop 4'],
-                'Chromebook': ['Chromebook Spin 713', 'Chromebook Flip']
-            };
-
-            const modelOptions = document.getElementById('modelOptions');
-            modelOptions.innerHTML = '';
-
-            (models[brand] || []).forEach(model => {
-                const div = document.createElement('div');
-                div.className = 'model-option';
-                div.innerHTML = `<h3>${model}</h3>`;
-                div.onclick = () => showSection('service-selection');
-                modelOptions.appendChild(div);
-            });
-
-            showSection('model-selection');
-        }
-
-        function selectService(serviceType) {
-            // Show customer details section after selecting a service
-            showSection('customer-details');
-        }
-
-        function openLoginModal() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-
-        function closeLoginModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        function showRegister() {
-            closeLoginModal();
-            document.getElementById('registerModal').style.display = 'flex';
-        }
-
-        function closeRegisterModal() {
-            document.getElementById('registerModal').style.display = 'none';
-            openLoginModal();
-        }
-
-        function showLogin() {
-            closeRegisterModal();
-            openLoginModal();
-        }
-    </script>
 </body>
 </html>
