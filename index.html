@@ -275,9 +275,29 @@
       display: inline-block; /* Ensure text can be animated properly */
       padding: 0; /* Remove any extra padding */
     }
+
+    /* Page Transition Styles */
+    .transition-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #00FF00;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 9999;
+    }
+    .transition-overlay.active {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
+
+<!-- Page Transition Overlay -->
+<div class="transition-overlay"></div>
 
 <!-- Header with Navigation -->
 <header>
@@ -371,6 +391,21 @@
     }
 
     typeText();
+  });
+
+  // Page Transition Effect
+  const overlay = document.querySelector('.transition-overlay');
+
+  function startTransition() {
+    overlay.classList.add('active');
+    setTimeout(() => {
+      overlay.classList.remove('active');
+    }, 500); // Matches the CSS transition duration
+  }
+
+  window.addEventListener('load', startTransition);
+  window.addEventListener('beforeunload', () => {
+    overlay.classList.add('active');
   });
 </script>
 
