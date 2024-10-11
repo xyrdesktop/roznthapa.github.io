@@ -35,13 +35,13 @@
             align-items: center;
             border-bottom: 1px solid #333333;
             background-color: #000000;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            flex-wrap: wrap;
         }
         .logo h1 {
             font-size: 1.8rem;
         }
         nav {
-            margin-top: 10px; /* Space for nav links on small screens */
+            margin-top: 10px;
         }
         nav a {
             margin-left: 20px;
@@ -87,13 +87,13 @@
             color: #000000;
         }
         section {
-            opacity: 0; /* Initially hide sections */
-            transform: translateY(50px); /* Move sections down */
-            transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: opacity 0.6s ease, transform 0.6s ease; 
         }
         section.visible {
-            opacity: 1; /* Show sections */
-            transform: translateY(0); /* Move sections to original position */
+            opacity: 1; 
+            transform: translateY(0); 
         }
         .about, .projects, .social-media {
             padding: 80px 20px;
@@ -190,8 +190,8 @@
                 font-size: 1.8rem;
             }
             .projects .project-item {
-                flex-basis: 100%; /* Stack projects on small screens */
-                margin-bottom: 20px; /* Add spacing */
+                flex-basis: 100%; 
+                margin-bottom: 20px; 
             }
             nav a {
                 margin-left: 10px;
@@ -361,20 +361,22 @@
             const options = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the section is visible
+                threshold: 0.1
             };
 
             const callback = (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Add class when in view
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
                     }
                 });
             };
 
             const observer = new IntersectionObserver(callback, options);
             sections.forEach(section => {
-                observer.observe(section); // Observe each section
+                observer.observe(section);
             });
         });
 
