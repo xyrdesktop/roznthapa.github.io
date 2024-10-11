@@ -44,7 +44,7 @@
         }
 
         nav {
-            margin-top: 10px;
+            display: flex; /* Ensure nav items are in a row */
         }
 
         nav a {
@@ -174,18 +174,18 @@
 
         footer {
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center align */
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
             color: #888888;
             text-align: center;
         }
 
         footer p {
-            margin: 5px 0; /* Add space between lines */
+            margin: 5px 0;
             font-size: 0.9rem;
             color: #FFFFFF;
-            white-space: nowrap; /* Prevents line break */
+            white-space: nowrap;
         }
 
         footer a {
@@ -208,17 +208,14 @@
 
         @media (max-width: 480px) {
             header {
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: space-between;
+                flex-direction: row; /* Keep items in a row */
+                justify-content: space-between; /* Ensure space between logo and nav */
+                align-items: center; /* Center align items */
             }
 
             nav {
-                margin-top: 10px;
-                align-self: flex-end;
-                width: 100%;
-                display: flex;
-                justify-content: flex-end;
+                margin-top: 0; /* Remove margin-top */
+                align-self: flex-end; /* Align nav to the right */
             }
 
             .logo h1 { font-size: 1.5rem; }
