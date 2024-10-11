@@ -23,9 +23,18 @@
             line-height: 1.6;
         }
 
+        body.light {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
         a {
             text-decoration: none;
             color: #FFFFFF;
+        }
+
+        body.light a {
+            color: #000000;
         }
 
         a:hover {
@@ -44,13 +53,22 @@
         }
 
         nav {
-            display: flex; /* Ensure nav items are in a row */
+            display: flex;
+            align-items: center;
         }
 
-        nav a {
-            margin-left: 20px;
-            font-weight: 600;
+        nav i {
+            cursor: pointer;
+            font-size: 1.5rem;
             transition: color 0.3s;
+        }
+
+        body.light nav i {
+            color: #000000;
+        }
+
+        nav i:hover {
+            color: #CCCCCC;
         }
 
         .hero {
@@ -90,7 +108,12 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        .hero a:hover {
+        body.light .hero a {
+            border-color: #000000;
+            color: #000000;
+        }
+
+        body.light .hero a:hover {
             background-color: #CCCCCC;
             border-color: #CCCCCC;
             color: #000000;
@@ -121,11 +144,19 @@
             animation: textFlicker 0.5s infinite;
         }
 
+        body.light .about h2, body.light .projects h2, body.light .social-media h2 {
+            color: #000000;
+        }
+
         .about p, .projects p {
             max-width: 600px;
             margin: 0 auto;
             font-size: 1rem;
             color: #FFFFFF;
+        }
+
+        body.light .about p, body.light .projects p {
+            color: #000000;
         }
 
         .projects .project-list {
@@ -144,6 +175,10 @@
             transition: transform 0.3s;
         }
 
+        body.light .projects .project-item {
+            border-color: #CCCCCC;
+        }
+
         .projects .project-item:hover {
             transform: translateY(-5px);
             border-color: #CCCCCC;
@@ -152,6 +187,11 @@
         .projects .project-item h3,
         .projects .project-item p {
             color: #FFFFFF;
+        }
+
+        body.light .projects .project-item h3,
+        body.light .projects .project-item p {
+            color: #000000;
         }
 
         .social-media .social-links {
@@ -165,6 +205,10 @@
             font-size: 2rem;
             color: #FFFFFF;
             transition: color 0.3s, transform 0.3s;
+        }
+
+        body.light .social-media .social-icon {
+            color: #000000;
         }
 
         .social-media .social-icon:hover {
@@ -188,9 +232,17 @@
             white-space: nowrap;
         }
 
+        body.light footer p {
+            color: #000000;
+        }
+
         footer a {
             color: #FFFFFF;
             transition: color 0.3s;
+        }
+
+        body.light footer a {
+            color: #000000;
         }
 
         footer a:hover {
@@ -203,19 +255,19 @@
             .hero a { font-size: 0.9rem; padding: 8px 20px; }
             .about h2, .projects h2, .social-media h2 { font-size: 1.8rem; }
             .projects .project-item { flex-basis: 100%; margin-bottom: 20px; }
-            nav a { margin-left: 10px; }
+            nav i { margin-left: 10px; }
         }
 
         @media (max-width: 480px) {
             header {
-                flex-direction: row; /* Keep items in a row */
-                justify-content: space-between; /* Ensure space between logo and nav */
-                align-items: center; /* Center align items */
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
 
             nav {
-                margin-top: 0; /* Remove margin-top */
-                align-self: flex-end; /* Align nav to the right */
+                margin-top: 0;
+                align-self: flex-end;
             }
 
             .logo h1 { font-size: 1.5rem; }
@@ -237,6 +289,10 @@
             padding-bottom: 5px;
             color: #FFFFFF;
             animation: textFlicker 0.5s infinite;
+        }
+
+        h2.light {
+            color: #000000;
         }
 
         h2::before {
@@ -265,6 +321,11 @@
             display: inline-block;
         }
 
+        body.light .typing-container {
+            color: #000000;
+            border-color: #000000;
+        }
+
         .transition-overlay {
             position: fixed;
             top: 0;
@@ -286,9 +347,7 @@
     <header>
         <div class="logo"><h1>XYR</h1></div>
         <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Ducks</a>
-            <a href="#contact">Contact</a>
+            <i id="theme-toggle" class="fas fa-sun" title="Toggle Theme"></i>
         </nav>
     </header>
     <section class="hero">
@@ -369,6 +428,19 @@
             const observer = new IntersectionObserver(callback, options);
             sections.forEach(section => {
                 observer.observe(section);
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light');
+                if (document.body.classList.contains('light')) {
+                    themeToggle.classList.remove('fa-sun');
+                    themeToggle.classList.add('fa-moon');
+                } else {
+                    themeToggle.classList.remove('fa-moon');
+                    themeToggle.classList.add('fa-sun');
+                }
             });
         });
 
