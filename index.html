@@ -86,6 +86,15 @@
             border-color: #CCCCCC;
             color: #000000;
         }
+        section {
+            opacity: 0; /* Initially hide sections */
+            transform: translateY(50px); /* Move sections down */
+            transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
+        }
+        section.visible {
+            opacity: 1; /* Show sections */
+            transform: translateY(0); /* Move sections to original position */
+        }
         .about, .projects, .social-media {
             padding: 80px 20px;
             text-align: center;
@@ -325,6 +334,7 @@
             const typingSpeed = 100;
             const deletingSpeed = 50;
             const delayAfterComplete = 2000;
+
             function typeText() {
                 if (charIndex < texts[textIndex].length) {
                     textElement.textContent += texts[textIndex].charAt(charIndex);
@@ -334,6 +344,7 @@
                     setTimeout(deleteText, delayAfterComplete);
                 }
             }
+
             function deleteText() {
                 if (charIndex > 0) {
                     textElement.textContent = textElement.textContent.slice(0, --charIndex);
@@ -344,7 +355,29 @@
                 }
             }
             typeText();
+
+            // Scroll Animation
+            const sections = document.querySelectorAll('section');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+
+            const callback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Add class when in view
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+            sections.forEach(section => {
+                observer.observe(section); // Observe each section
+            });
         });
+
         const overlay = document.querySelector('.transition-overlay');
         function startTransition() {
             overlay.classList.add('active');
