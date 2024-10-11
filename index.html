@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>XYR</title>
     <meta name="description" content="Your personal hacker-style portfolio.">
-    <!-- Google Fonts for a monospace, terminal-like feel -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
-    <!-- Font Awesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Styles -->
     <style>
         * {
             margin: 0;
@@ -22,7 +17,7 @@
         }
         body {
             font-family: 'Source Code Pro', monospace;
-            background-color: #000000; /* Black background */
+            background-color: #000000; /* Pure black background */
             color: #FFFFFF; /* White text */
             line-height: 1.6;
         }
@@ -39,7 +34,7 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #333333; /* Dark gray border */
-            background-color: #111111; /* Dark gray background */
+            background-color: #000000; /* Pure black background */
         }
         .logo h1 {
             font-size: 1.8rem;
@@ -59,7 +54,7 @@
             align-items: center;
             height: 90vh;
             text-align: center;
-            background-color: #121212; /* Very dark gray background */
+            background-color: #000000; /* Pure black background */
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -93,7 +88,7 @@
         .about, .projects, .social-media {
             padding: 80px 20px;
             text-align: center;
-            background-color: #000000; /* Black background */
+            background-color: #000000; /* Pure black background */
         }
         .about h2, .projects h2, .social-media h2 {
             font-size: 2.2rem;
@@ -126,7 +121,7 @@
             padding: 20px;
             border: 1px solid #333333; /* Dark gray border */
             transition: transform 0.3s, border-color 0.3s;
-            background-color: #111111; /* Dark gray background */
+            background-color: #000000; /* Pure black background */
         }
         .projects .project-item:hover {
             transform: translateY(-5px);
@@ -157,7 +152,7 @@
             padding: 20px;
             text-align: center;
             border-top: 1px solid #333333; /* Dark gray border */
-            background-color: #111111; /* Dark gray background */
+            background-color: #000000; /* Pure black background */
             color: #888888; /* Light gray text */
         }
         footer p {
@@ -171,7 +166,6 @@
         footer a:hover {
             color: #CCCCCC; /* Light gray on hover */
         }
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -221,14 +215,7 @@
                 font-size: 1.6rem;
             }
         }
-        /* Flicker Effect for Text */
         @keyframes textFlicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        /* Cross-line Effect with Flicker */
-        @keyframes lineFlicker {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
@@ -256,7 +243,6 @@
         h2:hover::before {
             transform: scaleX(1);
         }
-        /* Typing Effect Container */
         .typing-container {
             font-family: 'Source Code Pro', monospace;
             color: #FFFFFF; /* White text */
@@ -267,7 +253,6 @@
             display: inline-block;
             padding: 0;
         }
-        /* Page Transition Styles */
         .transition-overlay {
             position: fixed;
             top: 0;
@@ -286,9 +271,7 @@
     </style>
 </head>
 <body>
-    <!-- Page Transition Overlay -->
     <div class="transition-overlay"></div>
-    <!-- Header with Navigation -->
     <header>
         <div class="logo">
             <h1>XYR</h1>
@@ -299,18 +282,15 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
-    <!-- Hero Section -->
     <section class="hero">
         <h1>XYR</h1>
         <p class="typing-container">I'm katx, a xyr. No clever tagline needed.</p>
         <a href="#projects">Check My ducks</a>
     </section>
-    <!-- About Section -->
     <section class="about" id="about">
         <h2>Who Am I?</h2>
         <p>Yup. Get it? XYR. It's a bad pun.</p>
     </section>
-    <!-- Projects Section -->
     <section class="projects" id="projects">
         <h2>Some ducks</h2>
         <p>Here are a few ducks I've been working on. Explore them below.</p>
@@ -329,7 +309,6 @@
             </div>
         </div>
     </section>
-    <!-- Social Media Section -->
     <section class="social-media">
         <h2>duck With Me</h2>
         <div class="social-links">
@@ -338,7 +317,6 @@
             <a href="https://reddit.com/user/your-username" target="_blank" class="social-icon"><i class="fab fa-reddit"></i></a>
         </div>
     </section>
-    <!-- Footer Section -->
     <footer>
         <p>&copy; 2081 Rojan Thapa. Some ducks reserved. | <a href="/cdn-cgi/l/email-protection#305b5144485d515e5445705445535b1e535f5d"><span class="__cf_email__" data-cfemail="1f747e6b67727e717b6a5f7b6a7c74317c7072">[email&#160;protected]</span></a></p>
     </footer>
@@ -372,7 +350,6 @@
             }
             typeText();
         });
-        // Page Transition Effect
         const overlay = document.querySelector('.transition-overlay');
         function startTransition() {
             overlay.classList.add('active');
