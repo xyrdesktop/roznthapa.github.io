@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -175,16 +174,15 @@
 
         footer {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center align */
             padding: 20px;
             color: #888888;
-            flex-wrap: nowrap;
             text-align: center;
         }
 
         footer p {
-            margin: 0;
+            margin: 5px 0; /* Add space between lines */
             font-size: 0.9rem;
             color: #FFFFFF;
             white-space: nowrap; /* Prevents line break */
