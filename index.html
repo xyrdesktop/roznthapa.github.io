@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
- 
     <meta name="description" content="Your personal hacker-style portfolio.">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -44,13 +43,13 @@
         header {
             padding: 20px;
             display: flex;
-            justify-content: space-between; /* Space between logo and toggle */
+            justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            flex-grow: 1; /* Allows the logo to take up available space */
-            text-align: center; /* Center the logo */
+            flex-grow: 1;
+            text-align: center;
         }
 
         .logo h1 {
@@ -177,11 +176,18 @@
             text-align: left;
             padding: 20px;
             border: 1px solid #333333;
-            transition: transform 0.3s;
+            transition: transform 0.3s, opacity 0.5s ease;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(50px); /* Start off slightly lower */
         }
 
         body.light .projects .project-item {
             border-color: #CCCCCC;
+        }
+
+        .projects .project-item.visible {
+            opacity: 1; /* Fade in */
+            transform: translateY(0); /* Move to original position */
         }
 
         .projects .project-item:hover {
@@ -359,9 +365,18 @@
         <h2>Some Ducks</h2>
         <p>Here are a few ducks I've been working on. Explore them below.</p>
         <div class="project-list">
-            <div class="project-item"><h3>roj Alpha</h3><p>Building a secure tool for legal purposes (maybe).</p></div>
-            <div class="project-item"><h3>roj Beta</h3><p>Unleashing the true potential of open-source frameworks.</p></div>
-            <div class="project-item"><h3>roj Gamma</h3><p>Automation tool to save countless hours. Because who has time for repetition?</p></div>
+            <div class="project-item" id="roj-alpha">
+                <h3>roj Alpha</h3>
+                <p>Building a secure tool for legal purposes (maybe).</p>
+            </div>
+            <div class="project-item" id="roj-beta">
+                <h3>roj Beta</h3>
+                <p>Unleashing the true potential of open-source frameworks.</p>
+            </div>
+            <div class="project-item" id="roj-gamma">
+                <h3>roj Gamma</h3>
+                <p>Automation tool to save countless hours. Because who has time for repetition?</p>
+            </div>
         </div>
     </section>
     <section class="social-media">
@@ -424,6 +439,27 @@
             const observer = new IntersectionObserver(callback, options);
             sections.forEach(section => {
                 observer.observe(section);
+            });
+
+            // Project items observer
+            const projectItems = document.querySelectorAll('.project-item');
+            const projectObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            const projectObserverCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            };
+            const projectObserver = new IntersectionObserver(projectObserverCallback, projectObserverOptions);
+            projectItems.forEach(item => {
+                projectObserver.observe(item);
             });
 
             // Theme toggle functionality
