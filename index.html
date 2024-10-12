@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Your personal hacker-style portfolio.">
+    <title>Marquee Effect</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ppeditorialold&display=swap" rel="stylesheet"> <!-- Include the correct font -->
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @font-face {
+            font-family: 'Ppeditorialold';
+            src: url('fonts/Ppeditorialold-Regular.woff2') format('woff2'), /* Adjust the path as necessary */
+                 url('fonts/Ppeditorialold-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --c1: 33, 25%, 97%;
+            --c2: 0, 0%, 9%;
+            --c4: 0, 88%, 62%; /* Define the color for --c4 */
         }
 
         body {
@@ -20,6 +36,9 @@
             background-color: #000000;
             color: #FFFFFF;
             line-height: 1.6;
+            margin: 0;
+            min-height: 100%;
+            font-size: 20px;
         }
 
         body.light {
@@ -342,6 +361,36 @@
         .transition-overlay.active {
             opacity: 1;
         }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            background: #000; /* Background color */
+            height: 70px; /* Adjust height as needed */
+            line-height: 60px; /* Center text vertically */
+        }
+
+        .marquee-title {
+            display: inline-block;
+            padding-left: 100%; /* Start from outside the view */
+            color: hsla(var(--c4), 1); /* Set text color using HSLA variable */
+            text-transform: uppercase;
+            font-family: 'Ppeditorialold', sans-serif; /* Use the custom font */
+            font-size: 10vw; /* Responsive font size */
+            font-weight: 400;
+            line-height: 1; /* Line height */
+            animation: marquee 30s linear infinite; /* Increased duration for slower speed */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0);
+            }
+            100% {
+                transform: translate(-100%); /* Move completely off-screen */
+            }
+        }
     </style>
 </head>
 <body>
@@ -352,6 +401,9 @@
             <i id="theme-toggle" class="fas fa-sun" title="Toggle Theme"></i>
         </nav>
     </header>
+    <div class="marquee">
+        <div class="marquee-title">WHERE THERE’S SMOKE, THERE’S FIRE.</div>
+    </div>
     <section class="hero">
         <h1></h1>
         <p class="typing-container">I'm katx, a xyr. No clever tagline needed.</p>
