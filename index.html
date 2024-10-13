@@ -1,17 +1,18 @@
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Your personal hacker-style portfolio.">
     <title>katx</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ppeditorialold&amp;display=swap" rel="stylesheet"> <!-- Include the correct font -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ppeditorialold&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @font-face {
             font-family: 'Ppeditorialold';
-            src: url('fonts/Ppeditorialold-Regular.woff2') format('woff2'), /* Adjust the path as necessary */
+            src: url('fonts/Ppeditorialold-Regular.woff2') format('woff2'),
                  url('fonts/Ppeditorialold-Regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
@@ -26,7 +27,7 @@
         :root {
             --c1: 33, 25%, 97%;
             --c2: 0, 0%, 9%;
-            --c4: 0, 88%, 62%; /* Define the color for --c4 */
+            --c4: 0, 88%, 62%;
         }
 
         body {
@@ -194,8 +195,8 @@
             padding: 20px;
             border: 1px solid #333333;
             transition: transform 0.3s, opacity 0.5s ease;
-            opacity: 0; /* Initially hidden */
-            transform: translateY(50px); /* Start off slightly lower */
+            opacity: 0;
+            transform: translateY(50px);
         }
 
         body.light .projects .project-item {
@@ -203,8 +204,8 @@
         }
 
         .projects .project-item.visible {
-            opacity: 1; /* Fade in */
-            transform: translateY(0); /* Move to original position */
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .projects .project-item:hover {
@@ -292,6 +293,10 @@
             .hero p { font-size: 0.9rem; }
             .hero a { font-size: 0.8rem; padding: 6px 15px; }
             .about h2, .projects h2, .social-media h2 { font-size: 1.6rem; }
+            footer p {
+                font-size: 0.8rem;
+                white-space: normal; /* Allow text to wrap */
+            }
         }
 
         @keyframes textFlicker {
@@ -364,7 +369,6 @@
             overflow: hidden;
             white-space: nowrap;
             width: 100%;
-           
             height: 79px; /* Adjust height as needed */
             line-height: 60px; /* Center text vertically */
         }
@@ -372,22 +376,18 @@
         .marquee-title {
             display: inline-block;
             padding-left: 100%; /* Start from outside the view */
-            color: hsla(var(--c4), 1); /* Set text color using HSLA variable */
+            color: hsla(var(--c4), 1);
             text-transform: uppercase;
-            font-family: 'Ppeditorialold', sans-serif; /* Use the custom font */
+            font-family: 'Ppeditorialold', sans-serif;
             font-size: 10vw; /* Responsive font size */
             font-weight: 400;
-            line-height: 1; /* Line height */
-            animation: marquee 30s linear infinite; /* Increased duration for slower speed */
+            line-height: 1;
+            animation: marquee 30s linear infinite;
         }
 
         @keyframes marquee {
-            0% {
-                transform: translate(0);
-            }
-            100% {
-                transform: translate(-100%); /* Move completely off-screen */
-            }
+            0% { transform: translate(0); }
+            100% { transform: translate(-100%); }
         }
     </style>
 </head>
@@ -405,7 +405,6 @@
     <section class="hero visible">
         <h1></h1>
         <p class="typing-container">I'm </p>
-        
     </section>
     <section class="about" id="about">
         <h2>this is not my bio.</h2>
@@ -431,7 +430,6 @@
     </section>
     <section class="social-media">
         <h2>want to get in bed with me?</h2>
-          
         <div class="social-links">
             <a href="https://linkedin.com/in/your-profile" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
             <a href="https://discord.com/users/your-id" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
@@ -441,13 +439,13 @@
     <footer>
         <p>© 2081 Rojan Thapa. Some ducks reserved.</p>
         <p>
-           <a href="mailto:katxmandu@duck.com">katxmandu@duck.com</a>
+           <a href="/cdn-cgi/l/email-protection#e58e84919d88848b8190a58190868ecb868a88"><span class="__cf_email__" data-cfemail="422923363a2f232c263702263721296c212d2f">[email&#160;protected]</span></a>
         </p>
         <p>the process is like a bump of cocaine for your creativity (except it's free and it won't fuck-up your life).
-</p>
-             
+        </p>
     </footer>
     
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const textElement = document.querySelector('.typing-container');
@@ -495,7 +493,6 @@
                 observer.observe(section);
             });
 
-            // Project items observer
             const projectItems = document.querySelectorAll('.project-item');
             const projectObserverOptions = {
                 root: null,
@@ -516,7 +513,6 @@
                 projectObserver.observe(item);
             });
 
-            // Theme toggle functionality
             const themeToggle = document.getElementById('theme-toggle');
             themeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('light');
@@ -542,6 +538,5 @@
             overlay.classList.add('active');
         });
     </script>
-
-
-</body></html>
+</body>
+</html>
