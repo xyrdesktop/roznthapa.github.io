@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,40 +27,73 @@
 
         body {
             font-family: 'Source Code Pro', monospace;
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: #000; /* Black background */
+            color: #FFF; /* White text */
             line-height: 1.6;
             margin: 0;
             min-height: 100%;
             font-size: 20px;
+            transition: background-color 0.5s, color 0.5s; /* Smooth transition */
+        }
+
+        body.light-mode {
+            background-color: #FFF; /* Light background */
+            color: #000; /* Black text */
+        }
+
+        /* Make sure all text elements have proper color */
+        h1, h2, h3, p {
+            color: inherit; /* Inherit color from body for consistency */
+        }
+
+        .about h2, .projects h2, .social-media h2 {
+            color: inherit; /* Ensure h2 inherits text color */
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 0 5px #FFF; /* Optional: to keep some visual styling */
         }
 
         a {
             text-decoration: none;
-            color: #FFFFFF;
+            color: #FFF; /* White links */
+            transition: color 0.3s; /* Transition for link colors */
+        }
+
+        body.light-mode a {
+            color: #000; /* Black links in light mode */
         }
 
         a:hover {
-            color: #CCCCCC;
+            color: #CCC; /* Light grey on hover */
         }
 
         header {
             padding: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Space between elements */
             align-items: center;
-            position: relative;
+        }
+
+        .logo {
+            flex: 1; /* Allow the logo to take space */
+            text-align: center; /* Center the title */
         }
 
         .logo h1 {
             font-size: 1.8rem;
-            margin-left: 10px; 
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            width: 100%; /* Full width for navigation */
         }
 
         nav i {
             cursor: pointer;
             font-size: 1.5rem;
-            margin-right: 10px; 
+            margin: 0 10px; /* Margin for icons */
             transition: color 0.3s;
         }
 
@@ -71,15 +103,20 @@
             position: fixed;
             top: 0;
             left: 0; /* Start from the left */
-            width: 100vw; /* Full width */
+            width: 250px; /* Fixed width for the menu */
             height: 100vh; /* Full height */
-            background: #000000; /* Solid black background */
+            background: #000; /* Solid black background */
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transitions */
             z-index: 1000;
             padding: 20px;
             opacity: 0; /* Initially hidden */
             visibility: hidden; /* Initially hidden */
+        }
+
+        body.light-mode #menu {
+            background: #FFF; /* White background in light mode */
+            color: #000; /* Black text in light mode */
         }
 
         #menu.active {
@@ -92,17 +129,30 @@
             cursor: pointer;
             font-size: 2rem;
             margin-bottom: 20px;
+            color: #FFF; /* White text */
+        }
+
+        body.light-mode #menu .close-menu {
+            color: #000; /* Black text in light mode */
         }
 
         #menu a {
             display: block;
             padding: 10px;
-            color: #FFFFFF;
+            color: #FFF; /* White links */
             margin-bottom: 10px;
         }
 
+        body.light-mode #menu a {
+            color: #000; /* Black links in light mode */
+        }
+
         #menu a:hover {
-            background: #333333;
+            background: #333; /* Dark grey on hover */
+        }
+
+        body.light-mode #menu a:hover {
+            background: #CCC; /* Light grey on hover in light mode */
         }
 
         .hero {
@@ -117,8 +167,8 @@
         .hero h1 {
             font-size: 3.5rem;
             margin: 0;
-            color: #FFFFFF;
-            text-shadow: 0 0 10px #FFFFFF;
+            color: #FFF; /* White text */
+            text-shadow: 0 0 10px #FFF;
         }
 
         .hero p {
@@ -145,20 +195,11 @@
             text-align: center;
         }
 
-        .about h2, .projects h2, .social-media h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            color: #FFFFFF;
-            text-shadow: 0 0 5px #FFFFFF;
-            animation: textFlicker 0.5s infinite;
-        }
-
         .about p, .projects p {
             max-width: 600px;
             margin: 0 auto;
             font-size: 1rem;
-            color: #FFFFFF;
+            color: #FFF; /* White text */
         }
 
         .projects .project-list {
@@ -173,7 +214,7 @@
             flex-basis: 300px;
             text-align: left;
             padding: 20px;
-            border: 1px solid #333333;
+            border: 1px solid #333; /* Dark grey border */
             transition: transform 0.3s, opacity 0.5s ease;
             opacity: 0;
             transform: translateY(50px);
@@ -186,7 +227,7 @@
 
         .projects .project-item:hover {
             transform: translateY(-5px);
-            border-color: #CCCCCC;
+            border-color: #CCC; /* Light grey border on hover */
         }
 
         .social-media .social-links {
@@ -198,8 +239,12 @@
 
         .social-media .social-icon {
             font-size: 2rem;
-            color: #FFFFFF;
+            color: #FFF; /* White icons */
             transition: color 0.3s, transform 0.3s;
+        }
+
+        body.light-mode .social-media .social-icon {
+            color: #000; /* Black icons in light mode */
         }
 
         footer {
@@ -207,58 +252,24 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            color: #888888;
+            color: #888; /* Grey text */
             text-align: center;
         }
 
         footer p {
             margin: 5px 0;
-            font-size: 0.9rem;
-            color: #FFFFFF;
-            white-space: nowrap;
-        }
-
-        footer a {
-            color: #FFFFFF;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #CCCCCC;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.5rem; } 
-            .about h2, .projects h2, .social-media h2 { font-size: 1.8rem; }
-            .projects .project-item { flex-basis: 100%; margin-bottom: 20px; }
-            nav i { margin-left: 10px; }
-        }
-
-        @media (max-width: 480px) {
-            .logo h1 { font-size: 1.5rem; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.2rem; } 
-            .about h2, .projects h2, .social-media h2 { font-size: 1.6rem; }
-            footer p {
-                font-size: 0.8rem;
-                white-space: normal; 
-            }
-        }
-
-        @keyframes textFlicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><h1>カトゥマンズ</h1></div>
         <nav>
-            <i class="fas fa-bars" title="Menu" id="menu-icon"></i>
+            <i class="fas fa-bars" id="menu-icon" title="Menu"></i> <!-- Menu icon on the left -->
+            <div class="logo">
+                <h1>katx</h1> <!-- Title in center -->
+            </div>
+            <i class="fas fa-sun" id="theme-toggle" title="Toggle Theme"></i> <!-- Sun icon for light mode -->
         </nav>
     </header>
 
@@ -268,14 +279,9 @@
         <h2>Menu</h2>
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        
         <a href="#blog">Blog</a>
-   
-     
         <a href="#books">Books</a>
         <a href="#free-shit">Free Shit</a>
-      
-      
     </div>
 
     <section class="hero visible">
@@ -285,22 +291,13 @@
     
     <section class="about" id="about">
         <h2>私は自分が誰で、何をしているのかを数段落で要約できるのなら、このサイトを立ち上げるために多額のお金を費やすことはなかったでしょう。</h2>
-
-<h2>ここを少し探検すれば、私がまるで竜巻の中心に打ち込まれた散弾のように散らばっていることがすぐにわかるでしょう。</h2>
-
-<h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを理解しつつあります。</h2>
-
-<h2>創造的な活動は、まるでリーバイスのジーンズのようです。自分に合うかどうかを確かめるためには、一度履いてみて、少し歩き回る必要があります。私はたくさんのジーンズを棚に戻してきました。</h2>
-
-<h2>これらを踏まえて、今の私を説明するなら、私は詩、短編小説、回想録、スピokenワードなど、さまざまなジャンルで言葉を紡ぐマルチハイフン作家だと言えるでしょう。</h2>
-
-<h2>私にたどり着いた理由はわかりませんが、どうぞくつろいでください。ここにある作品の量から判断すれば（質については語れませんが）、きっとあなたの目を引くものがあると確信しています。</h2>
-
-<h2>乾杯。</h2>
-        
+        <h2>ここを少し探検すれば、私がまるで竜巻の中心に打ち込まれた散弾のように散らばっていることがすぐにわかるでしょう。</h2>
+        <h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを理解しつつあります。</h2>
+        <h2>創造的な活動は、まるでリーバイスのジーンズのようです。自分に合うかどうかを確かめるためには、一度履いてみて、少し歩き回る必要があります。私はたくさんのジーンズを棚に戻してきました。</h2>
+        <h2>これらを踏まえて、今の私を説明するなら、私は詩、短編小説、回想録、スピokenワードなど、さまざまなジャンルで言葉を紡ぐマルチハイフン作家だと言えるでしょう。</h2>
+        <h2>私にたどり着いた理由はわかりませんが、どうぞくつろいでください。ここにある作品の量から判断すれば（質については語れませんが）、きっとあなたの目を引くものがあると確信しています。</h2>
+        <h2>乾杯。</h2>
     </section>
-
-    
 
     <section class="social-media">
         <h2>私と一緒に寝たい。</h2>
@@ -366,26 +363,6 @@
                 observer.observe(section);
             });
 
-            const projectItems = document.querySelectorAll('.project-item');
-            const projectObserverOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            const projectObserverCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            };
-            const projectObserver = new IntersectionObserver(projectObserverCallback, projectObserverOptions);
-            projectItems.forEach(item => {
-                projectObserver.observe(item);
-            });
-
             // Menu Toggle
             const menuIcon = document.getElementById('menu-icon');
             const menu = document.getElementById('menu');
@@ -397,6 +374,23 @@
 
             closeMenuIcon.addEventListener('click', () => {
                 menu.classList.remove('active');
+            });
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                themeToggle.classList.toggle('fa-sun'); // Change to sun icon
+                themeToggle.classList.toggle('fa-moon'); // Change to moon icon
+
+                // Update menu colors based on the current theme
+                if (document.body.classList.contains('light-mode')) {
+                    menu.style.backgroundColor = '#FFF'; // Set menu background to white
+                    menu.style.color = '#000'; // Set menu text to black
+                } else {
+                    menu.style.backgroundColor = '#000'; // Set menu background to black
+                    menu.style.color = '#FFF'; // Set menu text to white
+                }
             });
         });
     </script>
