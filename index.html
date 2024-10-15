@@ -33,6 +33,7 @@
             font-size: 2.5vw; /* Base font size */
             transition: background-color 0.5s, color 0.5s;
             user-select: none;
+            padding-top: 70px; /* Space for fixed header */
         }
 
         body.light-mode {
@@ -65,10 +66,25 @@
         }
 
         header {
-            padding: 2vw;
+            position: fixed; /* Fixed header */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000; /* Solid black background */
+            z-index: 1000;
+            padding: 10px 0;
+            transition: background 0.5s;
+        }
+
+        body.light-mode header {
+            background: #FFF; /* White background in light mode */
+        }
+
+        header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
@@ -78,12 +94,6 @@
 
         .logo h1 {
             font-size: 4vw; /* Responsive logo size */
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            width: 100%;
         }
 
         nav i {
