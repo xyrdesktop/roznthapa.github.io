@@ -100,7 +100,7 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
+            max-height: 100vh; /* Set max height */
             background: #000;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -108,6 +108,7 @@
             opacity: 0;
             visibility: hidden;
             padding: 2vw;
+            overflow-y: auto; /* Enable scrolling */
         }
 
         body.light-mode #menu {
