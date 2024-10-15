@@ -34,10 +34,10 @@
             min-height: 100%;
             font-size: 20px;
             transition: background-color 0.5s, color 0.5s;
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         body.light-mode {
@@ -242,6 +242,41 @@
 
         .typing-container {
             white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px; /* Reduce base font size */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem; /* Smaller hero heading */
+            }
+
+            .hero p {
+                font-size: 1.5rem; /* Smaller hero paragraph */
+            }
+
+            .about h2 {
+                font-size: 1.5rem; /* Smaller about section heading */
+            }
+
+            .about p {
+                font-size: 0.9rem; /* Smaller about section paragraph */
+            }
+
+            .social-media h2 {
+                font-size: 1.5rem; /* Smaller social media heading */
+            }
+
+            footer p {
+                font-size: 0.7rem; /* Smaller footer text */
+            }
+
+            nav i {
+                font-size: 1.2rem; /* Smaller menu icons */
+            }
         }
     </style>
 </head>
