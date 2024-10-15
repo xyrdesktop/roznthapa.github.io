@@ -41,43 +41,42 @@
             color: #000; /* Black text */
         }
 
-        /* Make sure all text elements have proper color */
         h1, h2, h3, p {
             color: inherit; /* Inherit color from body for consistency */
         }
 
         .about h2, .projects h2, .social-media h2 {
-            color: inherit; /* Ensure h2 inherits text color */
+            color: inherit;
             font-size: 2.2rem;
             margin-bottom: 20px;
             font-weight: 600;
-            text-shadow: 0 0 5px #FFF; /* Optional: to keep some visual styling */
+            text-shadow: 0 0 5px #FFF;
         }
 
         a {
             text-decoration: none;
-            color: #FFF; /* White links */
-            transition: color 0.3s; /* Transition for link colors */
+            color: #FFF;
+            transition: color 0.3s;
         }
 
         body.light-mode a {
-            color: #000; /* Black links in light mode */
+            color: #000;
         }
 
         a:hover {
-            color: #CCC; /* Light grey on hover */
+            color: #CCC;
         }
 
         header {
             padding: 20px;
             display: flex;
-            justify-content: space-between; /* Space between elements */
+            justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            flex: 1; /* Allow the logo to take space */
-            text-align: center; /* Center the title */
+            flex: 1;
+            text-align: center;
         }
 
         .logo h1 {
@@ -87,13 +86,13 @@
         nav {
             display: flex;
             align-items: center;
-            width: 100%; /* Full width for navigation */
+            width: 100%;
         }
 
         nav i {
             cursor: pointer;
             font-size: 1.5rem;
-            margin: 0 10px; /* Margin for icons */
+            margin: 0 10px;
             transition: color 0.3s;
         }
 
@@ -102,16 +101,16 @@
             display: none; /* Initially hidden */
             position: fixed;
             top: 0;
-            left: 0; /* Start from the left */
-            width: 250px; /* Fixed width for the menu */
+            left: 0;
+            width: 100vw; /* Full width of the viewport */
             height: 100vh; /* Full height */
             background: #000; /* Solid black background */
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-            transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transitions */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
-            padding: 20px;
             opacity: 0; /* Initially hidden */
             visibility: hidden; /* Initially hidden */
+            padding: 20px;
         }
 
         body.light-mode #menu {
@@ -129,7 +128,7 @@
             cursor: pointer;
             font-size: 2rem;
             margin-bottom: 20px;
-            color: #FFF; /* White text */
+            color: #FFF;
         }
 
         body.light-mode #menu .close-menu {
@@ -167,7 +166,7 @@
         .hero h1 {
             font-size: 3.5rem;
             margin: 0;
-            color: #FFF; /* White text */
+            color: #FFF;
             text-shadow: 0 0 10px #FFF;
         }
 
@@ -199,7 +198,7 @@
             max-width: 600px;
             margin: 0 auto;
             font-size: 1rem;
-            color: #FFF; /* White text */
+            color: #FFF;
         }
 
         .projects .project-list {
@@ -214,7 +213,7 @@
             flex-basis: 300px;
             text-align: left;
             padding: 20px;
-            border: 1px solid #333; /* Dark grey border */
+            border: 1px solid #333; 
             transition: transform 0.3s, opacity 0.5s ease;
             opacity: 0;
             transform: translateY(50px);
@@ -227,7 +226,7 @@
 
         .projects .project-item:hover {
             transform: translateY(-5px);
-            border-color: #CCC; /* Light grey border on hover */
+            border-color: #CCC; 
         }
 
         .social-media .social-links {
@@ -239,12 +238,12 @@
 
         .social-media .social-icon {
             font-size: 2rem;
-            color: #FFF; /* White icons */
+            color: #FFF;
             transition: color 0.3s, transform 0.3s;
         }
 
         body.light-mode .social-media .social-icon {
-            color: #000; /* Black icons in light mode */
+            color: #000; 
         }
 
         footer {
@@ -252,7 +251,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            color: #888; /* Grey text */
+            color: #888; 
             text-align: center;
         }
 
@@ -265,18 +264,18 @@
 <body>
     <header>
         <nav>
-            <i class="fas fa-bars" id="menu-icon" title="Menu"></i> <!-- Menu icon on the left -->
+            <i class="fas fa-bars" id="menu-icon" title="Explore"></i>
             <div class="logo">
-                <h1>katx</h1> <!-- Title in center -->
+                <h1>katx</h1>
             </div>
-            <i class="fas fa-sun" id="theme-toggle" title="Toggle Theme"></i> <!-- Sun icon for light mode -->
+            <i class="fas fa-sun" id="theme-toggle" title="Toggle Theme"></i>
         </nav>
     </header>
 
     <!-- Side Menu -->
     <div id="menu">
         <i class="fas fa-times close-menu" title="Close" id="close-menu-icon"></i>
-        <h2>Menu</h2>
+        <h2>Explore</h2>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#blog">Blog</a>
@@ -293,10 +292,24 @@
         <h2>私は自分が誰で、何をしているのかを数段落で要約できるのなら、このサイトを立ち上げるために多額のお金を費やすことはなかったでしょう。</h2>
         <h2>ここを少し探検すれば、私がまるで竜巻の中心に打ち込まれた散弾のように散らばっていることがすぐにわかるでしょう。</h2>
         <h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを理解しつつあります。</h2>
-        <h2>創造的な活動は、まるでリーバイスのジーンズのようです。自分に合うかどうかを確かめるためには、一度履いてみて、少し歩き回る必要があります。私はたくさんのジーンズを棚に戻してきました。</h2>
-        
-        <h2>私にたどり着いた理由はわかりませんが、どうぞくつろいでください。ここにある作品の量から判断すれば（質については語れませんが）、きっとあなたの目を引くものがあると確信しています。</h2>
-        <h2>乾杯。</h2>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>プロジェクト</h2>
+        <div class="project-list">
+            <div class="project-item">
+                <h3>プロジェクト1</h3>
+                <p>説明1</p>
+            </div>
+            <div class="project-item">
+                <h3>プロジェクト2</h3>
+                <p>説明2</p>
+            </div>
+            <div class="project-item">
+                <h3>プロジェクト3</h3>
+                <p>説明3</p>
+            </div>
+        </div>
     </section>
 
     <section class="social-media">
@@ -380,16 +393,16 @@
             const themeToggle = document.getElementById('theme-toggle');
             themeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('light-mode');
-                themeToggle.classList.toggle('fa-sun'); // Change to sun icon
-                themeToggle.classList.toggle('fa-moon'); // Change to moon icon
+                themeToggle.classList.toggle('fa-sun'); 
+                themeToggle.classList.toggle('fa-moon'); 
 
                 // Update menu colors based on the current theme
                 if (document.body.classList.contains('light-mode')) {
-                    menu.style.backgroundColor = '#FFF'; // Set menu background to white
-                    menu.style.color = '#000'; // Set menu text to black
+                    menu.style.backgroundColor = '#FFF'; 
+                    menu.style.color = '#000'; 
                 } else {
-                    menu.style.backgroundColor = '#000'; // Set menu background to black
-                    menu.style.color = '#FFF'; // Set menu text to white
+                    menu.style.backgroundColor = '#000'; 
+                    menu.style.color = '#FFF'; 
                 }
             });
         });
