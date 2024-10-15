@@ -342,12 +342,18 @@
             const menu = document.getElementById('menu');
             const closeMenuIcon = document.getElementById('close-menu-icon');
 
+            function toggleBodyScroll(isLocked) {
+                document.body.style.overflow = isLocked ? 'hidden' : 'auto';
+            }
+
             menuIcon.addEventListener('click', () => {
                 menu.classList.toggle('active');
+                toggleBodyScroll(menu.classList.contains('active'));
             });
 
             closeMenuIcon.addEventListener('click', () => {
                 menu.classList.remove('active');
+                toggleBodyScroll(false);
             });
 
             // Theme Toggle
