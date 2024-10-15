@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
             color: inherit; /* Inherit color from body for consistency */
         }
 
-        .about h2, .projects h2, .social-media h2 {
+        .about h2, .social-media h2 {
             color: inherit;
             font-size: 2.2rem;
             margin-bottom: 20px;
@@ -189,44 +189,21 @@
             transform: translateY(0);
         }
 
-        .about, .projects, .social-media {
+        .about {
             padding: 80px 20px;
             text-align: center;
         }
 
-        .about p, .projects p {
+        .about p {
             max-width: 600px;
             margin: 0 auto;
             font-size: 1rem;
             color: #FFF;
         }
 
-        .projects .project-list {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .projects .project-item {
-            flex-basis: 300px;
-            text-align: left;
-            padding: 20px;
-            border: 1px solid #333; 
-            transition: transform 0.3s, opacity 0.5s ease;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .projects .project-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .projects .project-item:hover {
-            transform: translateY(-5px);
-            border-color: #CCC; 
+        .social-media {
+            padding: 80px 20px;
+            text-align: center;
         }
 
         .social-media .social-links {
@@ -264,23 +241,23 @@
 <body>
     <header>
         <nav>
-            <i class="fas fa-bars" id="menu-icon" title="Explore"></i>
+            <i class="fas fa-bars" id="menu-icon" title="メニューを表示"></i>
             <div class="logo">
                 <h1>katx</h1>
             </div>
-            <i class="fas fa-sun" id="theme-toggle" title="Toggle Theme"></i>
+            <i class="fas fa-sun" id="theme-toggle" title="テーマを切り替え"></i>
         </nav>
     </header>
 
     <!-- Side Menu -->
     <div id="menu">
-        <i class="fas fa-times close-menu" title="Close" id="close-menu-icon"></i>
-        <h2>Explore</h2>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a>
-        <a href="#books">Books</a>
-        <a href="#free-shit">Free Shit</a>
+        <i class="fas fa-times close-menu" title="閉じる" id="close-menu-icon"></i>
+        <h2>探検</h2>
+        <a href="#home">ホーム</a>
+        <a href="#about">私について</a>
+        <a href="#blog">ブログ</a>
+        <a href="#books">本</a>
+        <a href="#free-shit">無料のもの</a>
     </div>
 
     <section class="hero visible">
@@ -292,24 +269,6 @@
         <h2>私は自分が誰で、何をしているのかを数段落で要約できるのなら、このサイトを立ち上げるために多額のお金を費やすことはなかったでしょう。</h2>
         <h2>ここを少し探検すれば、私がまるで竜巻の中心に打ち込まれた散弾のように散らばっていることがすぐにわかるでしょう。</h2>
         <h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを理解しつつあります。</h2>
-    </section>
-
-    <section class="projects" id="projects">
-        <h2>プロジェクト</h2>
-        <div class="project-list">
-            <div class="project-item">
-                <h3>プロジェクト1</h3>
-                <p>説明1</p>
-            </div>
-            <div class="project-item">
-                <h3>プロジェクト2</h3>
-                <p>説明2</p>
-            </div>
-            <div class="project-item">
-                <h3>プロジェクト3</h3>
-                <p>説明3</p>
-            </div>
-        </div>
     </section>
 
     <section class="social-media">
