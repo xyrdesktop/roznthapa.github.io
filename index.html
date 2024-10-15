@@ -27,22 +27,22 @@
 
         body {
             font-family: 'Source Code Pro', monospace;
-            background-color: #000; /* Black background */
-            color: #FFF; /* White text */
+            background-color: #000;
+            color: #FFF;
             line-height: 1.6;
             margin: 0;
             min-height: 100%;
             font-size: 20px;
-            transition: background-color 0.5s, color 0.5s; /* Smooth transition */
+            transition: background-color 0.5s, color 0.5s;
         }
 
         body.light-mode {
-            background-color: #FFF; /* Light background */
-            color: #000; /* Black text */
+            background-color: #FFF;
+            color: #000;
         }
 
         h1, h2, h3, p {
-            color: inherit; /* Inherit color from body for consistency */
+            color: inherit;
         }
 
         .about h2, .social-media h2 {
@@ -98,30 +98,30 @@
 
         /* Side Menu Styles */
         #menu {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw; /* Full width of the viewport */
-            height: 100vh; /* Full height */
-            background: #000; /* Solid black background */
+            width: 100vw;
+            height: 100vh;
+            background: #000;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
-            opacity: 0; /* Initially hidden */
-            visibility: hidden; /* Initially hidden */
+            opacity: 0;
+            visibility: hidden;
             padding: 20px;
         }
 
         body.light-mode #menu {
-            background: #FFF; /* White background in light mode */
-            color: #000; /* Black text in light mode */
+            background: #FFF;
+            color: #000;
         }
 
         #menu.active {
-            display: block; /* Ensure the menu is displayed */
-            opacity: 1; /* Show menu */
-            visibility: visible; /* Make it visible */
+            display: block;
+            opacity: 1;
+            visibility: visible;
         }
 
         #menu .close-menu {
@@ -132,26 +132,26 @@
         }
 
         body.light-mode #menu .close-menu {
-            color: #000; /* Black text in light mode */
+            color: #000;
         }
 
         #menu a {
             display: block;
             padding: 10px;
-            color: #FFF; /* White links */
+            color: #FFF;
             margin-bottom: 10px;
         }
 
         body.light-mode #menu a {
-            color: #000; /* Black links in light mode */
+            color: #000;
         }
 
         #menu a:hover {
-            background: #333; /* Dark grey on hover */
+            background: #333;
         }
 
         body.light-mode #menu a:hover {
-            background: #CCC; /* Light grey on hover in light mode */
+            background: #CCC;
         }
 
         .hero {
@@ -230,6 +230,8 @@
             padding: 20px;
             color: #888; 
             text-align: center;
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflow if necessary */
         }
 
         footer p {
