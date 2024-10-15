@@ -38,7 +38,7 @@
 
         body.light-mode {
             background-color: #FFF;
-            color: #000;
+            color: #666; /* Light gray for better visibility on white */
         }
 
         h1, h2, h3, p {
@@ -46,21 +46,19 @@
         }
 
         .about h2, .social-media h2 {
-            color: inherit;
             font-size: 2.2rem;
             margin-bottom: 20px;
             font-weight: 600;
-            text-shadow: 0 0 5px #FFF;
         }
 
         a {
             text-decoration: none;
-            color: #FFF;
+            color: #333; /* Darker link color */
             transition: color 0.3s;
         }
 
         body.light-mode a {
-            color: #000;
+            color: #444; /* Darker link color for light mode */
         }
 
         a:hover {
@@ -138,12 +136,12 @@
         #menu a {
             display: block;
             padding: 10px;
-            color: #FFF;
+            color: #333; /* Darker link color in the menu */
             margin-bottom: 10px;
         }
 
         body.light-mode #menu a {
-            color: #000;
+            color: #444; /* Darker link color for light mode in the menu */
         }
 
         #menu a:hover {
@@ -167,13 +165,13 @@
             font-size: 3.5rem;
             margin: 0;
             color: #FFF;
-            text-shadow: 0 0 10px #FFF;
         }
 
         .hero p {
             font-size: 2rem; 
             max-width: 600px;
             margin-bottom: 30px;
+            white-space: nowrap; /* Ensure text stays on one line */
         }
 
         section {
@@ -228,7 +226,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            color: #888; 
+            color: #333; /* Darker color for footer text */
             text-align: center;
             white-space: nowrap; /* Prevent text from wrapping */
             overflow: hidden; /* Hide overflow if necessary */
@@ -271,9 +269,8 @@
         <h2>私は自分が誰で、何をしているのかを数段落で要約できるのなら、このサイトを立ち上げるために多額のお金を費やすことはなかったでしょう。</h2>
         <h2>ここを少し探検すれば、私がまるで竜巻の中心に打ち込まれた散弾のように散らばっていることがすぐにわかるでしょう。</h2>
         <h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを理解しつつあります。</h2>
-          <h2>私を見つけてくれてありがとうございます。どうぞくつろいでください。ここにある作品の量から判断すると（質についてはわかりませんが）、きっとあなたの目に留まるものがあるはずです。</h2>
-
- <h2>よろしくお願いします。</h2>                                                                         
+        <h2>私を見つけてくれてありがとうございます。どうぞくつろいでください。ここにある作品の量から判断すると（質についてはわかりませんが）、きっとあなたの目に留まるものがあるはずです。</h2>
+        <h2>よろしくお願いします。</h2>
     </section>
 
     <section class="social-media">
