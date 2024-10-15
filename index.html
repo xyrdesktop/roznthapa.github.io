@@ -38,7 +38,7 @@
 
         body.light-mode {
             background-color: #FFF;
-            color: #666; /* Light gray for better visibility on white */
+            color: #000;
         }
 
         h1, h2, h3, p {
@@ -53,12 +53,12 @@
 
         a {
             text-decoration: none;
-            color: #333; /* Darker link color */
+            color: #FFF;
             transition: color 0.3s;
         }
 
         body.light-mode a {
-            color: #444; /* Darker link color for light mode */
+            color: #000;
         }
 
         a:hover {
@@ -136,12 +136,12 @@
         #menu a {
             display: block;
             padding: 10px;
-            color: #333; /* Darker link color in the menu */
+            color: #FFF;
             margin-bottom: 10px;
         }
 
         body.light-mode #menu a {
-            color: #444; /* Darker link color for light mode in the menu */
+            color: #000;
         }
 
         #menu a:hover {
@@ -171,7 +171,6 @@
             font-size: 2rem; 
             max-width: 600px;
             margin-bottom: 30px;
-            white-space: nowrap; /* Ensure text stays on one line */
         }
 
         section {
@@ -226,7 +225,7 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            color: #333; /* Darker color for footer text */
+            color: #555; /* Darker color for footer text */
             text-align: center;
             white-space: nowrap; /* Prevent text from wrapping */
             overflow: hidden; /* Hide overflow if necessary */
@@ -235,6 +234,10 @@
         footer p {
             margin: 5px 0;
             font-size: 0.8rem;
+        }
+
+        .typing-container {
+            white-space: nowrap; /* Prevent text from wrapping */
         }
     </style>
 </head>
