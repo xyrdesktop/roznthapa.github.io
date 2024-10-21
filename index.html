@@ -105,12 +105,15 @@
 
         /* Side Menu Styles */
         #menu {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            align-items: center; /* Center items horizontally */
+            height: 100vh; /* Full page height */
             position: fixed;
             top: 0;
             right: -100vw; /* Start off-screen */
             width: 100vw;
-            max-height: 100vh;
             background: #000;
             transition: right 0.3s ease, opacity 0.3s ease;
             z-index: 1000;
@@ -129,15 +132,22 @@
             visibility: visible;
         }
 
-        #menu .close-menu {
-            cursor: pointer;
+        .close-menu {
+            position: absolute; /* Absolute positioning */
+            top: 20px; /* Distance from the top */
+            right: 20px; /* Distance from the right */
             font-size: 4vw;
-            margin-bottom: 2vw;
             color: #FFF;
+            cursor: pointer;
         }
 
         body.light-mode #menu .close-menu {
             color: #000;
+        }
+
+        #menu h2 {
+            margin-bottom: 20px;
+            color: inherit;
         }
 
         #menu a {
@@ -145,6 +155,7 @@
             padding: 2vw;
             color: #FFF;
             margin-bottom: 1vw;
+            font-size: 3vw; /* Adjust font size for links */
         }
 
         body.light-mode #menu a {
