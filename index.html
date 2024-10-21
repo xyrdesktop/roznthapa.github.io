@@ -30,10 +30,10 @@
             background-color: #000;
             color: #FFF;
             line-height: 1.6;
-            font-size: 2.5vw; /* Base font size */
+            font-size: 2.5vw;
             transition: background-color 0.5s, color 0.5s;
             user-select: none;
-            padding-top: 70px; /* Space for fixed header */
+            padding-top: 70px;
         }
 
         body.light-mode {
@@ -46,7 +46,7 @@
         }
 
         .about h2, .social-media h2 {
-            font-size: 3vw; /* Responsive font size */
+            font-size: 3vw;
             margin-bottom: 20px;
             font-weight: 600;
         }
@@ -66,18 +66,18 @@
         }
 
         header {
-            position: fixed; /* Fixed header */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: #000; /* Solid black background */
+            background: #000;
             z-index: 1000;
             padding: 10px 0;
             transition: background 0.5s;
         }
 
         body.light-mode header {
-            background: #FFF; /* White background in light mode */
+            background: #FFF;
         }
 
         header nav {
@@ -93,32 +93,29 @@
         }
 
         .logo h1 {
-            font-size: 4vw; /* Responsive logo size */
+            font-size: 4vw;
         }
 
         nav i {
             cursor: pointer;
-            font-size: 3vw; /* Responsive icon size */
+            font-size: 3vw;
             margin: 0 1vw;
             transition: color 0.3s;
         }
 
         /* Side Menu Styles */
         #menu {
-            display: none;
+            display: block;
             position: fixed;
             top: 0;
-            left: 0;
+            right: -100vw; /* Start off-screen */
             width: 100vw;
-            max-height: 100vh; /* Set max height */
+            max-height: 100vh;
             background: #000;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: right 0.3s ease, opacity 0.3s ease;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            padding: 2vw;
-            overflow-y: auto; /* Enable scrolling */
         }
 
         body.light-mode #menu {
@@ -127,14 +124,14 @@
         }
 
         #menu.active {
-            display: block;
+            right: 0; /* Slide in */
             opacity: 1;
             visibility: visible;
         }
 
         #menu .close-menu {
             cursor: pointer;
-            font-size: 4vw; /* Responsive close icon size */
+            font-size: 4vw;
             margin-bottom: 2vw;
             color: #FFF;
         }
@@ -173,14 +170,14 @@
         }
 
         .hero h1 {
-            font-size: 8vw; /* Responsive hero heading size */
+            font-size: 8vw;
             margin: 0;
             color: #FFF;
         }
 
         .hero p {
             font-size: 4vw; 
-            max-width: 90%; /* Responsive paragraph width */
+            max-width: 90%;
             margin-bottom: 3vw;
         }
 
@@ -188,7 +185,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.6s ease, transform 0.6s ease;
-            padding: 5vw 2vw; /* Responsive section padding */
+            padding: 5vw 2vw;
             text-align: center;
         }
 
@@ -203,7 +200,7 @@
         }
 
         .about p {
-            max-width: 90%; /* Responsive text width */
+            max-width: 90%;
             margin: 0 auto;
             font-size: 2vw;
             color: #FFF;
@@ -219,11 +216,11 @@
             justify-content: center;
             gap: 2vw;
             margin-top: 2vw;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            flex-wrap: wrap;
         }
 
         .social-media .social-icon {
-            font-size: 4vw; /* Responsive icon size */
+            font-size: 4vw;
             color: #FFF;
             transition: color 0.3s, transform 0.3s;
         }
@@ -245,55 +242,55 @@
 
         footer p {
             margin: 0.5vw 0;
-            font-size: 1.5vw; /* Responsive footer text */
+            font-size: 1.5vw;
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             body {
-                font-size: 4vw; /* Adjust base font size */
+                font-size: 4vw;
             }
 
             .hero h1 {
-                font-size: 6vw; /* Adjust heading size for smaller screens */
+                font-size: 6vw;
             }
 
             .hero p {
-                font-size: 3.5vw; /* Adjust paragraph size for smaller screens */
+                font-size: 3.5vw;
             }
 
             .about h2, .social-media h2 {
-                font-size: 5vw; /* Adjust heading size */
+                font-size: 5vw;
             }
 
             nav i {
-                font-size: 4vw; /* Adjust icon size */
+                font-size: 4vw;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                font-size: 5vw; /* Adjust base font size for very small screens */
+                font-size: 5vw;
             }
 
             .hero h1 {
-                font-size: 5vw; /* Smaller heading size */
+                font-size: 5vw;
             }
 
             .hero p {
-                font-size: 3vw; /* Smaller paragraph size */
+                font-size: 3vw;
             }
 
             .about h2, .social-media h2 {
-                font-size: 4.5vw; /* Smaller heading size */
+                font-size: 4.5vw;
             }
 
             nav i {
-                font-size: 5vw; /* Smaller icon size */
+                font-size: 5vw;
             }
 
             footer p {
-                font-size: 3vw; /* Smaller footer text */
+                font-size: 3vw;
             }
         }
     </style>
@@ -328,7 +325,7 @@
     <section class="about" id="about">
         <h2>私は自分が誰で、何をしているのかを数段落で要約できるのなら、このサイトを立ち上げるために多額のお金を費やすことはなかったでしょう。</h2>
         <h2>ここを少し探検すれば、私がまるで竜巻の中心に打ち込まれた散弾のように散らばっていることがすぐにわかるでしょう。</h2>
-        <h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを理解しつつあります。</h2>
+        <h2>長い間、この自分の現実についてひどく罪悪感を感じてきましたが、26歳が近づくにつれ、それがすべてプロセスの一部であることを認識しました。</h2>
         <h2>私を見つけてくれてありがとうございます。どうぞくつろいでください。ここにある作品の量から判断すると（質についてはわかりませんが）、きっとあなたの目に留まるものがあるはずです。</h2>
         <h2>よろしくお願いします。</h2>
     </section>
@@ -407,8 +404,8 @@
             }
 
             menuIcon.addEventListener('click', () => {
-                menu.classList.toggle('active');
-                toggleBodyScroll(menu.classList.contains('active'));
+                menu.classList.add('active');
+                toggleBodyScroll(true);
             });
 
             closeMenuIcon.addEventListener('click', () => {
@@ -423,7 +420,6 @@
                 themeToggle.classList.toggle('fa-sun'); 
                 themeToggle.classList.toggle('fa-moon'); 
 
-                // Update menu colors based on the current theme
                 if (document.body.classList.contains('light-mode')) {
                     menu.style.backgroundColor = '#FFF'; 
                     menu.style.color = '#000'; 
