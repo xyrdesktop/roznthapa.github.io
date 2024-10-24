@@ -13,10 +13,10 @@
             padding: 0;
             background-color: #f8f9fa;
             line-height: 1.6;
-            scroll-behavior: smooth; /* Enable smooth scrolling */
+            scroll-behavior: smooth;
         }
         header {
-            background: #d9534f; /* Red theme */
+            background: #d9534f;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -50,7 +50,7 @@
         footer {
             text-align: center;
             padding: 15px 0;
-            background: #d9534f; /* Red theme */
+            background: #d9534f;
             color: #fff;
             position: relative;
             bottom: 0;
@@ -78,14 +78,14 @@
             padding: 12px;
             border: none;
             border-radius: 4px;
-            background: #d9534f; /* Red theme */
+            background: #d9534f;
             color: #fff;
             font-weight: bold;
             cursor: pointer;
             transition: background 0.3s;
         }
         input[type="submit"]:hover {
-            background: #c9302c; /* Darker red on hover */
+            background: #c9302c;
         }
         .map {
             width: 100%;
@@ -125,6 +125,30 @@
                 districtSelect.appendChild(option);
             });
         }
+
+        function showRequestConfirmation(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+            const messageNumber = Date.now(); // Use current timestamp as a unique message number
+            alert(`Thank you, ${name}! Your request has been submitted.\nMessage Number: ${messageNumber}\nYour Message: ${message}`);
+        }
+
+        function showDonationConfirmation(event) {
+            event.preventDefault();
+            const donorName = document.getElementById("donor-name").value;
+            const donorMessage = document.getElementById("donation-message").value;
+            const donationNumber = Date.now();
+            alert(`Thank you, ${donorName}! Your donation request has been submitted.\nDonation Number: ${donationNumber}\nYour Message: ${donorMessage}`);
+        }
+
+        function showVolunteerConfirmation(event) {
+            event.preventDefault();
+            const volunteerName = document.getElementById("volunteer-name").value;
+            const availability = document.getElementById("availability").value;
+            const volunteerNumber = Date.now();
+            alert(`Thank you, ${volunteerName}! Your volunteer application has been submitted.\nVolunteer Number: ${volunteerNumber}\nYour Availability: ${availability}`);
+        }
     </script>
 </head>
 <body>
@@ -144,7 +168,7 @@
 
 <section id="request">
     <h2>Request Free Pads</h2>
-    <form action="/submit-request" method="POST">
+    <form onsubmit="showRequestConfirmation(event)">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         
@@ -180,13 +204,9 @@
 
 <section id="donate">
     <h2>Donate Pads</h2>
-    <p>Your contribution can make a significant difference. If you would like to donate menstruation pads or other hygiene products, please fill out the form below:</p>
-    <form action="/submit-donation" method="POST">
+    <form onsubmit="showDonationConfirmation(event)">
         <label for="donor-name">Name:</label>
         <input type="text" id="donor-name" name="donor-name" required>
-        
-        <label for="donor-email">Email (optional):</label>
-        <input type="email" id="donor-email" name="donor-email">
         
         <label for="donor-phone">Phone Number:</label>
         <input type="tel" id="donor-phone" name="donor-phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
@@ -200,8 +220,7 @@
 
 <section id="volunteer">
     <h2>Become a Volunteer</h2>
-    <p>If you are interested in volunteering with us, please fill out the form below:</p>
-    <form action="/submit-volunteer" method="POST">
+    <form onsubmit="showVolunteerConfirmation(event)">
         <label for="volunteer-name">Name:</label>
         <input type="text" id="volunteer-name" name="volunteer-name" required>
         
@@ -268,7 +287,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2024 Sajilo Pads Nepal</p>
+    <p>&copy; 2024 Sajilo Pads Nepal. All rights reserved.</p>
 </footer>
 
 </body>
