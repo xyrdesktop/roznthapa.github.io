@@ -22,7 +22,10 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            position: fixed; /* Fixed position */
+            top: 0; /* Stick to the top */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it appears above other content */
         }
         .menu-icon {
             cursor: pointer;
@@ -58,6 +61,9 @@
         }
         nav a:hover {
             background: #c9302c;
+        }
+        main {
+            margin-top: 160px; /* Adjust this value based on your header height */
         }
         section {
             padding: 30px;
