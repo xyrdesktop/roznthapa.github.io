@@ -14,6 +14,7 @@
             background-color: #f8f9fa;
             line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         header {
             background: #d9534f;
@@ -21,19 +22,42 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-        nav {
-            margin: 15px 0;
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+        .menu {
+            position: fixed;
+            left: -250px; /* Hidden off-screen */
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background: #d9534f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            transition: left 0.3s ease; /* Smooth transition */
+        }
+        .menu.active {
+            left: 0; /* Slide in */
         }
         nav a {
-            margin: 0 15px;
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            padding: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
         }
         nav a:hover {
-            color: #f9c5c5;
+            background: #c9302c;
         }
         section {
             padding: 30px;
@@ -94,12 +118,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        @media (max-width: 600px) {
-            nav a {
-                margin: 0 10px;
-                font-size: 14px;
-            }
-        }
     </style>
     <script>
         const districtsByProvince = {
@@ -126,28 +144,17 @@
             });
         }
 
-        function showRequestConfirmation(event) {
-            event.preventDefault(); // Prevent the default form submission
-            const name = document.getElementById("name").value;
-            const message = document.getElementById("message").value;
-            const messageNumber = Date.now(); // Use current timestamp as a unique message number
-            alert(`Thank you, ${name}! Your request has been submitted.\nMessage Number: ${messageNumber}\nYour Message: ${message}`);
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
         }
 
-        function showDonationConfirmation(event) {
+        function showConfirmation(event, type) {
             event.preventDefault();
-            const donorName = document.getElementById("donor-name").value;
-            const donorMessage = document.getElementById("donation-message").value;
-            const donationNumber = Date.now();
-            alert(`Thank you, ${donorName}! Your donation request has been submitted.\nDonation Number: ${donationNumber}\nYour Message: ${donorMessage}`);
-        }
-
-        function showVolunteerConfirmation(event) {
-            event.preventDefault();
-            const volunteerName = document.getElementById("volunteer-name").value;
-            const availability = document.getElementById("availability").value;
-            const volunteerNumber = Date.now();
-            alert(`Thank you, ${volunteerName}! Your volunteer application has been submitted.\nVolunteer Number: ${volunteerNumber}\nYour Availability: ${availability}`);
+            const name = document.getElementById(`${type}-name`).value;
+            const message = document.getElementById(`${type}-message`).value;
+            const confirmationNumber = Date.now();
+            alert(`Thank you, ${name}! Your ${type} has been submitted.\nConfirmation Number: ${confirmationNumber}\nYour Message: ${message}`);
         }
     </script>
 </head>
@@ -155,136 +162,154 @@
 
 <header>
     <h1>Sajilo Pads Nepal</h1>
-    <nav>
-        <a href="#about">About Us</a>
-        <a href="#mission">Our Mission</a>
-        <a href="#resources">Resources</a>
-        <a href="#events">Events</a>
-        <a href="#volunteer">Get Involved</a>
-        <a href="#request">Request Free Pads</a>
-        <a href="#donate">Donate Pads</a>
-    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="menu">
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#mission">Our Mission</a>
+            <a href="#resources">Resources</a>
+            <a href="#events">Events</a>
+            <a href="#volunteer">Get Involved</a>
+            <a href="#request">Request Free Pads</a>
+            <a href="#donate">Donate Pads</a>
+            <a href="#feedback">Feedback</a>
+            <a href="#disposal">Disposal</a>
+            <a href="#map">Location</a>
+        </nav>
+    </div>
 </header>
 
-<section id="request">
-    <h2>Request Free Pads</h2>
-    <form onsubmit="showRequestConfirmation(event)">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
-        
-        <label for="email">Email (optional):</label>
-        <input type="email" id="email" name="email">
-        
-        <label for="province">Select Province:</label>
-        <select id="province" name="province" required onchange="updateDistricts()">
-            <option value="">Select Province</option>
-            <option value="Province 1">Province 1</option>
-            <option value="Province 2">Province 2</option>
-            <option value="Bagmati">Bagmati</option>
-            <option value="Gandaki">Gandaki</option>
-            <option value="Province 5">Province 5</option>
-            <option value="Karnali">Karnali</option>
-            <option value="Sudurpashchim">Sudurpashchim</option>
-        </select>
-        
-        <label for="district">Select District:</label>
-        <select id="district" name="district" required>
-            <option value="">Select District</option>
-        </select>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        
-        <input type="submit" value="Request Pads">
-    </form>
-</section>
+<main>
+    <section id="request">
+        <h2>Request Free Pads</h2>
+        <form onsubmit="showConfirmation(event, 'request')">
+            <label for="name">Name:</label>
+            <input type="text" id="request-name" name="name" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+            
+            <label for="province">Select Province:</label>
+            <select id="province" name="province" required onchange="updateDistricts()">
+                <option value="">Select Province</option>
+                <option value="Province 1">Province 1</option>
+                <option value="Province 2">Province 2</option>
+                <option value="Bagmati">Bagmati</option>
+                <option value="Gandaki">Gandaki</option>
+                <option value="Province 5">Province 5</option>
+                <option value="Karnali">Karnali</option>
+                <option value="Sudurpashchim">Sudurpashchim</option>
+            </select>
+            
+            <label for="district">Select District:</label>
+            <select id="district" name="district" required>
+                <option value="">Select District</option>
+            </select>
+            
+            <label for="message">Message:</label>
+            <textarea id="request-message" name="message" rows="4" required></textarea>
+            
+            <input type="submit" value="Request Pads">
+        </form>
+    </section>
 
-<section id="donate">
-    <h2>Donate Pads</h2>
-    <form onsubmit="showDonationConfirmation(event)">
-        <label for="donor-name">Name:</label>
-        <input type="text" id="donor-name" name="donor-name" required>
-        
-        <label for="donor-phone">Phone Number:</label>
-        <input type="tel" id="donor-phone" name="donor-phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
-        
-        <label for="donation-message">Message:</label>
-        <textarea id="donation-message" name="donation-message" rows="4"></textarea>
-        
-        <input type="submit" value="Donate Pads">
-    </form>
-</section>
+    <section id="donate">
+        <h2>Donate Pads</h2>
+        <form onsubmit="showConfirmation(event, 'donate')">
+            <label for="donation-name">Name:</label>
+            <input type="text" id="donation-name" name="donation-name" required>
+            
+            <label for="donation-phone">Phone Number:</label>
+            <input type="tel" id="donation-phone" name="donation-phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+            
+            <label for="donation-message">Message:</label>
+            <textarea id="donation-message" name="donation-message" rows="4"></textarea>
+            
+            <input type="submit" value="Donate Pads">
+        </form>
+    </section>
 
-<section id="volunteer">
-    <h2>Become a Volunteer</h2>
-    <form onsubmit="showVolunteerConfirmation(event)">
-        <label for="volunteer-name">Name:</label>
-        <input type="text" id="volunteer-name" name="volunteer-name" required>
-        
-        <label for="volunteer-email">Email (optional):</label>
-        <input type="email" id="volunteer-email" name="volunteer-email">
-        
-        <label for="volunteer-phone">Phone Number:</label>
-        <input type="tel" id="volunteer-phone" name="volunteer-phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
-        
-        <label for="availability">Availability:</label>
-        <textarea id="availability" name="availability" rows="4" required placeholder="Please indicate your available days and times"></textarea>
-        
-        <input type="submit" value="Sign Up to Volunteer">
-    </form>
-</section>
+    <section id="volunteer">
+        <h2>Become a Volunteer</h2>
+        <form onsubmit="showConfirmation(event, 'volunteer')">
+            <label for="volunteer-name">Name:</label>
+            <input type="text" id="volunteer-name" name="volunteer-name" required>
+            
+            <label for="volunteer-email">Email (optional):</label>
+            <input type="email" id="volunteer-email" name="volunteer-email">
+            
+            <label for="volunteer-phone">Phone Number:</label>
+            <input type="tel" id="volunteer-phone" name="volunteer-phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+            
+            <label for="availability">Availability:</label>
+            <textarea id="availability" name="availability" rows="4" required placeholder="Please indicate your available days and times"></textarea>
+            
+            <input type="submit" value="Sign Up to Volunteer">
+        </form>
+    </section>
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>We are dedicated to providing free menstruation pads to women and girls in need across Nepal, ensuring they have access to essential hygiene products.</p>
-</section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are dedicated to providing free menstruation pads to women and girls in need across Nepal, ensuring they have access to essential hygiene products.</p>
+    </section>
 
-<section id="mission">
-    <h2>Our Mission</h2>
-    <p>We visit local NGOs to distribute free menstruation pads to communities that need them most, promoting health and dignity for all.</p>
-</section>
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p>We visit local NGOs to distribute free menstruation pads to communities that need them most, promoting health and dignity for all.</p>
+    </section>
 
-<section id="resources">
-    <h2>Resources</h2>
-    <h3>Partner Organizations</h3>
-    <ul>
-        <li>Nepal Red Cross Society</li>
-        <li>Plan International Nepal</li>
-        <li>Sajilo Sewa</li>
-    </ul>
-    <h3>How to Access</h3>
-    <p>To receive free pads, please contact your local NGOs or visit our events section for distribution drives.</p>
-</section>
+    <section id="resources">
+        <h2>Resources</h2>
+        <h3>Partner Organizations</h3>
+        <ul>
+            <li>Nepal Red Cross Society</li>
+            <li>Plan International Nepal</li>
+            <li>Sajilo Sewa</li>
+        </ul>
+        <h3>How to Access</h3>
+        <p>To receive free pads, please contact your local NGOs or visit our events section for distribution drives.</p>
+    </section>
 
-<section id="events">
-    <h2>Upcoming Initiatives</h2>
-    <p>We regularly organize distribution drives. Stay tuned for updates on locations and dates!</p>
-</section>
+    <section id="events">
+        <h2>Upcoming Initiatives</h2>
+        <p>We regularly organize distribution drives. Stay tuned for updates on locations and dates!</p>
+    </section>
 
-<section id="disposal">
-    <h2>Securely Dispose of Your Pads</h2>
-    <p>It’s important to dispose of your menstruation pads securely and responsibly. Here are some guidelines:</p>
-    <ul>
-        <li>Wrap your used pad in toilet paper or the packaging from a new pad.</li>
-        <li>Place it in a sealed plastic bag if possible.</li>
-        <li>Dispose of it in a designated waste bin, preferably one with a lid.</li>
-        <li>Avoid flushing pads down the toilet as it can cause plumbing issues.</li>
-        <li>If available, use disposal bins specifically designed for sanitary products.</li>
-    </ul>
-    <p>By disposing of your pads properly, you help maintain cleanliness and hygiene in your community.</p>
-</section>
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <form onsubmit="showConfirmation(event, 'feedback')">
+            <label for="feedback-name">Name:</label>
+            <input type="text" id="feedback-name" name="feedback-name" required>
+            
+            <label for="feedback-message">Feedback:</label>
+            <textarea id="feedback-message" name="feedback-message" rows="4" required></textarea>
+            
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </section>
 
-<section id="map">
-    <h2>Our Office Location</h2>
-    <iframe 
-        class="map" 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.9646596361315!2d83.46422131507239!3d27.50656928297513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995541c4005e3b5%3A0x4a67c8b5e143d8af!2sButwal%20Manigram!5e0!3m2!1sen!2snp!4v1692908560602!5m2!1sen!2snp" 
-        allowfullscreen 
-        loading="lazy"></iframe>
-</section>
+    <section id="disposal">
+        <h2>Securely Dispose of Your Pads</h2>
+        <p>It’s important to dispose of your menstruation pads securely and responsibly. Here are some guidelines:</p>
+        <ul>
+            <li>Wrap your used pad in toilet paper or the packaging from a new pad.</li>
+            <li>Place it in a sealed plastic bag if possible.</li>
+            <li>Dispose of it in a designated waste bin, preferably one with a lid.</li>
+            <li>Avoid flushing pads down the toilet as it can cause plumbing issues.</li>
+            <li>If available, use disposal bins specifically designed for sanitary products.</li>
+        </ul>
+        <p>By disposing of your pads properly, you help maintain cleanliness and hygiene in your community.</p>
+    </section>
+
+    <section id="map">
+        <h2>Our Office Location</h2>
+        <iframe 
+            class="map" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.9646596361315!2d83.46422131507239!3d27.50656928297513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995541c4005e3b5%3A0x4a67c8b5e143d8af!2sButwal%20Manigram!5e0!3m2!1sen!2snp!4v1692908560602!5m2!1sen!2snp" 
+            allowfullscreen 
+            loading="lazy"></iframe>
+    </section>
+</main>
 
 <footer>
     <p>&copy; 2024 Sajilo Pads Nepal. All rights reserved.</p>
