@@ -49,7 +49,7 @@
         }
     </style>
 </head>
-<body onload="addEvent()">
+<body>
     <div class="verticalhorizontal">
         <img class="fullscreen" src="pigeon.gif" alt="PIGEON!" />
     </div>
@@ -67,15 +67,22 @@
     </audio>
 
     <script>
-        function addEvent(){
+        // Function to add event listener to play audio on click
+        function addEvent() {
             document.body.addEventListener("click", play);
         }
+
+        // Function to play audio on click
         function play() {
             var audio = document.getElementById("player");
-            if(audio.paused) {
+            // If audio is paused, play it
+            if (audio.paused) {
                 audio.play();
             }
         }
+
+        // Initialize the event when the page loads
+        window.onload = addEvent;
     </script>
 </body>
 </html>
