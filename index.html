@@ -75,9 +75,11 @@
         // Function to play audio on click
         function play() {
             var audio = document.getElementById("player");
-            // If audio is paused, play it
             if (audio.paused) {
-                audio.play();
+                audio.play()
+                    .catch(error => {
+                        console.error("Audio playback failed:", error);
+                    });
             }
         }
 
