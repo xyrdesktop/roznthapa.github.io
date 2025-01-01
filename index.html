@@ -1,48 +1,81 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>PIGEON SPIN!</title>
-	<link rel="icon" type="image/png" href="logo.png" />
-	<meta name="description" content="CODED BY @rrr3r">
-	<meta name="keywords" content="PIGEON SPIN SPINNING">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>PIGEON SPIN!</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="description" content="CODED BY @rrr3r">
+    <meta name="keywords" content="PIGEON SPIN SPINNING">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .verticalhorizontal {
+            display: table-cell;
+            height: 100%;
+            text-align: center;
+            width: 90%;
+            vertical-align: middle;
+        }
+        .fullscreen {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            position: absolute;
+            width: 100vw;
+            height: 90vh;
+            top: 10vh;
+            left: 0vh;
+            object-fit: contain;
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 14px;
+            z-index: 100;
+        }
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<style>
-.verticalhorizontal {
-    display: table-cell;
-    height: 100%;
-    text-align: center;
-    width: 90%;
-    vertical-align: middle;
-}
-.fullscreen {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    position: absolute;
-    width: 100vw;
-    height: 90vh;
-    top: 10vh;
-    left: 0vh;
-    background:;
-    opacity: 1;
-}
-</style>
 <body onload="addEvent()">
-<script>
-      function addEvent(){
-         document.body.addEventListener("click", play)
-       }
-      function play() {
-        var audio = document.getElementById("player");
-        audio.play();
-      }
-</script>
-<div><center><img class="fullscreen" src="pigeon.gif" alt="PIGEON!" /></center></div>
-<footer id="footer">
-	<center><p><a href="https://www.youtube.com/@3rrr3r">Subscribe To My Channel</a> ||| CLICK ANYWHERE TO PLAY ||| <a href="https://rrr3r.jp">Visit My Main Site</a></p></center>		
-	<audio id="player" autoplay loop><source src="Smooth Criminal.mp3" type="audio/mp3"></audio>
-</footer>
+    <div class="verticalhorizontal">
+        <img class="fullscreen" src="pigeon.gif" alt="PIGEON!" />
+    </div>
+
+    <footer id="footer">
+        <p>
+            <a href="https://www.youtube.com/@3rrr3r">Subscribe To My Channel</a> ||| 
+            CLICK ANYWHERE TO PLAY ||| 
+            <a href="https://rrr3r.jp">Visit My Main Site</a>
+        </p>
+    </footer>
+
+    <audio id="player" loop>
+        <source src="Smooth Criminal.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function addEvent(){
+            document.body.addEventListener("click", play);
+        }
+        function play() {
+            var audio = document.getElementById("player");
+            if(audio.paused) {
+                audio.play();
+            }
+        }
+    </script>
 </body>
+</html>
