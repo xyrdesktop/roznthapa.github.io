@@ -1,90 +1,222 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>RRR3R!</title>
-    <link rel="icon" type="image/png" href="logo.png" />
-    <meta name="description" content="CODED BY @rrr3r">
-    <meta name="keywords" content="RRR3R">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJAN27</title>
     <style>
         body {
+            background-color: #ffcc99;
+            color: #000;
+            font-family: "Comic Sans MS", cursive, sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
         }
-        .verticalhorizontal {
-            display: table-cell;
-            height: 100%;
-            text-align: center;
-            width: 90%;
-            vertical-align: middle;
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            border: 5px solid #000;
+            background-color: #fff;
+            padding: 20px;
         }
-        .fullscreen {
+
+        header {
             text-align: center;
+            background-color: #ff9900;
+            padding: 10px;
+            border-bottom: 5px solid #000;
+        }
+
+        header h1 {
+            font-size: 3em;
             margin: 0;
-            padding: 0;
-            border: 0;
-            position: absolute;
-            width: 100vw;
-            height: 90vh;
-            top: 10vh;
-            left: 0vh;
-            object-fit: contain;
+            animation: colorChange 3s infinite alternate;
         }
-        footer {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-family: Arial, sans-serif;
+
+        nav {
+            background-color: #ffcc00;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 3px dashed #000;
             text-align: center;
-            font-size: 14px;
-            z-index: 100;
         }
-        footer a {
-            color: #ffffff;
+
+        nav a {
+            color: #000;
             text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        marquee {
+            color: #ff0000;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ff9900;
+            border-top: 5px solid #000;
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            100% { color: #0000ff; }
+        }
+
+        .visitor-counter {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #006600;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        .under-construction {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .under-construction img {
+            width: 100px;
+        }
+
+        section {
+            text-align: center;
+        }
+
+        section h2 {
+            text-align: center;
+        }
+
+        .fun-facts {
+            background-color: #ffffcc;
+            padding: 15px;
+            margin-top: 20px;
+            border: 2px dotted #000;
+        }
+
+        .fun-facts ul {
+            list-style-type: square;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .shoutbox {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #e6e6ff;
+            border: 3px dashed #000;
+            padding: 15px;
+        }
+
+        .shoutbox textarea {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .photo-gallery {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffebcd;
+            border: 2px solid #000;
+        }
+
+        .photo-gallery img {
+            width: 150px;
+            margin: 10px;
+            border: 3px solid #000;
+        }
+
+        .testimonials {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border: 2px dashed #000;
+        }
+
+        .testimonials blockquote {
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .nerd-stuff {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d1f7d6;
+            border: 2px dashed #000;
+        }
+
+        .nerd-stuff ul {
+            list-style-type: disc;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .retro-games {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fbe4e4;
+            border: 2px dotted #000;
+        }
+
+        .retro-games img {
+            width: 120px;
+            margin: 10px;
+            border: 2px solid #000;
         }
     </style>
 </head>
 <body>
-    <div class="verticalhorizontal">
-        <img class="fullscreen" src="rrr3r.gif" alt="RRR3R!" />
+    <div class="container">
+        <header>
+            <h1>RRR3R!</h1>
+        </header>
+
+        <marquee behavior="scroll" direction="left"></marquee>
+
+     
+
+        <section id="about">
+            <h2>About RRR3R</h2>
+            <p>Hi there! I love pixel art, GIFs, and retro vibes. This site is my little corner of the internet.</p>
+        </section>
+
+        
+
+
+        <div class="shoutbox">
+            <h2>Shoutbox</h2>
+            <textarea rows="3" placeholder="Shout something here..."></textarea>
+            <br>
+            <button>Shout!</button>
+        </div>
+
+      
+
+
+        <div class="under-construction">
+            <p>🚧 This site is under construction! 🚧</p>
+            <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Under Construction">
+        </div>
+
+        <footer>
+            <p>&copy; 1998-2025. Some rights reserved.</p>
+        </footer>
     </div>
-
-    <footer id="footer">
-        <p>
-            <a href="https://www.youtube.com/@3rrr3r">Subscribe To My Channel</a> ||| 
-            CLICK ANYWHERE TO PLAY ||| 
-            <a href="https://rrr3r.jp">Visit My Main Site</a>
-        </p>
-    </footer>
-
-    <audio id="player" loop>
-        <source src="Smooth Criminal.mp3" type="audio/mp3">
-    </audio>
-
-    <script>
-        // Function to add event listener to play audio on click
-        function addEvent() {
-            document.body.addEventListener("click", play);
-        }
-
-        // Function to play audio on click
-        function play() {
-            var audio = document.getElementById("player");
-            if (audio.paused) {
-                audio.play()
-                    .catch(error => {
-                        console.error("Audio playback failed:", error);
-                    });
-            }
-        }
-
-        // Initialize the event when the page loads
-        window.onload = addEvent;
-    </script>
 </body>
 </html>
