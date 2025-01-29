@@ -14,6 +14,9 @@
         font-family: 'Ubuntu', sans-serif;
         background-color: black;
         color: #ecf0f1;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrollbars */
       }
       a {
         color: #ecf0f1;
@@ -32,6 +35,7 @@
         position: absolute;
         margin-left: 5%;
         margin-top: 2%;
+        z-index: 10; /* Ensures content appears above starfield */
       }
       #supersmall {
         padding-top: 10px;
@@ -45,8 +49,11 @@
       }
       #starfield {
         position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
+        height: 100%;
+        z-index: 1; /* Ensures starfield is behind other content */
       }
       .fa-brands {
         font-size: 64px;
@@ -58,6 +65,15 @@
       }
       .fa-brands:hover {
         opacity: 0.7;
+      }
+      #footer {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: #ecf0f1;
+        z-index: 10; /* Ensure footer is above starfield */
       }
     </style>
   </head>
@@ -75,6 +91,10 @@
         <a href="https://www.linkedin.com/in/rojanthapa" class="fa-brands fa-linkedin"></a>
         <div id="supersmall"><p style="margin: 0px;">"... he was wise, but was not. As a result, I became hateful to him and to many of those present; and so, as I went away, I thought to myself, ‘I am wiser than this man; for neither of us really knows anything fine and good, but this man thinks he knows something when he does not, whereas I, as I do not know anything, do not think I do either. I seem, then, in just this little thing to be wiser than this man at any rate, that what I do not know I do not think I know either.’ From him I went to another of those who were reputed"<br><small>— Plato, Apology</small></p></div>
       </div>
+    </div>
+    <!-- Footer with copyright notice -->
+    <div id="footer">
+      © 1998-2025. Some rights reserved.
     </div>
     <script type="text/javascript">
       const canvas = document.getElementById('starfield');
@@ -104,6 +124,8 @@
         const pagesize = canvas.width * canvas.height;
         const stars = pagesize / 2000;
 
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redrawing
+        
         for (let i = 0; i < stars; i++) {
           let x = random(2, canvas.width - 2);
           let y = random(2, canvas.height - 2);
