@@ -1,222 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
     <title>ROJAN27</title>
-    <style>
-        body {
-            background-color: #ffcc99;
-            color: #000;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            border: 5px solid #000;
-            background-color: #fff;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            background-color: #ff9900;
-            padding: 10px;
-            border-bottom: 5px solid #000;
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            animation: colorChange 3s infinite alternate;
-        }
-
-        nav {
-            background-color: #ffcc00;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 3px dashed #000;
-            text-align: center;
-        }
-
-        nav a {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        marquee {
-            color: #ff0000;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #ff9900;
-            border-top: 5px solid #000;
-        }
-
-        @keyframes colorChange {
-            0% { color: #ff0000; }
-            100% { color: #0000ff; }
-        }
-
-        .visitor-counter {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #006600;
-        }
-
-        img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-        }
-
-        .under-construction {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .under-construction img {
-            width: 100px;
-        }
-
-        section {
-            text-align: center;
-        }
-
-        section h2 {
-            text-align: center;
-        }
-
-        .fun-facts {
-            background-color: #ffffcc;
-            padding: 15px;
-            margin-top: 20px;
-            border: 2px dotted #000;
-        }
-
-        .fun-facts ul {
-            list-style-type: square;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .shoutbox {
-            margin-top: 20px;
-            text-align: center;
-            background-color: #e6e6ff;
-            border: 3px dashed #000;
-            padding: 15px;
-        }
-
-        .shoutbox textarea {
-            width: 80%;
-            margin-bottom: 10px;
-        }
-
-        .photo-gallery {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #ffebcd;
-            border: 2px solid #000;
-        }
-
-        .photo-gallery img {
-            width: 150px;
-            margin: 10px;
-            border: 3px solid #000;
-        }
-
-        .testimonials {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f0f8ff;
-            border: 2px dashed #000;
-        }
-
-        .testimonials blockquote {
-            font-style: italic;
-            margin: 10px 0;
-        }
-
-        .nerd-stuff {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #d1f7d6;
-            border: 2px dashed #000;
-        }
-
-        .nerd-stuff ul {
-            list-style-type: disc;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .retro-games {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fbe4e4;
-            border: 2px dotted #000;
-        }
-
-        .retro-games img {
-            width: 120px;
-            margin: 10px;
-            border: 2px solid #000;
-        }
+    <link rel="me" href="https://nso.group/@xyrdesktop">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style type="text/css">
+      body {
+        font-family: 'Ubuntu', sans-serif;
+        background-color: black;
+        color: #ecf0f1;
+      }
+      a {
+        color: #ecf0f1;
+      }
+      #title {
+        font-size: 70px;
+        line-height: 10px;
+        font-family: 'Architects Daughter', cursive;
+        margin-bottom: 32px;
+      }
+      h2 {
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      #overlay {
+        position: absolute;
+        margin-left: 5%;
+        margin-top: 2%;
+      }
+      #supersmall {
+        padding-top: 10px;
+        font-family: 'Crimson Text', serif;
+        font-size: 14px;
+        max-width: 50%;
+        margin-bottom: 50px;
+      }
+      small {
+        margin-top: 0px;
+      }
+      #starfield {
+        position: absolute;
+        width: 100%;
+        height: auto;
+      }
+      .fa-brands {
+        font-size: 64px;
+        width: 64px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+      }
+      .fa-brands:hover {
+        opacity: 0.7;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>RRR3R!</h1>
-        </header>
-
-        <marquee behavior="scroll" direction="left"></marquee>
-
-     
-
-        <section id="about">
-            <h2>About RRR3R</h2>
-            <p>Hi there! I love pixel art, GIFs, and retro vibes. This site is my little corner of the internet.</p>
-        </section>
-
-        
-
-
-        <div class="shoutbox">
-            <h2>Shoutbox</h2>
-            <textarea rows="3" placeholder="Shout something here..."></textarea>
-            <br>
-            <button>Shout!</button>
-        </div>
-
-      
-
-
-        <div class="under-construction">
-            <p>🚧 This site is under construction! 🚧</p>
-            <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Under Construction">
-        </div>
-
-        <footer>
-            <p>&copy; 1998-2025. Some rights reserved.</p>
-        </footer>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="starfield"></canvas>
+      <div id="overlay">
+        <h1 id="title">Hi, I'm KATX.</h1>
+        <h2>Lathe & Shaper IRL, Code & Editing in the Matrix,</h2>
+        <h2>Lathe pro. Code geek. #TechMeetsMetal.</h2>
+        <h2><i class="fa-sharp fa-solid fa-envelope"></i> xyrdesktop@duck.com</h2>
+        <a href="https://twitter.com/rojanthapa27" class="fa-brands fa-twitter"></a>
+        <a href="https://github.com/xyrdesktop" class="fa-brands fa-github"></a>
+        <a rel="me" href="https://nso.group/@xyrdesktop" class="fa-brands fa-mastodon"></a>
+        <a href="https://www.linkedin.com/in/rojanthapa" class="fa-brands fa-linkedin"></a>
+        <div id="supersmall"><p style="margin: 0px;">"... he was wise, but was not. As a result, I became hateful to him and to many of those present; and so, as I went away, I thought to myself, ‘I am wiser than this man; for neither of us really knows anything fine and good, but this man thinks he knows something when he does not, whereas I, as I do not know anything, do not think I do either. I seem, then, in just this little thing to be wiser than this man at any rate, that what I do not know I do not think I know either.’ From him I went to another of those who were reputed"<br><small>— Plato, Apology</small></p></div>
+      </div>
     </div>
-</body>
+    <script type="text/javascript">
+      const canvas = document.getElementById('starfield');
+      const ctx = canvas.getContext("2d");
+
+      var body = document.body,
+          html = document.documentElement;
+
+      var height = Math.max(body.scrollHeight, body.offsetHeight,
+                           html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+      canvas.width = window.innerWidth;
+      canvas.height = height;
+
+      function random(min, max) {
+        return min + Math.random() * (max + 1 - min);
+      }
+
+      window.addEventListener('resize', function() {
+        height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+        canvas.width = window.innerWidth;
+        canvas.height = height;
+        generateStars();
+      });
+
+      function generateStars() {
+        const pagesize = canvas.width * canvas.height;
+        const stars = pagesize / 2000;
+
+        for (let i = 0; i < stars; i++) {
+          let x = random(2, canvas.width - 2);
+          let y = random(2, canvas.height - 2);
+          let alpha = random(0.5, 1);
+          let size = random(1, 2);
+          ctx.fillStyle = '#ffffff';
+          ctx.globalAlpha = alpha;
+          ctx.fillRect(x, y, size, size);
+        }
+      }
+
+      generateStars();
+    </script>
+  </body>
 </html>
